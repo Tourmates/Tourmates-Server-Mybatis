@@ -28,4 +28,24 @@ public class MemberRepositoryImpl implements MemberRepository {
     public List<Member> findAll() {
         return memberMapper.findAll();
     }
+
+    @Override
+    public Optional<Member> findByLoginId(String loginId) {
+        return memberMapper.findByLoginId(loginId);
+    }
+
+    @Override
+    public Optional<Member> findByPhone(String phone) {
+        return memberMapper.findByPhone(phone);
+    }
+
+    @Override
+    public Optional<Member> findByNickname(String nickname) {
+        return memberMapper.findByNickname(nickname);
+    }
+
+    @Override
+    public Optional<Member> findByEmail(String email) {
+        return memberMapper.findByEmail(email);
+    }
 }
