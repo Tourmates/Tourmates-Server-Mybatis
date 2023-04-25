@@ -8,13 +8,37 @@
     </insert>
 
     <select id="findById" resultType="Member">
-        select member_id, login_id
+        select *
         from member
         where member_id = #{id}
     </select>
 
     <select id="findAll" resultType="Member">
-        select member_id
+        select *
         from member
+    </select>
+
+    <select id="findByLoginId" resultType="Member">
+        select *
+        from member
+        where login_id = #{loginId};
+    </select>
+
+    <select id="findByPhone" resultType="Member">
+        select *
+        from member
+        where phone = #{phone};
+    </select>
+
+    <select id="findByNickname" resultType="Member">
+        select *
+        from member
+        where nickname = #{nickname};
+    </select>
+
+    <select id="findByEmail" resultType="Member">
+        select *
+        from member
+        where email = #{email};
     </select>
 </mapper>

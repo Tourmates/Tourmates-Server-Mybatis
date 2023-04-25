@@ -14,4 +14,12 @@ public interface MemberMapper {
     Optional<Member> findById(Long id);
 
     List<Member> findAll();
+
+    Optional<Member> findByLoginId(String loginId);
+
+    Optional<Member> findByPhone(String phone);
+
+    Optional<Member> findByNickname(String nickname);
+
+    Optional<Member> findByEmail(String email);
 }
