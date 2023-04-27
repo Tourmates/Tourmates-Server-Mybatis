@@ -54,4 +54,10 @@ public class MemberRepositoryImpl implements MemberRepository {
         memberMapper.update(member);
         return member.getId();
     }
+
+    @Override
+    public Long remove(Long memberId) {
+        memberMapper.remove(memberId);
+        return memberId;
+    }
 }
