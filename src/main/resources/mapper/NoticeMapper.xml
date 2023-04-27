@@ -7,4 +7,10 @@
         insert into notice(title, content, top, created_by, last_modified_by )
         values (#{notice.title}, #{notice.content}, #{notice.top}, #{notice.createdBy}, #{notice.lastModifiedBy})
     </insert>
+
+    <select id = "findById" resultType = "notice">
+        select *
+        from notice
+        where notice_id = #{noticeId}
+    </select>
 </mapper>
