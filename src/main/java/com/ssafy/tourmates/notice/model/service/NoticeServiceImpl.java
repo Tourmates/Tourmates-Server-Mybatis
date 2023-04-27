@@ -2,6 +2,7 @@ package com.ssafy.tourmates.notice.model.service;
 
 import com.ssafy.tourmates.common.exception.AccessDeniedException;
 import com.ssafy.tourmates.common.exception.MemberNotFoundException;
+import com.ssafy.tourmates.common.exception.NoticeNotFoundException;
 import com.ssafy.tourmates.member.model.Member;
 import com.ssafy.tourmates.member.model.repository.MemberRepository;
 import com.ssafy.tourmates.notice.model.Notice;
@@ -10,6 +11,8 @@ import com.ssafy.tourmates.notice.model.service.dto.AddNoticeDto;
 import com.ssafy.tourmates.notice.model.service.dto.ModifyNoticeDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.SessionAttribute;
+
+import java.util.Optional;
 
 @Service
 public class NoticeServiceImpl implements NoticeService{
@@ -46,7 +49,7 @@ public class NoticeServiceImpl implements NoticeService{
     @Override
     public ModifyNoticeDto getNotice(Long noticeId) {
 
-        Notice notice =  noticeRepository.findById(noticeId);
+        Notice notice =  noticeRepository.findById(noticeId).orElseThrow(NoticeNotFoundException::new);
 
         return ModifyNoticeDto.builder()
                         .title(notice.getTitle())
@@ -54,4 +57,17 @@ public class NoticeServiceImpl implements NoticeService{
                         .top(notice.isTop())
                         .build();
     }
+
+    @Override
+    public Long edit(Long modifyId, ModifyNoticeDto dto) {
+
+        Notice findNotice = noticeRepository.findById(modifyId).orElseThrow(NoticeNotFoundException::new);
+
+        findNotice.changeTitle(findNotice.getTitle(), dto.getTitle());
+        findNotice.changeContent(findNotice.getContent(), dto.getContent());
+        findNotice.changeTop(findNotice.isTop(), dto.isTop());
+
+        return noticeRepository.update(findNotice);
+    }
+
 }
