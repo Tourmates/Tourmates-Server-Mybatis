@@ -1,5 +1,6 @@
 package com.ssafy.tourmates.member.model;
 
+import com.ssafy.tourmates.common.exception.EditException;
 import com.ssafy.tourmates.common.model.TimeBaseEntity;
 import lombok.Builder;
 import lombok.Getter;
@@ -38,5 +39,13 @@ public class Member extends TimeBaseEntity {
         this.nickname = nickname;
         this.nicknameLastModifiedDate = nicknameLastModifiedDate;
         this.authority = authority;
+    }
+
+    //== 비즈니스 로직 ==//
+    public void changeLoginPw(String oldLoginPw,String newLoginPw) {
+        if (!this.loginPw.equals(oldLoginPw)) {
+            throw new EditException();
+        }
+        this.loginPw = newLoginPw;
     }
 }

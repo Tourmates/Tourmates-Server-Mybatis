@@ -48,4 +48,10 @@ public class MemberRepositoryImpl implements MemberRepository {
     public Optional<Member> findByEmail(String email) {
         return memberMapper.findByEmail(email);
     }
+
+    @Override
+    public Long update(Member member) {
+        memberMapper.update(member);
+        return member.getId();
+    }
 }

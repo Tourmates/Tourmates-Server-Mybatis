@@ -41,4 +41,15 @@
         from member
         where email = #{email};
     </select>
+
+    <update id="update">
+        update member
+        set login_pw=#{loginPW},
+            email=#{email},
+            phone=#{phone},
+            nickname=#{nickname},
+            nickname_last_modified_date=#{nicknameLastModifiedDate},
+            last_modified_date=#{lastModifiedDate}
+        where member_id = #{id}
+    </update>
 </mapper>

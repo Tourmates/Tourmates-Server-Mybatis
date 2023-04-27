@@ -20,4 +20,6 @@ public interface MemberRepository {
     Optional<Member> findByNickname(String nickname);
 
     Optional<Member> findByEmail(String email);
+
+    Long update(Member member);
 }

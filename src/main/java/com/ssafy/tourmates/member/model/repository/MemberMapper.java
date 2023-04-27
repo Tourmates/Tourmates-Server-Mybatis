@@ -22,4 +22,6 @@ public interface MemberMapper {
     Optional<Member> findByNickname(String nickname);
 
     Optional<Member> findByEmail(String email);
+
+    void update(Member member);
 }
