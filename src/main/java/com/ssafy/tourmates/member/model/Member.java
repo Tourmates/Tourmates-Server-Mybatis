@@ -1,7 +1,6 @@
 package com.ssafy.tourmates.member.model;
 
 import com.ssafy.tourmates.common.exception.EditException;
-import com.ssafy.tourmates.common.model.TimeBaseEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import static lombok.AccessLevel.*;
 
 @Getter
 @NoArgsConstructor(access = PROTECTED)
-public class Member extends TimeBaseEntity {
+public class Member {
 
     private Long id;
     private String loginId;
@@ -25,9 +24,11 @@ public class Member extends TimeBaseEntity {
     private String nickname;
     private LocalDateTime nicknameLastModifiedDate;
     private Authority authority;
+    private LocalDateTime createdDate;
+    private LocalDateTime lastModifiedDate;
 
     @Builder
-    public Member(Long id, String loginId, String loginPw, String username, String email, String phone, String birth, String gender, String nickname, LocalDateTime nicknameLastModifiedDate, Authority authority) {
+    public Member(Long id, String loginId, String loginPw, String username, String email, String phone, String birth, String gender, String nickname, LocalDateTime nicknameLastModifiedDate, Authority authority, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
         this.id = id;
         this.loginId = loginId;
         this.loginPw = loginPw;
@@ -39,6 +40,8 @@ public class Member extends TimeBaseEntity {
         this.nickname = nickname;
         this.nicknameLastModifiedDate = nicknameLastModifiedDate;
         this.authority = authority;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
     }
 
     //== 비즈니스 로직 ==//
@@ -47,17 +50,21 @@ public class Member extends TimeBaseEntity {
             throw new EditException();
         }
         this.loginPw = newLoginPw;
+        this.lastModifiedDate = LocalDateTime.now();
     }
 
     public void changePhone(String phone) {
         this.phone = phone;
+        this.lastModifiedDate = LocalDateTime.now();
     }
 
     public void changeEmail(String email) {
         this.email = email;
+        this.lastModifiedDate = LocalDateTime.now();
     }
 
     public void changeNickname(String nickname) {
         this.nickname = nickname;
+        this.lastModifiedDate = LocalDateTime.now();
     }
 }
