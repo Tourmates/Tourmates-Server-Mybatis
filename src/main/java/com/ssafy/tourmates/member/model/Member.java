@@ -48,4 +48,16 @@ public class Member extends TimeBaseEntity {
         }
         this.loginPw = newLoginPw;
     }
+
+    public void changePhone(String phone) {
+        this.phone = phone;
+    }
+
+    public void changeEmail(String email) {
+        this.email = email;
+    }
+
+    public void changeNickname(String nickname) {
+        this.nickname = nickname;
+    }
 }
