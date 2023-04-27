@@ -15,4 +15,5 @@ public interface NoticeService {
 
     Long edit(Long modifyId, ModifyNoticeDto dto);
 
+    void delete(Long noticeId);
 }

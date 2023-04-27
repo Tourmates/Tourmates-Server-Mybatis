@@ -10,6 +10,7 @@ import com.ssafy.tourmates.notice.model.repository.NoticeRepository;
 import com.ssafy.tourmates.notice.model.service.dto.AddNoticeDto;
 import com.ssafy.tourmates.notice.model.service.dto.ModifyNoticeDto;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import java.util.Optional;
@@ -24,6 +25,7 @@ public class NoticeServiceImpl implements NoticeService{
     }
 
     @Override
+    @Transactional
     public Long add(AddNoticeDto dto,  Member loginMember) {
 
             Notice notice = Notice.builder()
@@ -39,6 +41,7 @@ public class NoticeServiceImpl implements NoticeService{
 
 
     @Override
+    @Transactional
     public void checkAuthority(Member loginMember) {
 
         if(loginMember.getAuthority().getKey().equals("CLIENT")) {
@@ -47,6 +50,7 @@ public class NoticeServiceImpl implements NoticeService{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ModifyNoticeDto getNotice(Long noticeId) {
 
         Notice notice =  noticeRepository.findById(noticeId).orElseThrow(NoticeNotFoundException::new);
@@ -59,6 +63,7 @@ public class NoticeServiceImpl implements NoticeService{
     }
 
     @Override
+    @Transactional
     public Long edit(Long modifyId, ModifyNoticeDto dto) {
 
         Notice findNotice = noticeRepository.findById(modifyId).orElseThrow(NoticeNotFoundException::new);
@@ -68,6 +73,12 @@ public class NoticeServiceImpl implements NoticeService{
         findNotice.changeTop(findNotice.isTop(), dto.isTop());
 
         return noticeRepository.update(findNotice);
+    }
+
+    @Override
+    @Transactional
+    public void delete(Long noticeId){
+        noticeRepository.deleteById(noticeId);
     }
 
 }
