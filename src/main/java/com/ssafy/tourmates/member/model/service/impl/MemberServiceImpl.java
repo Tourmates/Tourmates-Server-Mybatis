@@ -1,8 +1,9 @@
-package com.ssafy.tourmates.member.model.service;
+package com.ssafy.tourmates.member.model.service.impl;
 
 import com.ssafy.tourmates.common.exception.DuplicateException;
 import com.ssafy.tourmates.member.model.Member;
 import com.ssafy.tourmates.member.model.repository.MemberRepository;
+import com.ssafy.tourmates.member.model.service.MemberService;
 import com.ssafy.tourmates.member.model.service.dto.AddMemberDto;
 import com.ssafy.tourmates.member.model.service.dto.EditLoginPwDto;
 import lombok.RequiredArgsConstructor;

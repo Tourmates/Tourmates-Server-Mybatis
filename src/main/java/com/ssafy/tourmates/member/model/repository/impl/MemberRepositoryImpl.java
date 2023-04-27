@@ -1,6 +1,8 @@
-package com.ssafy.tourmates.member.model.repository;
+package com.ssafy.tourmates.member.model.repository.impl;
 
 import com.ssafy.tourmates.member.model.Member;
+import com.ssafy.tourmates.member.model.repository.MemberMapper;
+import com.ssafy.tourmates.member.model.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
