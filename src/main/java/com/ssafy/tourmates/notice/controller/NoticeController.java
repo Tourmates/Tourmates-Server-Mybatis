@@ -31,6 +31,37 @@ public class NoticeController {
         return "noticeForm";
     }
 
+    @GetMapping("/modify/{noticeId}")
+    public String modifyNotice(@PathVariable("noticeId") Long noticeId, @SessionAttribute(value = "loginMember", required = false) Member loginMember, Model model){
+
+        noticeService.checkAuthority(loginMember);
+        ModifyNoticeDto modifyNoticeDto= noticeService.getNotice(noticeId);
+        model.addAttribute("modifyNoticeDto", modifyNoticeDto);
+
+        return "modifyForm"; //TODO: 나중에 바꾸기
+
+    }
+
+    @GetMapping("/delete/{noticeId}")
+    public String delteNotice(@PathVariable("noticeId") Long noticeId, @SessionAttribute("loginMember") Member loginMember){
+
+        if(loginMember == null){
+            return "loginForm";
+        }
+
+        noticeService.checkAuthority(loginMember);
+
+        noticeService.delete(noticeId);
+
+        return "redirect:/notice/list"; //TODO : list 메소드 만들기
+    }
+
+    @GetMapping("/list")
+    public String noticeList(){
+        return null;
+    }
+
+
     @PostMapping("/add")
     public String addNotice(@RequestBody AddNoticeRequest addNoticeRequest, @SessionAttribute(value = "loginMember", required = false) Member loginMember, Model model){
 
@@ -54,16 +85,7 @@ public class NoticeController {
         return "redirect:/notice/" + noticeId + "/detail";
     }
 
-    @GetMapping("/modify/{noticeId}")
-    public String modifyNotice(@PathVariable("noticeId") Long noticeId, @SessionAttribute(value = "loginMember", required = false) Member loginMember, Model model){
 
-        noticeService.checkAuthority(loginMember);
-        ModifyNoticeDto modifyNoticeDto= noticeService.getNotice(noticeId);
-        model.addAttribute("modifyNoticeDto", modifyNoticeDto);
-
-        return "modifyForm"; //TODO: 나중에 바꾸기
-
-    }
 
     @PostMapping("/modify/{noticeId}")
     public String modifyNotice(@PathVariable("noticeId") Long noticeId, @RequestBody ModifyNoticeRequest modifyNoticeRequest, @SessionAttribute("loginMember") Member loginMember){
@@ -83,6 +105,7 @@ public class NoticeController {
         noticeService.edit(noticeId, modifyNoticeDto);
 
         return null;
-
     }
+
+
 }
