@@ -12,5 +12,5 @@ public interface NoticeRepository {
 
     Long update(Notice notice);
 
-
+    void deleteById(Long noticeId);
 }

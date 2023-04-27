@@ -28,4 +28,9 @@ public class NoticeRepositoryIml implements NoticeRepository{
 
         return notice.getId();
     }
+
+    @Override
+    public void deleteById(Long noticeId) {
+        noticeMapper.deleteById(noticeId);
+    }
 }
