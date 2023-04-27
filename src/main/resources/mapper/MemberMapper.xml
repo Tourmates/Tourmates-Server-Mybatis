@@ -52,4 +52,9 @@
             last_modified_date=#{lastModifiedDate}
         where member_id = #{id}
     </update>
+
+    <delete id="remove">
+        delete from member
+        where member_id = #{memberId}
+    </delete>
 </mapper>
