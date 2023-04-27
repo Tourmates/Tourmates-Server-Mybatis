@@ -52,4 +52,8 @@ public class Member extends TimeBaseEntity {
     public void changePhone(String phone) {
         this.phone = phone;
     }
+
+    public void changeEmail(String email) {
+        this.email = email;
+    }
 }

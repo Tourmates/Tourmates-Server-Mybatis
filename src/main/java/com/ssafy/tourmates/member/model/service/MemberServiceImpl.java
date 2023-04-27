@@ -83,4 +83,21 @@ public class MemberServiceImpl implements MemberService {
 
         return memberRepository.update(member);
     }
+
+    @Override
+    public Long editEmail(String loginId, String email) {
+        Optional<Member> findMember = memberRepository.findByLoginId(loginId);
+        if (!findMember.isPresent()) {
+            throw new NoSuchElementException();
+        }
+
+        Optional<Member> findEmail = memberRepository.findByEmail(email);
+        if (findEmail.isPresent()) {
+            throw new DuplicateException();
+        }
+
+        Member member = findMember.get();
+        member.changeEmail(email);
+        return memberRepository.update(member);
+    }
 }
