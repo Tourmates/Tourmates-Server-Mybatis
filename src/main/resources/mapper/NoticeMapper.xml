@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.tourmates.notice.model.repository.NoticeMapper">
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into notice(title, content, top, created_by, last_modified_by )
+        values (#{notice.title}, #{notice.content}, #{notice.top}, #{notice.createdBy}, #{notice.lastModifiedBy})
+    </insert>
+
+    <select id = "findById" resultType = "notice">
+        select *
+        from notice
+        where notice_id = #{noticeId}
+    </select>
+</mapper>
