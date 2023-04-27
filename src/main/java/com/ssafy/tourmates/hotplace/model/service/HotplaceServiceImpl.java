@@ -1,5 +1,6 @@
 package com.ssafy.tourmates.hotplace.model.service;
 
+import com.ssafy.tourmates.common.exception.HotplaceNotFoundException;
 import com.ssafy.tourmates.common.exception.MemberNotFoundException;
 import com.ssafy.tourmates.hotplace.model.Hotplace;
 import com.ssafy.tourmates.hotplace.model.repository.HotplaceRepository;
@@ -30,6 +31,7 @@ public class HotplaceServiceImpl implements HotplaceService {
     Member member = memberRepository.findById(dto.getMemberId())
         .orElseThrow(MemberNotFoundException::new);
 
+
     Hotplace hotplace = Hotplace.builder()
         .name(dto.getName())
         .desc(dto.getDesc())
@@ -51,19 +53,14 @@ public class HotplaceServiceImpl implements HotplaceService {
     Member member = memberRepository.findById(dto.getMemberId())
         .orElseThrow(MemberNotFoundException::new);
 
-    Hotplace hotplace = Hotplace.builder()
-        .hotPlaceId(dto.getId())
-        .name(dto.getName())
-        .desc(dto.getDesc())
-        .visitedDate(dto.getVisitedDate())
-        .uploadFileName(dto.getUploadFileName())
-        .storeFileName(dto.getStoreFileName())
-        .member(member)
-        .contentId(dto.getContentId())
-        .contentTypeId(dto.getContentTypeId())
-        .build();
+    Hotplace findHotplace = hotplaceRepository.findById(dto.getId()).orElseThrow(HotplaceNotFoundException::new);
 
-    hotplaceRepository.update(hotplace);
+    findHotplace.changeName(findHotplace.getName(), dto.getName());
+    findHotplace.changeDesc(findHotplace.getDesc(), dto.getDesc());
+    findHotplace.changeVisitedDate(findHotplace.getVisitedDate(), dto.getVisitedDate());
+    findHotplace.changeUploadFileName(findHotplace.getUploadFileName(), dto.getUploadFileName());
+
+    hotplaceRepository.update(findHotplace);
   }
 
   @Override
