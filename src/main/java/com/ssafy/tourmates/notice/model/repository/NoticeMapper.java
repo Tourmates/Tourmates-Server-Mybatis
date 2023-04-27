@@ -8,4 +8,6 @@ import org.apache.ibatis.annotations.Param;
 public interface NoticeMapper {
 
     Notice save(@Param("notice") Notice notice);
+
+    Notice findById(@Param("noticeId") Long noticeId);
 }
