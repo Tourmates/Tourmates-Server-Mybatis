@@ -14,4 +14,6 @@ public interface NoticeMapper {
     Optional<Notice> findById(@Param("noticeId") Long noticeId);
 
     void update(@Param("notice") Notice notice);
+
+    void deleteById(@Param("noticeId") Long noticeId);
 }
