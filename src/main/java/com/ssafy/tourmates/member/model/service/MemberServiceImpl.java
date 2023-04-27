@@ -65,4 +65,22 @@ public class MemberServiceImpl implements MemberService {
         member.changeLoginPw(dto.getOldLoginPw(), dto.getNewLoginPw());
         return memberRepository.update(member);
     }
+
+    @Override
+    public Long editPhone(String loginId, String phone) {
+        Optional<Member> findMember = memberRepository.findByLoginId(loginId);
+        if (!findMember.isPresent()) {
+            throw new NoSuchElementException();
+        }
+
+        Optional<Member> findPhone = memberRepository.findByPhone(phone);
+        if (findPhone.isPresent()) {
+            throw new DuplicateException();
+        }
+
+        Member member = findMember.get();
+        member.changePhone(phone);
+
+        return memberRepository.update(member);
+    }
 }
