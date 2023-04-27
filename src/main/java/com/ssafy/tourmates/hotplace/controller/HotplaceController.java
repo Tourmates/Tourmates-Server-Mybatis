@@ -21,6 +21,7 @@ public class HotplaceController {
     this.hotplaceService = hotplaceService;
   }
 
+
   @GetMapping("/add")
   public String addHotpalce(@RequestBody AddHotplaceRequest request) {
 
