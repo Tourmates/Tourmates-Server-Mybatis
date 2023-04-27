@@ -65,8 +65,23 @@ public class NoticeController {
 
     }
 
-    @PostMapping("/modify")
-    public String modifyNotice(@RequestBody ModifyNoticeRequest modifyNoticeRequest, @SessionAttribute("loginMember") Member loginMember){
+    @PostMapping("/modify/{noticeId}")
+    public String modifyNotice(@PathVariable("noticeId") Long noticeId, @RequestBody ModifyNoticeRequest modifyNoticeRequest, @SessionAttribute("loginMember") Member loginMember){
+
+        if(loginMember == null){
+            return "loginForm"; //TODO: 나중에 바꾸기
+        }
+
+        noticeService.checkAuthority(loginMember);
+
+        ModifyNoticeDto modifyNoticeDto = ModifyNoticeDto.builder()
+                .title(modifyNoticeRequest.getTitle())
+                .content(modifyNoticeRequest.getContent())
+                .top(modifyNoticeRequest.isTop())
+                .build();
+
+        noticeService.edit(noticeId, modifyNoticeDto);
+
         return null;
 
     }
