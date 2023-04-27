@@ -4,9 +4,11 @@ import com.ssafy.tourmates.common.exception.DuplicateException;
 import com.ssafy.tourmates.member.model.Member;
 import com.ssafy.tourmates.member.model.repository.MemberRepository;
 import com.ssafy.tourmates.member.model.service.dto.AddMemberDto;
+import com.ssafy.tourmates.member.model.service.dto.EditLoginPwDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -51,5 +53,16 @@ public class MemberServiceImpl implements MemberService {
 
         Member savedMember = memberRepository.save(member);
         return savedMember.getId();
+    }
+
+    @Override
+    public Long editLoginPw(String loginId, EditLoginPwDto dto) {
+        Optional<Member> findMember = memberRepository.findByLoginId(loginId);
+        if (!findMember.isPresent()) {
+            throw new NoSuchElementException();
+        }
+        Member member = findMember.get();
+        member.changeLoginPw(dto.getOldLoginPw(), dto.getNewLoginPw());
+        return memberRepository.update(member);
     }
 }
