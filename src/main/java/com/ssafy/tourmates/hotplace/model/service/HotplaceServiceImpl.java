@@ -9,6 +9,7 @@ import com.ssafy.tourmates.member.model.Member;
 import com.ssafy.tourmates.member.model.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +25,7 @@ public class HotplaceServiceImpl implements HotplaceService {
   }
 
   @Override
+  @Transactional
   public void add(AddHotplaceDto dto) {
     Member member = memberRepository.findById(dto.getMemberId())
         .orElseThrow(MemberNotFoundException::new);
@@ -44,7 +46,8 @@ public class HotplaceServiceImpl implements HotplaceService {
   }
 
   @Override
-  public void modify(ModifyHotplaceDto dto) {
+  @Transactional
+  public void edit(ModifyHotplaceDto dto) {
     Member member = memberRepository.findById(dto.getMemberId())
         .orElseThrow(MemberNotFoundException::new);
 
@@ -64,6 +67,7 @@ public class HotplaceServiceImpl implements HotplaceService {
   }
 
   @Override
+  @Transactional
   public void delete(Long hotplaceId) {
     hotplaceRepository.deleteById(hotplaceId);
   }
