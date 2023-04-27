@@ -14,4 +14,6 @@ public interface MemberService {
     Long editPhone(String loginId, String phone);
 
     Long editEmail(String loginId, String email);
+
+    Long editNickname(String loginId, String nickname);
 }

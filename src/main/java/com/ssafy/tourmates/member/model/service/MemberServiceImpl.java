@@ -100,4 +100,21 @@ public class MemberServiceImpl implements MemberService {
         member.changeEmail(email);
         return memberRepository.update(member);
     }
+
+    @Override
+    public Long editNickname(String loginId, String nickname) {
+        Optional<Member> findMember = memberRepository.findByLoginId(loginId);
+        if (!findMember.isPresent()) {
+            throw new NoSuchElementException();
+        }
+
+        Optional<Member> findNickname = memberRepository.findByNickname(nickname);
+        if (findNickname.isPresent()) {
+            throw new DuplicateException();
+        }
+
+        Member member = findMember.get();
+        member.changeNickname(nickname);
+        return memberRepository.update(member);
+    }
 }

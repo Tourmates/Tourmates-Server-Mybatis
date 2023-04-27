@@ -56,4 +56,8 @@ public class Member extends TimeBaseEntity {
     public void changeEmail(String email) {
         this.email = email;
     }
+
+    public void changeNickname(String nickname) {
+        this.nickname = nickname;
+    }
 }
