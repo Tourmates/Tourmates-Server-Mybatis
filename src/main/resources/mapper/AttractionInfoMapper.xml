@@ -30,4 +30,8 @@
             first_image = #{attractionInfo.tel},
     </update>
 
+    <delete id = "delteById">
+        delete * from attraction_info where content_id = #{contentId}
+    </delete>
+
 </mapper>
