@@ -22,4 +22,9 @@ public class AttractionInfoRepositoryImpl implements AttractionInfoRepository {
     public Optional<AttractionInfo> findById(Long id) {
         return attractionInfoMapper.findById(id);
     }
+
+    @Override
+    public void update(AttractionInfo attractionInfo) {
+        attractionInfoMapper.update(attractionInfo);
+    }
 }

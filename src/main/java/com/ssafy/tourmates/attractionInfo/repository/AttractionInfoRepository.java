@@ -10,4 +10,7 @@ public interface AttractionInfoRepository {
     AttractionInfo save(AttractionInfo attractionInfo);
 
     Optional<AttractionInfo> findById(Long id);
+
+    void update(AttractionInfo dto);
+
 }
