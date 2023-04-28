@@ -13,6 +13,11 @@
         where article_id = #{articleId}
     </select>
 
+    <select id="findAll" resultType="Article">
+        select *
+        from article
+    </select>
+
     <update id="update">
         update article
         set title   = #{title},
