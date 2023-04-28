@@ -10,4 +10,7 @@ public interface AttractionInfoMapper {
     AttractionInfo save(@Param("attractionInfo") AttractionInfo attractionInfo);
 
     Optional<AttractionInfo> findById(@Param("id") Long id);
+
+    void update(@Param("attractionInfo") AttractionInfo attractionInfo);
+
 }
