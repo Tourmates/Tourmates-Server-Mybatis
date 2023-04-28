@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class ArticleRepositoryImpl implements ArticleRepository {
 
-    private ArticleMapper articleMapper;
+    private final ArticleMapper articleMapper;
 
     @Override
     public Article save(Article article) {
