@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.tourmates.attractionInfo.repository.AttractionInfoMapper">
+
+
+    <insert id="save" useGeneratedKeys="true" keyProperty="id">
+        insert into attraction_info(sido_code2, gugun_code2, content_type_id, title, addr1, addr2, zipcode, tel, first_image, first_image2, readcount, latitude, longtitude)
+        values (#{attractionInfo.sidoCode2},  #{attractionInfo.gugunCode2}, #{attractionInfo.contentTypeId}, #{attractionInfo.title}, #{attractionInfo.addr1},
+                #{attractionInfo.addr2}, #{attractionInfo.zipcode}, #{attractionInfo.tel}, #{attractionInfo.firstImage}, #{attractionInfo.firstImage2}, #{attractionInfo.readCount},
+                #{attractionInfo.latitude}, #{attractionIfno.longtitude})
+    </insert>
+
+    <select id = "findById">
+        select *
+        from attraction_info
+        where content_id = #{id}
+    </select>
+
+</mapper>
