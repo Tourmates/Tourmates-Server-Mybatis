@@ -37,7 +37,7 @@ public class AttractionInfoServiceImpl implements AttractionInfoService{
                 .firstImage2(dto.getFirstImage2())
                 .readCount(dto.getReadCount())
                 .latitude(dto.getLatitude())
-                .longitude(dto.getLongtitude())
+                .longtitude(dto.getLongtitude())
                 .build();
 
         attractionInfoRepository.save(attractionInfo);
