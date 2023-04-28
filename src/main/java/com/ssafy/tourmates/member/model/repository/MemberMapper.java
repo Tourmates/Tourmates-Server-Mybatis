@@ -24,4 +24,6 @@ public interface MemberMapper {
     Optional<Member> findByEmail(String email);
 
     void update(Member member);
+
+    void remove(Long memberId);
 }

@@ -12,4 +12,8 @@ public interface NoticeService {
     void checkAuthority(Member loginMember);
 
     ModifyNoticeDto getNotice(Long noticeId);
+
+    Long edit(Long modifyId, ModifyNoticeDto dto);
+
+    void delete(Long noticeId);
 }

@@ -13,4 +13,16 @@
         from notice
         where notice_id = #{noticeId}
     </select>
+
+    <update id = "update">
+        update notice
+            set title = #{notice.title},
+                content = #{notice.content},
+                top  = #{notice.top}
+            where notion_id = #{notice.notionId}
+    </update>
+
+    <delete id = "deleteById">
+        delete * from notice where notice_id = #{noticeId}
+    </delete>
 </mapper>

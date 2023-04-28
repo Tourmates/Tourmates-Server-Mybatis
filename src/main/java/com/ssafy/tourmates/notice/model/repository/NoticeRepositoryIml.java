@@ -4,6 +4,8 @@ import com.ssafy.tourmates.notice.model.Notice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class NoticeRepositoryIml implements NoticeRepository{
@@ -16,7 +18,19 @@ public class NoticeRepositoryIml implements NoticeRepository{
     }
 
     @Override
-    public Notice findById(Long noticeId) {
+    public Optional<Notice> findById(Long noticeId) {
         return noticeMapper.findById(noticeId);
+    }
+
+    @Override
+    public Long update(Notice notice) {
+        noticeMapper.update(notice);
+
+        return notice.getId();
+    }
+
+    @Override
+    public void deleteById(Long noticeId) {
+        noticeMapper.deleteById(noticeId);
     }
 }

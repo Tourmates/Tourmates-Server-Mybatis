@@ -1,5 +1,6 @@
 package com.ssafy.tourmates.notice.model;
 
+import com.ssafy.tourmates.common.exception.EditException;
 import com.ssafy.tourmates.member.model.Member;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,5 +34,28 @@ public class Notice {
         this.lastModifiedBy = lastModifiedBy;
         this.createdDate = createdDate;
         this.lastModifiedDate = lastModifiedDate;
+    }
+
+    //== 비즈니스 로직 ==//
+
+    public void changeTitle(String oldTitle, String newTitle) {
+        if(!this.title.equals(oldTitle)){
+            throw new EditException();
+        }
+        this.title = newTitle;
+    }
+
+    public void changeContent(String oldContent, String newContent) {
+        if(!this.title.equals(oldContent)){
+            throw new EditException();
+        }
+        this.title = newContent;
+    }
+
+    public void changeTop(boolean oldTop, boolean newTop){
+        if(!this.top == oldTop){
+            throw new EditException();
+        }
+        this.top = newTop;
     }
 }
