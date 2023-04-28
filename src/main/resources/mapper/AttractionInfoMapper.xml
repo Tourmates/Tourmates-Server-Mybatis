@@ -17,4 +17,17 @@
         where content_id = #{id}
     </select>
 
+    <update id = "update">
+        update attraction_info
+        set sido_code2 = #{attractionInfo.sidoCode2},
+            gugun_code2 = #{attractionInfo.gugunCode2},
+            content_type_id = #{attractionInfo.contentTypeId},
+            title = #{attractionInfo.title},
+            addr1 = #{attractionInfo.addr1},
+            addr2 = #{attractionInfo.addr2},
+            zipcode = #{attractionInfo.zipcode},
+            tel = #{attractionInfo.tel},
+            first_image = #{attractionInfo.tel},
+    </update>
+
 </mapper>
