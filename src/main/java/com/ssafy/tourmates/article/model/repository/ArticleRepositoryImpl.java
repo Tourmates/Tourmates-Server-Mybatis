@@ -20,4 +20,9 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     public void update(Article article) {
         articleMapper.update(article);
     }
+
+    @Override
+    public void delete(Long articleId) {
+        articleMapper.delete(articleId);
+    }
 }

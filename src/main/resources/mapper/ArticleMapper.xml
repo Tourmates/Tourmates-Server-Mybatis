@@ -8,9 +8,14 @@
   </insert>
 
   <update id="update">
-        update article
-        set title = #{title},
-            content = #{content}
-        where article = #{id}
+     update article
+     set title = #{title},
+         content = #{content}
+     where article_id = #{id}
   </update>
+
+  <delete id="delete">
+    delete from article
+    where article_id = #{articleId}
+  </delete>
 </mapper>
