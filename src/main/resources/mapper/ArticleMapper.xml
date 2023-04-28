@@ -6,4 +6,11 @@
     insert into article(title, content, member_id)
     values (#{title}, #{content}, #{member.id})
   </insert>
+
+  <update id="update">
+        update article
+        set title = #{title},
+            content = #{content}
+        where article = #{id}
+  </update>
 </mapper>

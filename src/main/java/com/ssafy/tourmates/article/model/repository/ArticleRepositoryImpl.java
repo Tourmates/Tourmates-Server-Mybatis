@@ -15,4 +15,9 @@ public class ArticleRepositoryImpl implements ArticleRepository {
         articleMapper.save(article);
         return article;
     }
+
+    @Override
+    public void update(Article article) {
+        articleMapper.update(article);
+    }
 }
