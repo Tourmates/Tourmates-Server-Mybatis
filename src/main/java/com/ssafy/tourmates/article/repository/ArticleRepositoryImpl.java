@@ -4,6 +4,8 @@ import com.ssafy.tourmates.article.Article;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 @RequiredArgsConstructor
 public class ArticleRepositoryImpl implements ArticleRepository {
@@ -17,12 +19,17 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
+    public Optional<Article> findById(Long articleId) {
+        return articleMapper.findById(articleId);
+    }
+
+    @Override
     public void update(Article article) {
         articleMapper.update(article);
     }
 
     @Override
-    public void delete(Long articleId) {
-        articleMapper.delete(articleId);
+    public void remove(Long articleId) {
+        articleMapper.remove(articleId);
     }
 }

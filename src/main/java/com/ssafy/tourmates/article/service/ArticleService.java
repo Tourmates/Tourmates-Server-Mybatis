@@ -8,4 +8,6 @@ public interface ArticleService {
     Long addArticle(String loginId, AddArticleDto dto);
 
     Long editArticle(Long articleId, String loginId, EditArticleDto editArticleDto);
+
+    Long removeArticle(Long articleId, String loginId);
 }

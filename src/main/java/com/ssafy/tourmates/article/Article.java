@@ -30,4 +30,10 @@ public class Article {
         this.hit = hit;
         this.member = member;
     }
+
+    //== 비즈니스 로직 ==//
+    public void changeArticle(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 }

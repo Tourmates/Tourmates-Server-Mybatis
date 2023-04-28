@@ -43,9 +43,40 @@ public class ArticleServiceImpl implements ArticleService {
         if (!findMember.isPresent()) {
             throw new NoSuchElementException();
         }
+
         Member member = findMember.get();
+        Optional<Article> findArticle = articleRepository.findById(articleId);
+        if (!findArticle.isPresent()) {
+            throw new NoSuchElementException();
+        }
 
+        Article article = findArticle.get();
+        if (!article.getMember().getId().equals(member.getId())) {
+            throw new IllegalArgumentException();
+        }
+        article.changeArticle(article.getTitle(), article.getContent());
+        return article.getId();
+    }
 
-        return null;
+    @Override
+    public Long removeArticle(Long articleId, String loginId) {
+        Optional<Member> findMember = memberRepository.findByLoginId(loginId);
+        if (!findMember.isPresent()) {
+            throw new NoSuchElementException();
+        }
+
+        Member member = findMember.get();
+        Optional<Article> findArticle = articleRepository.findById(articleId);
+        if (!findArticle.isPresent()) {
+            throw new NoSuchElementException();
+        }
+
+        Article article = findArticle.get();
+        if (!article.getMember().getId().equals(member.getId())) {
+            throw new IllegalArgumentException();
+        }
+
+        articleRepository.remove(article.getId());
+        return article.getId();
     }
 }
