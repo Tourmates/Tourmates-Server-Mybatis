@@ -3,6 +3,7 @@ package com.ssafy.tourmates.article.model.service;
 import com.ssafy.tourmates.article.model.Article;
 import com.ssafy.tourmates.article.model.repository.ArticleRepository;
 import com.ssafy.tourmates.article.model.service.dto.AddArticleDto;
+import com.ssafy.tourmates.article.model.service.dto.EditArticleDto;
 import com.ssafy.tourmates.member.model.Member;
 import com.ssafy.tourmates.member.model.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -34,5 +35,17 @@ public class ArticleServiceImpl implements ArticleService {
 
         Article savedArticle = articleRepository.save(article);
         return savedArticle.getId();
+    }
+
+    @Override
+    public Long editArticle(Long articleId, String loginId, EditArticleDto editArticleDto) {
+        Optional<Member> findMember = memberRepository.findByLoginId(loginId);
+        if (!findMember.isPresent()) {
+            throw new NoSuchElementException();
+        }
+        Member member = findMember.get();
+
+
+        return null;
     }
 }

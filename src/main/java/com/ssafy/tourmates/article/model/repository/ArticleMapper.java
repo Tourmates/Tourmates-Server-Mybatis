@@ -7,4 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ArticleMapper {
 
     void save(Article article);
+
+    void update(Article article);
+
+    void delete(Long articleId);
 }
