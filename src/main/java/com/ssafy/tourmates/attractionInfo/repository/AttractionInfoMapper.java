@@ -9,8 +9,11 @@ public interface AttractionInfoMapper {
 
     AttractionInfo save(@Param("attractionInfo") AttractionInfo attractionInfo);
 
-    Optional<AttractionInfo> findById(@Param("id") Long id);
+    Optional<AttractionInfo> findById(@Param("id") int id);
 
     void update(@Param("attractionInfo") AttractionInfo attractionInfo);
+
+    void deleteById(@Param("contentId") int contentId);
+
 
 }
