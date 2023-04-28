@@ -67,5 +67,11 @@ public class AttractionInfoServiceImpl implements AttractionInfoService{
 
     }
 
+    @Override
+    public void delete(int contentId) {
+
+        attractionInfoRepository.deleteById(contentId);
+    }
+
 
 }

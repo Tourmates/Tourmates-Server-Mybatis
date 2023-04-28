@@ -8,4 +8,6 @@ public interface AttractionInfoService {
     public void add(AddAttractionInfoDto dto);
 
     public void edit(ModifyAttractionInfoDto dto);
+
+    public void delete(int contentId);
 }
