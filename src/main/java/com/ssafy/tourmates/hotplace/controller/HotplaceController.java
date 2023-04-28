@@ -23,7 +23,7 @@ public class HotplaceController {
 
 
   @GetMapping("/add")
-  public String addHotpalce(@RequestBody AddHotplaceRequest request) {
+  public String addHotplace(@RequestBody AddHotplaceRequest request) {
 
     AddHotplaceDto dto = AddHotplaceDto.builder()
         .name(request.getName())
