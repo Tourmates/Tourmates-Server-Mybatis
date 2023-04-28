@@ -13,4 +13,7 @@ public interface AttractionInfoRepository {
 
     void update(AttractionInfo dto);
 
+    void deleteById(int contentId);
+
+
 }

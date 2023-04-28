@@ -27,4 +27,9 @@ public class AttractionInfoRepositoryImpl implements AttractionInfoRepository {
     public void update(AttractionInfo attractionInfo) {
         attractionInfoMapper.update(attractionInfo);
     }
+
+    @Override
+    public void deleteById(int contentId) {
+        attractionInfoMapper.deleteById(contentId);
+    }
 }
