@@ -1,7 +1,7 @@
 package com.ssafy.tourmates.controller;
 
 
-import com.ssafy.tourmates.controller.dto.AddMemberRequest;
+import com.ssafy.tourmates.controller.dto.add.AddMemberRequest;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.notice.service.NoticeService;
 import com.ssafy.tourmates.notice.service.dto.AddNoticeDto;
@@ -32,7 +32,7 @@ public class NoticeController {
     if (loginMember == null) {
       return "loginForm"; //TODO: 나중에 바꾸기
     }
-    return "noticeForm";
+    return "/notice/noticeRegisterForm";
   }
 
   @GetMapping("/modify/{noticeId}")
