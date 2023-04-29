@@ -42,6 +42,12 @@
         where email = #{email};
     </select>
 
+    <select id="findByPhoneAndEmail" resultType="Member">
+        select *
+        from member
+        where phone = #{phone} and email = #{email}
+    </select>
+
     <update id="update">
         update member
         set login_pw=#{loginPW},

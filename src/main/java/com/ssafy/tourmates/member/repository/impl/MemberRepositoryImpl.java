@@ -52,6 +52,11 @@ public class MemberRepositoryImpl implements MemberRepository {
     }
 
     @Override
+    public Optional<Member> findByPhoneAndEmail(String phone, String email) {
+        return memberMapper.findByPhoneAndEmail(phone, email);
+    }
+
+    @Override
     public Long update(Member member) {
         memberMapper.update(member);
         return member.getId();
