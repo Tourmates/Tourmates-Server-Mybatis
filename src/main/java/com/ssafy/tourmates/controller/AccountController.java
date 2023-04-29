@@ -25,15 +25,15 @@ public class AccountController {
                 .loginId(request.getLoginId())
                 .loginPw(request.getLoginPw())
                 .username(request.getUsername())
-                .email(request.getEmail())
-                .phone(request.getPhone())
+                .email(request.getEmailId() + "@" + request.getEmailDomain())
+                .phone(request.getStartPhoneNumber() + "-" + request.getMiddlePhoneNumber() + "-" + request.getEndPhoneNumber())
                 .birth(request.getBirth())
-                .gender(request.getGender())
+                .gender(request.getGender().substring(0, 1))
                 .nickname(request.getNickname())
-                .authority(request.getAuthority())
                 .build();
+
         Long memberId = memberService.joinMember(dto);
-        log.debug("join memberId = {}", memberId);
+        log.debug("memberId={}", memberId);
         log.info("join new member");
         return "redirect:/";
     }
