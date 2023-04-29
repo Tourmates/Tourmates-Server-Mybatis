@@ -108,18 +108,18 @@
           <div class="d-flex justify-content-between">
             <label for="loginId" class="form-label">아이디 :</label>
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-              <label class="form-check-label" for="flexCheckDefault">
+              <input class="form-check-input" type="checkbox" id="saveLoginId" name="saveLoginId">
+              <label class="form-check-label" for="saveLoginId">
                 아이디저장
               </label>
             </div>
           </div>
-          <input type="text" class="form-control" id="loginId" placeholder="아이디">
+          <input type="text" class="form-control" id="loginId" name="loginId" placeholder="아이디">
         </div>
         <!-- 비밀번호 -->
         <div class="mb-3">
           <label for="loginPw" class="form-label">비밀번호 :</label>
-          <input type="password" class="form-control" id="loginPw" placeholder="비밀번호">
+          <input type="password" class="form-control" id="loginPw" name="loginPw" placeholder="비밀번호">
         </div>
       </div>
       <div class="modal-footer">

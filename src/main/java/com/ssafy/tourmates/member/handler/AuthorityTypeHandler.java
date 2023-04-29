@@ -40,10 +40,10 @@ public class AuthorityTypeHandler implements TypeHandler<Authority> {
         Authority authority = null;
         switch (key) {
             case "CLIENT":
-                authority = Authority.ADMIN;
+                authority = Authority.CLIENT;
                 break;
             default:
-                authority = Authority.CLIENT;
+                authority = Authority.ADMIN;
                 break;
         }
         return authority;
