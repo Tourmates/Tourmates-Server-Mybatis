@@ -8,4 +8,5 @@ public class ModifyNoticeRequest {
   private String title;
   private String content;
   private boolean top;
+
 }
