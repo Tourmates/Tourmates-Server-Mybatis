@@ -21,6 +21,8 @@ public interface MemberRepository {
 
     Optional<Member> findByEmail(String email);
 
+    Optional<Member> findByPhoneAndEmail(String phone, String email);
+
     Long update(Member member);
 
     Long remove(Long memberId);

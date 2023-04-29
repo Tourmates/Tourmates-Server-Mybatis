@@ -2,6 +2,7 @@ package com.ssafy.tourmates.member.repository;
 
 import com.ssafy.tourmates.member.Member;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -22,6 +23,8 @@ public interface MemberMapper {
     Optional<Member> findByNickname(String nickname);
 
     Optional<Member> findByEmail(String email);
+
+    Optional<Member> findByPhoneAndEmail(@Param("phone") String phone, @Param("email") String email);
 
     void update(Member member);
 

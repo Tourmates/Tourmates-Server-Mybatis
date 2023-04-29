@@ -8,4 +8,7 @@ public interface AccountService {
 
     Member login(String loginId, String loginPw);
 
+    String findLoginId(String phone, String email);
+
+    String findLoginPw(String loginId, String phone, String email);
 }

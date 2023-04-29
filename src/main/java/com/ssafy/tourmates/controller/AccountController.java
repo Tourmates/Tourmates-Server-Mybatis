@@ -1,6 +1,8 @@
 package com.ssafy.tourmates.controller;
 
 import com.ssafy.tourmates.controller.dto.AddMemberRequest;
+import com.ssafy.tourmates.controller.dto.request.ForgotLoginIdRequest;
+import com.ssafy.tourmates.controller.dto.request.ForgotLoginPwRequest;
 import com.ssafy.tourmates.controller.dto.request.LoginRequest;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.member.service.AccountService;
@@ -63,6 +65,25 @@ public class AccountController {
         }
         session.setAttribute("loginMember", loginMember);
         log.info("회원 로그인={}", loginMember.getLoginId());
+        return "redirect:/";
+    }
+
+    @PostMapping("/forgot/loginId")
+    public String forgotLoginId(@Valid ForgotLoginIdRequest request) {
+        log.debug("AccountController#forgotLoginId");
+        String phone = request.getStartPhoneNumber() + "-" + request.getMiddlePhoneNumber() + "-" + request.getEndPhoneNumber();
+        String email = request.getEmailId() + "@" + request.getEmailDomain();
+        String loginId = accountService.findLoginId(phone, email);
+        return "redirect:/";
+    }
+
+    @PostMapping("/forgot/loginPw")
+    public String forgotLoginPw(@Valid ForgotLoginPwRequest request) {
+        log.debug("AccountController#forgotLoginPW");
+        String loginId = request.getLoginId();
+        String phone = request.getStartPhoneNumber() + "-" + request.getMiddlePhoneNumber() + "-" + request.getEndPhoneNumber();
+        String email = request.getEmailId() + "@" + request.getEmailDomain();
+        String loginPw = accountService.findLoginPw(loginId, phone, email);
         return "redirect:/";
     }
 }
