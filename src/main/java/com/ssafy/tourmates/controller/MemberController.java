@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Slf4j
 @RequestMapping("/member")
 public class MemberController {
-
   private final MemberService memberService;
 
 }
