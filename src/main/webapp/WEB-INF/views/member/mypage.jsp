@@ -4,6 +4,11 @@
 <html lang="ko">
 <head>
   <%@ include file="../common/head.jsp" %>
+  <style>
+    a {
+        text-decoration-line: none;
+    }
+  </style>
 </head>
 <body>
 <%@ include file="../common/header.jsp" %>
@@ -61,7 +66,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <a class="col" href="${root}/mypage/personal">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">
             <div
@@ -75,7 +80,7 @@
             <p class="card-text">개인적인 세부 사항과 연락 방법을 제공합니다</p>
           </div>
         </div>
-      </div>
+      </a>
       <div class="col">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">

@@ -3,7 +3,7 @@
 <div class="container">
   <header class="d-flex flex-wrap justify-content-center py-3">
     <a href="${root}/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <img src="./resources/img/logo.svg">
+      <img src="${root}/resources/img/logo.svg">
     </a>
     <ul class="nav">
       <li class="nav-item"><a href="${root}/attractionInfo" class="nav-link active text-dark" aria-current="page">지역별여행지</a></li>

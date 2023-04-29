@@ -53,18 +53,10 @@ public class Member {
         this.lastModifiedDate = LocalDateTime.now();
     }
 
-    public void changePhone(String phone) {
+    public void changePersonalInfo(String nickname, String email, String phone) {
+        this.nickname = nickname;
+        this.email = email;
         this.phone = phone;
         this.lastModifiedDate = LocalDateTime.now();
     }
-
-    public void changeEmail(String email) {
-        this.email = email;
-        this.lastModifiedDate = LocalDateTime.now();
     }
-
-    public void changeNickname(String nickname) {
-        this.nickname = nickname;
-        this.lastModifiedDate = LocalDateTime.now();
-    }
-}

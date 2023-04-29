@@ -50,13 +50,13 @@
 
     <update id="update">
         update member
-        set login_pw=#{loginPW},
+        set login_pw=#{loginPw},
             email=#{email},
             phone=#{phone},
             nickname=#{nickname},
             nickname_last_modified_date=#{nicknameLastModifiedDate},
             last_modified_date=#{lastModifiedDate}
-        where member_id = #{id}
+        where login_id = #{loginId}
     </update>
 
     <delete id="remove">
