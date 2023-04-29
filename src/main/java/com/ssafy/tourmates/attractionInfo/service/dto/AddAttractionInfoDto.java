@@ -3,7 +3,6 @@ package com.ssafy.tourmates.attractionInfo.service.dto;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable;
 
 import java.math.BigDecimal;
 
