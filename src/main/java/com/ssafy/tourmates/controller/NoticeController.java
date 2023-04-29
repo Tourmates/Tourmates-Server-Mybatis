@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 @RequestMapping("/notice")
 public class NoticeController {
 
+
   private NoticeService noticeService;
 
   public NoticeController(NoticeService noticeService) {
