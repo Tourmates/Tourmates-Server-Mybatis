@@ -14,7 +14,8 @@ public class NoticeRepositoryIml implements NoticeRepository{
 
     @Override
     public Long save(Notice notice) {
-        return noticeMapper.save(notice).getId();
+        noticeMapper.save(notice);
+        return notice.getId();
     }
 
     @Override
