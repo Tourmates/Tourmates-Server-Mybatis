@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.tourmates.notice.repository.NoticeMapper">
 
-    <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into notice(title, content, top, created_by, last_modified_by )
-        values (#{notice.title}, #{notice.content}, #{notice.top}, #{notice.createdBy}, #{notice.lastModifiedBy})
-    </insert>
+  <insert id="save" useGeneratedKeys="true" keyProperty="id">
+    insert into notice(title, content, top)
+    values (#{notice.title}, #{notice.content}, #{notice.top})
+  </insert>
 
-    <select id = "findById" resultType = "notice">
-        select *
-        from notice
-        where notice_id = #{noticeId}
-    </select>
+  <select id="findById" resultType="notice">
+    select *
+    from notice
+    where notice_id = #{noticeId}
+  </select>
 
-    <update id = "update">
-        update notice
-            set title = #{notice.title},
-                content = #{notice.content},
-                top  = #{notice.top}
-            where notion_id = #{notice.notionId}
-    </update>
+  <update id="update">
+    update notice
+    set title   = #{notice.title},
+        content = #{notice.content},
+        top     = #{notice.top}
+    where notion_id = #{notice.notionId}
+  </update>
 
-    <delete id = "deleteById">
-        delete * from notice where notice_id = #{noticeId}
-    </delete>
+  <delete id="deleteById">
+    delete
+    * from notice where notice_id =
+    #{noticeId}
+  </delete>
 </mapper>
