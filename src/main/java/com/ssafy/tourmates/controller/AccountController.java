@@ -11,6 +11,7 @@ import com.ssafy.tourmates.member.service.dto.AddMemberDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.Cookie;
@@ -65,6 +66,13 @@ public class AccountController {
         }
         session.setAttribute("loginMember", loginMember);
         log.info("회원 로그인={}", loginMember.getLoginId());
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        log.debug("회원 로그아웃");
+        session.invalidate();
         return "redirect:/";
     }
 
