@@ -1,12 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%-- header start --%>
 <div class="container">
-  <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
+  <header class="d-flex flex-wrap justify-content-center py-3">
     <a href="${root}/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi me-2" width="40" height="32">
-        <use xlink:href="#bootstrap"/>
-      </svg>
-      <span class="fs-4">Tourmates</span>
+      <img src="./resources/img/logo.svg">
     </a>
     <ul class="nav">
       <li class="nav-item"><a href="${root}/attractionInfo" class="nav-link active text-dark" aria-current="page">지역별여행지</a></li>
