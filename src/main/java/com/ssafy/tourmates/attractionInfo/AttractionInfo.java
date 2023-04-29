@@ -1,11 +1,8 @@
 package com.ssafy.tourmates.attractionInfo;
 
-import com.ssafy.tourmates.common.exception.EditException;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.w3c.dom.Attr;
-import sun.tools.tree.ThisExpression;
 
 import java.math.BigDecimal;
 
