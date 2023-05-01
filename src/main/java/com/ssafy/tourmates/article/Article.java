@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 import static lombok.AccessLevel.PROTECTED;
 
 @Getter
@@ -15,6 +17,8 @@ public class Article {
     private String title;
     private String content;
     private int hit;
+    private LocalDateTime createdDate;
+    private LocalDateTime lastModifiedDate;
 
     private Member member;
 
