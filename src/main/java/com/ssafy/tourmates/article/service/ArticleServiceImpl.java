@@ -59,6 +59,21 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public List<ArticleResponse> searchMyArticle(Long memberId, int pageNum, int amount) {
+        List<Article> articles = articleRepository.findByConditionAndMemberId(memberId, pageNum, amount);
+        return articles.stream()
+                .map(article -> ArticleResponse.builder()
+                        .articleId(article.getId())
+                        .title(article.getTitle())
+                        .hit(article.getHit())
+                        .tag(article.getTag())
+                        .nickname(article.getMember().getNickname())
+                        .createdDate(article.getCreatedDate())
+                        .build())
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public DetailArticleResponse detailArticle(Long articleId) {
         Optional<Article> findArticle = articleRepository.findDetailById(articleId);
         if (!findArticle.isPresent()) {

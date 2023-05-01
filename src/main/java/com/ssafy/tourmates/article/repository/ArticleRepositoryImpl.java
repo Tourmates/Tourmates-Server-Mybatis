@@ -31,6 +31,11 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
+    public List<Article> findByConditionAndMemberId(Long memberId, int pageNum, int amount) {
+        return articleMapper.findByConditionAndMemberId(memberId, pageNum, amount);
+    }
+
+    @Override
     public Optional<Article> findDetailById(Long articleId) {
         return articleMapper.findDetailById(articleId);
     }

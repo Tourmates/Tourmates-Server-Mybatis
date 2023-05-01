@@ -14,6 +14,8 @@ public interface ArticleService {
 
     List<ArticleResponse> searchArticle(SearchArticleCondition condition, int pageNum, int amount);
 
+    List<ArticleResponse> searchMyArticle(Long memberId, int pageNum, int amount);
+
     DetailArticleResponse detailArticle(Long articleId);
 
     Integer totalCount();

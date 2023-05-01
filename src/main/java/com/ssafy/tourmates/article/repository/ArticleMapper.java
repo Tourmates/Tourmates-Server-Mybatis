@@ -21,6 +21,8 @@ public interface ArticleMapper {
 
     List<Article> findByCondition(@Param("condition") SearchArticleCondition condition, @Param("pageNum") int pageNum, @Param("amount") int amount);
 
+    List<Article> findByConditionAndMemberId(@Param("memberId") Long memberId, @Param("pageNum") int pageNum, @Param("amount") int amount);
+
     Integer findCountAll();
 
     void update(Article article);

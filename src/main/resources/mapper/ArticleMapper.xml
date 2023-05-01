@@ -72,6 +72,15 @@
         limit (#{pageNum} - 1) * #{amount}, #{amount}
     </select>
 
+    <select id="findByConditionAndMemberId" resultMap="articleView">
+        select *
+        from article a
+        join member m
+        on a.member_id = m.member_id
+        where a.member_id = #{memberId}
+        limit (#{pageNum} - 1) * #{amount}, #{amount}
+    </select>
+
     <select id="findCountAll" resultType="integer">
         select count(article_id)
         from article

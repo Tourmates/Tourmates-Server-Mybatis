@@ -17,7 +17,7 @@
                                 data-bs-target="#loginModal">로그인</a></li>
       </c:if>
       <c:if test="${not empty loginMember}">
-        <li class="nav-item"><a href="${root}/mypage" class="nav-link text-dark">마이페이지</a></li>
+        <li class="nav-item"><a href="${root}/my" class="nav-link text-dark">마이페이지</a></li>
         <li class="nav-item"><a href="${root}/logout" class="nav-link text-dark">로그아웃</a></li>
       </c:if>
     </ul>

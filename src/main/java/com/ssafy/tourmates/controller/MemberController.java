@@ -1,8 +1,10 @@
 package com.ssafy.tourmates.controller;
 
+import com.ssafy.tourmates.article.service.ArticleService;
 import com.ssafy.tourmates.authoriry.Login;
 import com.ssafy.tourmates.controller.dto.request.EditLoginPwRequest;
 import com.ssafy.tourmates.controller.dto.request.EditPersonalInfoRequest;
+import com.ssafy.tourmates.controller.dto.response.ArticleResponse;
 import com.ssafy.tourmates.controller.dto.response.PersonalInfoResponse;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.member.service.MemberService;
@@ -15,17 +17,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
-import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 @Slf4j
-@RequestMapping("/mypage")
+@RequestMapping("/my")
 public class MemberController {
 
     private final MemberService memberService;
+    private final ArticleService articleService;
 
     @GetMapping
     public String mypage(@Login Member member) {
@@ -65,5 +67,12 @@ public class MemberController {
 
         Long memberId = memberService.editLoginPw(member.getLoginId(), dto);
         return "redirect:/mypage/account";
+    }
+
+    @GetMapping("/articles")
+    public String myArticles(@Login Member member, Model model) {
+        List<ArticleResponse> articles = articleService.searchMyArticle(member.getId(), 1, 10);
+        model.addAttribute("articles", articles);
+        return "member/myArticleList";
     }
 }

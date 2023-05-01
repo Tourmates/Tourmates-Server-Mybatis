@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col" onclick="location.href='${root}/my/articles'">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">
             <div
@@ -66,7 +66,7 @@
           </div>
         </div>
       </div>
-      <a class="col" href="${root}/mypage/personal">
+      <div class="col" onclick="location.href='${root}/my/personal'">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">
             <div
@@ -80,7 +80,7 @@
             <p class="card-text">개인적인 세부 사항과 연락 방법을 제공합니다</p>
           </div>
         </div>
-      </a>
+      </div>
       <div class="col">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">
