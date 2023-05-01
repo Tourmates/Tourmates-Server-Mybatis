@@ -42,7 +42,7 @@ public class NoticeController {
 
   }
 
-  @GetMapping("/delete/{noticeId}")
+  @GetMapping("/{noticeId}/delete")
   public String delteNotice(@PathVariable("noticeId") Long noticeId,
       @SessionAttribute("loginMember") Member loginMember) {
 
@@ -102,6 +102,7 @@ public class NoticeController {
     noticeService.checkAuthority(loginMember);
 
     ModifyNoticeDto modifyNoticeDto = ModifyNoticeDto.builder()
+        .id(noticeId)
         .title(modifyNoticeRequest.getTitle())
         .content(modifyNoticeRequest.getContent())
         .top(modifyNoticeRequest.isTop())
