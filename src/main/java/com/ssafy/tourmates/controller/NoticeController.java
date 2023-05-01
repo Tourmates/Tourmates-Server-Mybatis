@@ -1,7 +1,6 @@
 package com.ssafy.tourmates.controller;
 
-import com.ssafy.tourmates.controller.dto.AddMemberRequest;
-import com.ssafy.tourmates.controller.dto.modify.ModifyNoticeRequest;
+import com.ssafy.tourmates.controller.dto.modify.EditNoticeRequest;
 import com.ssafy.tourmates.controller.dto.request.AddNoticeRequest;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.notice.service.NoticeService;
@@ -27,6 +26,19 @@ public class NoticeController {
     }
 
     return "/notice/noticeRegisterForm";
+  }
+
+  @GetMapping("/{noticeId}/detail")
+  public String detailNotice(@PathVariable("noticeId") Long noticeId,
+                             @SessionAttribute(value = "loginMember", required = false) Member loginMember,
+                             Model model) {
+
+    noticeService.checkAuthority(loginMember);
+    ModifyNoticeDto modifyNoticeDto = noticeService.getNotice(noticeId);
+    model.addAttribute("modifyNoticeDto", modifyNoticeDto);
+
+    return "/notice/noticeDetailForm";
+
   }
 
   @GetMapping("/{noticeId}/modify")
@@ -92,7 +104,7 @@ public class NoticeController {
 
   @PostMapping("/{noticeId}/modify")
   public String modifyNotice(@PathVariable("noticeId") Long noticeId,
-      @ModelAttribute ModifyNoticeRequest modifyNoticeRequest,
+      @ModelAttribute EditNoticeRequest editNoticeRequest,
       @SessionAttribute("loginMember") Member loginMember) {
 
     if (loginMember == null) {
@@ -103,9 +115,9 @@ public class NoticeController {
 
     ModifyNoticeDto modifyNoticeDto = ModifyNoticeDto.builder()
         .id(noticeId)
-        .title(modifyNoticeRequest.getTitle())
-        .content(modifyNoticeRequest.getContent())
-        .top(modifyNoticeRequest.isTop())
+        .title(editNoticeRequest.getTitle())
+        .content(editNoticeRequest.getContent())
+        .top(editNoticeRequest.isTop())
         .build();
 
     noticeService.edit(noticeId, modifyNoticeDto);
