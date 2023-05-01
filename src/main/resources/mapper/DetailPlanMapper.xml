@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.tourmates.tripplan.repository.DetailPlanMapper">
+    <resultMap id="detailPlan" type="DetailPlan">
+        <id column="detail_plan_id" property="id"/>
+        <association property="tripPlan" javaType="TripPlan">
+            <id column="trip_plan_id" property="id"/>
+        </association>
+        <association property="content" javaType="AttractionInfo">
+            <id column="content_id" property="id"/>
+        </association>
+    </resultMap>
+
+    <select id="findAllById" resultMap="detailPlan">
+        select *
+        from detail_plan
+        <where>
+            <foreach item="id" index="index" collection="lost"
+                     open="detail_id in (" separator="," close=")" nullable="true">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+</mapper>

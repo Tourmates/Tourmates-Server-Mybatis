@@ -13,6 +13,8 @@ import static lombok.AccessLevel.*;
 @NoArgsConstructor(access = PROTECTED)
 public class DetailPlan {
 
+    private Long id;
+
     private LocalDateTime createdDate;
     private LocalDateTime lastModifiedDate;
 
@@ -20,7 +22,8 @@ public class DetailPlan {
     private AttractionInfo content;
 
     @Builder
-    public DetailPlan(LocalDateTime createdDate, LocalDateTime lastModifiedDate, TripPlan tripPlan, AttractionInfo content) {
+    public DetailPlan(Long id, LocalDateTime createdDate, LocalDateTime lastModifiedDate, TripPlan tripPlan, AttractionInfo content) {
+        this.id = id;
         this.createdDate = createdDate;
         this.lastModifiedDate = lastModifiedDate;
         this.tripPlan = tripPlan;
