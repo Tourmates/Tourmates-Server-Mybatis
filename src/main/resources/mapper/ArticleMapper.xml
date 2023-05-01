@@ -8,6 +8,8 @@
         <result column="content" property="content"/>
         <result column="hit" property="hit"/>
         <result column="tag" property="tag"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="last_modified_date" property="lastModifiedDate"/>
         <association property="member" javaType="Member">
             <id column="member_id" property="id"/>
         </association>
