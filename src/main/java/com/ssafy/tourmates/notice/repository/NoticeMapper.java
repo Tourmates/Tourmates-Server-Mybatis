@@ -9,7 +9,7 @@ import java.util.Optional;
 @Mapper
 public interface NoticeMapper {
 
-    Notice save(@Param("notice") Notice notice);
+    void save(@Param("notice") Notice notice);
 
     Optional<Notice> findById(@Param("noticeId") Long noticeId);
 

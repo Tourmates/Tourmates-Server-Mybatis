@@ -4,8 +4,8 @@
 <mapper namespace="com.ssafy.tourmates.notice.repository.NoticeMapper">
 
   <insert id="save" useGeneratedKeys="true" keyProperty="id">
-    insert into notice(title, content, top)
-    values (#{notice.title}, #{notice.content}, #{notice.top})
+    insert into notice(title, content, top, created_by, last_modified_by)
+    values (#{notice.title}, #{notice.content}, #{notice.top}, #{notice.createdBy.id}, #{notice.lastModifiedBy.id})
   </insert>
 
   <select id="findById" resultType="notice">
