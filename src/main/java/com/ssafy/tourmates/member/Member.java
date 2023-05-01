@@ -59,4 +59,4 @@ public class Member {
         this.phone = phone;
         this.lastModifiedDate = LocalDateTime.now();
     }
-    }
+}
