@@ -18,11 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class NoticeController {
 
 
-  private NoticeService noticeService;
-
-  public NoticeController(NoticeService noticeService) {
-    this.noticeService = noticeService;
-  }
+  private final NoticeService noticeService;
 
   @GetMapping("/add")
   public String addNotice(@SessionAttribute("loginMember") Member loginMember) {
