@@ -18,14 +18,7 @@ public class AddMemberRequest {
     private String gender;
     private String nickname;
 
-    @Data
-    public static class AddNoticeRequest {
 
-
-        private String title;
-        private String content;
-        private boolean top;
-    }
 
     @Data
     public static class ModifyNoticeRequest {
