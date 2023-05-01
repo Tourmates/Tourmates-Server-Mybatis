@@ -14,7 +14,7 @@ import static lombok.AccessLevel.*;
 @NoArgsConstructor(access = PROTECTED)
 public class Notice {
 
-    private Long id;
+    private Long noticeId;
     private String title;
     private String content;
     private boolean top;
@@ -24,8 +24,8 @@ public class Notice {
     private LocalDateTime lastModifiedDate;
 
     @Builder
-    public Notice(Long id, String title, String content, boolean top, Member createBy, Member lastModifiedBy, LocalDateTime createdDate, LocalDateTime lastModifiedDate){
-        this.id = id;
+    public Notice(Long noticeId, String title, String content, boolean top, Member createBy, Member lastModifiedBy, LocalDateTime createdDate, LocalDateTime lastModifiedDate){
+        this.noticeId = noticeId;
         this.title = title;
         this.content = content;
         this.top = top;
