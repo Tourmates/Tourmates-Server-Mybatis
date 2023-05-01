@@ -6,12 +6,14 @@ import lombok.Data;
 @Data
 public class ModifyNoticeDto {
 
+    private Long id;
     private String title;
     private String content;
     private boolean top;
 
     @Builder
-    public ModifyNoticeDto(String title, String content, boolean top){
+    public ModifyNoticeDto(Long id, String title, String content, boolean top){
+        this.id = id;
         this.title = title;
         this.content = content;
         this.top = top;
