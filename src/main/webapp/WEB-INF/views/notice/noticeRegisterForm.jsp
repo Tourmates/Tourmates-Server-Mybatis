@@ -17,7 +17,7 @@
     <form method="post" action="/${root}/notice/register">
         <div class="mb-3">
             <label for="noticeTitle" class="form-label ">공지 제목</label>
-            <input type="text" class="form-control border border-black" id="exampleInputEmail1"
+            <input type="text" class="form-control border border-black" id="title"
                    aria-describedby="emailHelp">
         </div>
 
@@ -25,7 +25,7 @@
         <div class="input-group">
             <textarea class="form-control h-25 border border-black" rows="10"
                       id="submission_content{{submission.id}}"
-                      aria-label="With textarea"></textarea>
+                      aria-label="With textarea" name = "content"></textarea>
         </div>
         <br/>
         <div class="mb-3 form-check">
