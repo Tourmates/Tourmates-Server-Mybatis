@@ -90,9 +90,9 @@ public class NoticeController {
   }
 
 
-  @PostMapping("/modify/{noticeId}")
+  @PostMapping("/{noticeId}/modify")
   public String modifyNotice(@PathVariable("noticeId") Long noticeId,
-      @RequestBody ModifyNoticeRequest modifyNoticeRequest,
+      @ModelAttribute ModifyNoticeRequest modifyNoticeRequest,
       @SessionAttribute("loginMember") Member loginMember) {
 
     if (loginMember == null) {
