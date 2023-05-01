@@ -1,5 +1,6 @@
 package com.ssafy.tourmates.controller;
 
+import com.ssafy.tourmates.authoriry.Login;
 import com.ssafy.tourmates.controller.dto.request.EditLoginPwRequest;
 import com.ssafy.tourmates.controller.dto.request.EditPersonalInfoRequest;
 import com.ssafy.tourmates.controller.dto.response.PersonalInfoResponse;
@@ -27,19 +28,19 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping
-    public String mypage() {
+    public String mypage(@Login Member member) {
         return "member/mypage";
     }
 
     @GetMapping("/personal")
-    public String personalInfo(@SessionAttribute(name = "loginMember") Member member, Model model) {
+    public String personalInfo(@Login Member member, Model model) {
         PersonalInfoResponse response = memberService.searchPersonalInfo(member.getLoginId());
         model.addAttribute("personalInfo", response);
         return "member/personalInfo";
     }
 
     @PostMapping("/personal")
-    public String personalInfo(EditPersonalInfoRequest request, @SessionAttribute(name = "loginMember") Member member) {
+    public String personalInfo(EditPersonalInfoRequest request, @Login Member member) {
         EditPersonalInfoDto dto = EditPersonalInfoDto.builder()
                 .nickname(request.getNickname())
                 .email(request.getEmailId() + "@" + request.getEmailDomain())
@@ -51,12 +52,12 @@ public class MemberController {
     }
 
     @GetMapping("/account")
-    public String account(@SessionAttribute(name = "loginMember") Member member, Model model) {
+    public String account(@Login Member member, Model model) {
         return "member/account";
     }
 
     @PostMapping("/account")
-    public String account(EditLoginPwRequest request, @SessionAttribute(name = "loginMember") Member member) {
+    public String account(EditLoginPwRequest request, @Login Member member) {
         EditLoginPwDto dto = EditLoginPwDto.builder()
                 .oldLoginPw(request.getOldLoginPw())
                 .newLoginPw(request.getNewLoginPw())
