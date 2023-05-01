@@ -1,10 +1,12 @@
 package com.ssafy.tourmates.controller;
 
+import com.ssafy.tourmates.article.repository.dto.SearchArticleCondition;
 import com.ssafy.tourmates.article.service.ArticleService;
 import com.ssafy.tourmates.article.service.dto.AddArticleDto;
 import com.ssafy.tourmates.article.service.dto.EditArticleDto;
 import com.ssafy.tourmates.controller.dto.request.AddArticleRequest;
 import com.ssafy.tourmates.controller.dto.request.EditArticleRequest;
+import com.ssafy.tourmates.controller.dto.response.ArticleResponse;
 import com.ssafy.tourmates.controller.dto.response.DetailArticleResponse;
 import com.ssafy.tourmates.member.Member;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -22,7 +26,18 @@ public class ArticleController {
     private final ArticleService articleService;
 
     @GetMapping
-    public String articles() {
+    public String articles(
+            @RequestParam(required = false) String keyword,
+            @RequestParam(defaultValue = "1") Integer sorted,
+            Model model) {
+
+        SearchArticleCondition condition = SearchArticleCondition.builder()
+                .keyword(keyword)
+                .sorted(sorted)
+                .build();
+
+        List<ArticleResponse> articles = articleService.searchArticle(condition);
+        model.addAttribute("articles", articles);
         return "article/articleList";
     }
 

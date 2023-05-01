@@ -28,6 +28,22 @@
         from article
     </select>
 
+    <select id="findByCondition" resultMap="article">
+        select *
+        from article
+        <where>
+            <if test="keyword != null">
+                and title = #{keyword}
+            </if>
+        </where>
+        <if test="sorted == 1">
+            order by created_date desc
+        </if>
+        <if test="sorted == 2">
+            order by hit desc
+        </if>
+    </select>
+
     <update id="update">
         update article
         set title   = #{title},
