@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko1">
 <head>
@@ -30,7 +32,13 @@
     </div>
     <br/>
     <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="top" name = "top">
+      <c:if test = "${modifyNoticeDto.top == true}">
+        <input type="checkbox" class="form-check-input" id="top" name = "top" checked>
+      </c:if>
+      <c:if test = "${modifyNoticeDto.top == false}">
+        <input type="checkbox" class="form-check-input" id="top" name = "top">
+      </c:if>
+
       <label class="form-check-label" for="top">상단 등록</label></div>
     <button type="submit" class="d-grid gap-2 col-2 mx-auto btn btn-primary text-center ">수정
     </button>

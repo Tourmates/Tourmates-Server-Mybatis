@@ -37,24 +37,9 @@ public class Notice {
 
     //== 비즈니스 로직 ==//
 
-    public void changeTitle(String oldTitle, String newTitle) {
-        if(!this.title.equals(oldTitle)){
-            throw new EditException();
-        }
+    public void change(String newTitle, String newContent, boolean newTop){
         this.title = newTitle;
-    }
-
-    public void changeContent(String oldContent, String newContent) {
-        if(!this.title.equals(oldContent)){
-            throw new EditException();
-        }
-        this.title = newContent;
-    }
-
-    public void changeTop(boolean oldTop, boolean newTop){
-        if(!this.top == oldTop){
-            throw new EditException();
-        }
+        this.content = newContent;
         this.top = newTop;
     }
 }
