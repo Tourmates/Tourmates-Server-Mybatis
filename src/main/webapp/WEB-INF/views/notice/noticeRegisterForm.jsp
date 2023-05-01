@@ -14,6 +14,7 @@
 <section class="container">
     <h1 class="text-center"> 공지사항 등록 </h1>
 
+
     <form method="post" action="/${root}/notice/register">
         <div class="mb-3">
             <label for="noticeTitle" class="form-label ">공지 제목</label>
