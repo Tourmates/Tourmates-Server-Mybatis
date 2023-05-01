@@ -12,27 +12,27 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class NoticeServiceImpl implements NoticeService{
+public class NoticeServiceImpl implements NoticeService {
 
     private NoticeRepository noticeRepository;
 
-    public NoticeServiceImpl(NoticeRepository noticeRepository){
+    public NoticeServiceImpl(NoticeRepository noticeRepository) {
         this.noticeRepository = noticeRepository;
     }
 
     @Override
     @Transactional
-    public Long add(AddNoticeDto dto,  Member loginMember) {
+    public Long add(AddNoticeDto dto, Member loginMember) {
 
-            Notice notice = Notice.builder()
-                    .title(dto.getTitle())
-                    .content(dto.getContent())
-                    .top(dto.isTop())
-                    .createBy(dto.getCreatedBy())
-                    .lastModifiedBy(dto.getLastModifiedBy())
-                    .build();
+        Notice notice = Notice.builder()
+                .title(dto.getTitle())
+                .content(dto.getContent())
+                .top(dto.isTop())
+                .createBy(dto.getCreatedBy())
+                .lastModifiedBy(dto.getLastModifiedBy())
+                .build();
 
-            return noticeRepository.save(notice);
+        return noticeRepository.save(notice);
     }
 
 
@@ -40,7 +40,7 @@ public class NoticeServiceImpl implements NoticeService{
     @Transactional
     public void checkAuthority(Member loginMember) {
 
-        if(loginMember.getAuthority().getKey().equals("CLIENT")) {
+        if (loginMember.getAuthority().getKey().equals("CLIENT")) {
             throw new AccessDeniedException("공지는 관리자만 수정이 가능합니다.");
         }
     }
@@ -49,20 +49,20 @@ public class NoticeServiceImpl implements NoticeService{
     @Transactional(readOnly = true)
     public ModifyNoticeDto getModifyNotice(Long noticeId) {
 
-        Notice notice =  noticeRepository.findById(noticeId).orElseThrow(NoticeNotFoundException::new);
+        Notice notice = noticeRepository.findById(noticeId).orElseThrow(NoticeNotFoundException::new);
 
         return ModifyNoticeDto.builder()
-                        .id(noticeId)
-                        .title(notice.getTitle())
-                        .content(notice.getContent())
-                        .top(notice.isTop())
-                        .build();
+                .id(noticeId)
+                .title(notice.getTitle())
+                .content(notice.getContent())
+                .top(notice.isTop())
+                .build();
     }
 
     @Override
     public DetailNoticeDto getDetailNotice(Long noticeId) {
 
-        Notice notice =  noticeRepository.findById(noticeId).orElseThrow(NoticeNotFoundException::new);
+        Notice notice = noticeRepository.findById(noticeId).orElseThrow(NoticeNotFoundException::new);
 
         return DetailNoticeDto.builder()
                 .noticeId(noticeId)
@@ -89,7 +89,7 @@ public class NoticeServiceImpl implements NoticeService{
 
     @Override
     @Transactional
-    public void delete(Long noticeId){
+    public void delete(Long noticeId) {
         noticeRepository.deleteById(noticeId);
     }
 

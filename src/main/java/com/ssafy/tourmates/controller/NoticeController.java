@@ -17,111 +17,111 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/notice")
 public class NoticeController {
 
-  private final NoticeService noticeService;
+    private final NoticeService noticeService;
 
-  @GetMapping("/add")
-  public String addNotice(@SessionAttribute("loginMember") Member loginMember) {
-    if (loginMember == null) {
-      return "loginForm"; //TODO: 나중에 바꾸기
+    @GetMapping("/add")
+    public String addNotice(@SessionAttribute("loginMember") Member loginMember) {
+        if (loginMember == null) {
+            return "loginForm"; //TODO: 나중에 바꾸기
+        }
+
+        return "/notice/noticeRegisterForm";
     }
 
-    return "/notice/noticeRegisterForm";
-  }
+    @GetMapping("/{noticeId}/detail")
+    public String detailNotice(@PathVariable("noticeId") Long noticeId,
+                               @SessionAttribute(value = "loginMember", required = false) Member loginMember,
+                               Model model) {
 
-  @GetMapping("/{noticeId}/detail")
-  public String detailNotice(@PathVariable("noticeId") Long noticeId,
-                             @SessionAttribute(value = "loginMember", required = false) Member loginMember,
-                             Model model) {
+        noticeService.checkAuthority(loginMember);
+        DetailNoticeDto detailNoticeDto = noticeService.getDetailNotice(noticeId);
+        model.addAttribute("detailNoticeDto", detailNoticeDto);
 
-    noticeService.checkAuthority(loginMember);
-    DetailNoticeDto detailNoticeDto = noticeService.getDetailNotice(noticeId);
-    model.addAttribute("detailNoticeDto", detailNoticeDto);
+        return "/notice/noticeDetailForm";
 
-    return "/notice/noticeDetailForm";
-
-  }
-
-  @GetMapping("/{noticeId}/modify")
-  public String modifyNotice(@PathVariable("noticeId") Long noticeId,
-      @SessionAttribute(value = "loginMember", required = false) Member loginMember,
-      Model model) {
-
-    noticeService.checkAuthority(loginMember);
-    ModifyNoticeDto modifyNoticeDto = noticeService.getModifyNotice(noticeId);
-    model.addAttribute("modifyNoticeDto", modifyNoticeDto);
-
-    return "/notice/noticeModifyForm";
-
-  }
-
-  @GetMapping("/{noticeId}/delete")
-  public String deleteNotice(@PathVariable("noticeId") Long noticeId,
-      @SessionAttribute("loginMember") Member loginMember) {
-
-    if (loginMember == null) {
-      return "loginForm";
     }
 
-    noticeService.checkAuthority(loginMember);
+    @GetMapping("/{noticeId}/modify")
+    public String modifyNotice(@PathVariable("noticeId") Long noticeId,
+                               @SessionAttribute(value = "loginMember", required = false) Member loginMember,
+                               Model model) {
 
-    noticeService.delete(noticeId);
+        noticeService.checkAuthority(loginMember);
+        ModifyNoticeDto modifyNoticeDto = noticeService.getModifyNotice(noticeId);
+        model.addAttribute("modifyNoticeDto", modifyNoticeDto);
 
-    return "redirect:/notice/list"; //TODO : list 메소드 만들기
-  }
+        return "/notice/noticeModifyForm";
 
-  @GetMapping("/list")
-  public String noticeList() {
-    return null;
-  }
-
-
-  @PostMapping("/register")
-  public String addNotice(@ModelAttribute AddNoticeRequest addNoticeRequest,
-      @SessionAttribute(value = "loginMember", required = false) Member loginMember,
-      Model model) {
-
-
-    if (loginMember == null) {
-      return "loginForm"; //TODO: 나중에 바꾸기
     }
 
-    noticeService.checkAuthority(loginMember);
+    @GetMapping("/{noticeId}/delete")
+    public String deleteNotice(@PathVariable("noticeId") Long noticeId,
+                               @SessionAttribute("loginMember") Member loginMember) {
 
-    AddNoticeDto dto = AddNoticeDto.builder()
-        .title(addNoticeRequest.getTitle())
-        .content(addNoticeRequest.getContent())
-        .top(addNoticeRequest.isTop())
-        .createdBy(loginMember)
-        .lastModifiedBy(loginMember)
-        .build();
+        if (loginMember == null) {
+            return "loginForm";
+        }
 
-    Long noticeId = noticeService.add(dto, loginMember);
-    model.addAttribute("dto", dto);
+        noticeService.checkAuthority(loginMember);
 
-    return "redirect:/notice/" + noticeId + "/detail";
-  }
+        noticeService.delete(noticeId);
 
-
-  @PostMapping("/{noticeId}/modify")
-  public String modifyNotice(@PathVariable("noticeId") Long noticeId,
-      @ModelAttribute EditNoticeRequest editNoticeRequest,
-      @SessionAttribute("loginMember") Member loginMember) {
-
-    if (loginMember == null) {
-      return "loginForm"; //TODO: 나중에 바꾸기
+        return "redirect:/notice/list"; //TODO : list 메소드 만들기
     }
 
-    noticeService.checkAuthority(loginMember);
+    @GetMapping("/list")
+    public String noticeList() {
+        return null;
+    }
 
-    ModifyNoticeDto modifyNoticeDto = ModifyNoticeDto.builder()
-        .id(noticeId)
-        .title(editNoticeRequest.getTitle())
-        .content(editNoticeRequest.getContent())
-        .top(editNoticeRequest.isTop())
-        .build();
 
-    noticeService.edit(noticeId, modifyNoticeDto);
+    @PostMapping("/register")
+    public String addNotice(@ModelAttribute AddNoticeRequest addNoticeRequest,
+                            @SessionAttribute(value = "loginMember", required = false) Member loginMember,
+                            Model model) {
 
-    return null;
-  }
+
+        if (loginMember == null) {
+            return "loginForm"; //TODO: 나중에 바꾸기
+        }
+
+        noticeService.checkAuthority(loginMember);
+
+        AddNoticeDto dto = AddNoticeDto.builder()
+                .title(addNoticeRequest.getTitle())
+                .content(addNoticeRequest.getContent())
+                .top(addNoticeRequest.isTop())
+                .createdBy(loginMember)
+                .lastModifiedBy(loginMember)
+                .build();
+
+        Long noticeId = noticeService.add(dto, loginMember);
+        model.addAttribute("dto", dto);
+
+        return "redirect:/notice/" + noticeId + "/detail";
+    }
+
+
+    @PostMapping("/{noticeId}/modify")
+    public String modifyNotice(@PathVariable("noticeId") Long noticeId,
+                               @ModelAttribute EditNoticeRequest editNoticeRequest,
+                               @SessionAttribute("loginMember") Member loginMember) {
+
+        if (loginMember == null) {
+            return "loginForm"; //TODO: 나중에 바꾸기
+        }
+
+        noticeService.checkAuthority(loginMember);
+
+        ModifyNoticeDto modifyNoticeDto = ModifyNoticeDto.builder()
+                .id(noticeId)
+                .title(editNoticeRequest.getTitle())
+                .content(editNoticeRequest.getContent())
+                .top(editNoticeRequest.isTop())
+                .build();
+
+        noticeService.edit(noticeId, modifyNoticeDto);
+
+        return null;
+    }
 }

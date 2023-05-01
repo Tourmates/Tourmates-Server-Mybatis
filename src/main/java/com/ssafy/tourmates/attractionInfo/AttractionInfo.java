@@ -28,7 +28,7 @@ public class AttractionInfo {
     private String mlevel;
 
     @Builder
-    public AttractionInfo(int contentId, int sidoCode2, int gugunCode2, int contentTypeId, String title, String addr1, String addr2, String tel, String zipcode, String firstImage, String firstImage2, int readCount, BigDecimal latitude, BigDecimal longtitude, String mlevel){
+    public AttractionInfo(int contentId, int sidoCode2, int gugunCode2, int contentTypeId, String title, String addr1, String addr2, String tel, String zipcode, String firstImage, String firstImage2, int readCount, BigDecimal latitude, BigDecimal longtitude, String mlevel) {
         this.contentId = contentId;
         this.sidoCode2 = sidoCode2;
         this.gugunCode2 = gugunCode2;
@@ -48,7 +48,7 @@ public class AttractionInfo {
 
     //비즈니스 로직 추가
     public void change(int newSidoCode2, int newGugunCode2, int newContentTypeId, String newTitle, String newAddr1, String newAddr2, String newTel, String newZipcode, String newFirstImage,
-                       String newFirstImage2, BigDecimal newLatitude, BigDecimal newLongtitude){
+                       String newFirstImage2, BigDecimal newLatitude, BigDecimal newLongtitude) {
         this.sidoCode2 = newSidoCode2;
         this.gugunCode2 = newGugunCode2;
         this.contentTypeId = newContentTypeId;
@@ -62,7 +62,6 @@ public class AttractionInfo {
         this.latitude = newLatitude;
         this.longtitude = newLongtitude;
     }
-
 
 
 }

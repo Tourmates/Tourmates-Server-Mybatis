@@ -16,56 +16,56 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class HotplaceServiceImpl implements HotplaceService {
 
-  private HotplaceRepository hotplaceRepository;
-  private MemberRepository memberRepository;
+    private HotplaceRepository hotplaceRepository;
+    private MemberRepository memberRepository;
 
-  public HotplaceServiceImpl(HotplaceRepository hotplaceRepository,
-      MemberRepository memberRepository) {
-    this.hotplaceRepository = hotplaceRepository;
-    this.memberRepository = memberRepository;
-  }
+    public HotplaceServiceImpl(HotplaceRepository hotplaceRepository,
+                               MemberRepository memberRepository) {
+        this.hotplaceRepository = hotplaceRepository;
+        this.memberRepository = memberRepository;
+    }
 
-  @Override
-  @Transactional
-  public void registerHotplace(AddHotplaceDto dto) {
-    Member member = memberRepository.findById(dto.getMemberId())
-        .orElseThrow(MemberNotFoundException::new);
+    @Override
+    @Transactional
+    public void registerHotplace(AddHotplaceDto dto) {
+        Member member = memberRepository.findById(dto.getMemberId())
+                .orElseThrow(MemberNotFoundException::new);
 
 
-    Hotplace hotplace = Hotplace.builder()
-        .name(dto.getName())
-        .desc(dto.getDesc())
-        .visitedDate(dto.getVisitedDate())
-        .uploadFileName(dto.getUploadFileName())
-        .storeFileName(dto.getStoreFileName())
-        .member(member)
-        .contentId(dto.getContentId())
-        .contentTypeId(dto.getContentTypeId())
-        .build();
+        Hotplace hotplace = Hotplace.builder()
+                .name(dto.getName())
+                .desc(dto.getDesc())
+                .visitedDate(dto.getVisitedDate())
+                .uploadFileName(dto.getUploadFileName())
+                .storeFileName(dto.getStoreFileName())
+                .member(member)
+                .contentId(dto.getContentId())
+                .contentTypeId(dto.getContentTypeId())
+                .build();
 
-    hotplaceRepository.save(hotplace);
+        hotplaceRepository.save(hotplace);
 
-  }
+    }
 
-  @Override
-  @Transactional
-  public void edit(ModifyHotplaceDto dto) {
-    Member member = memberRepository.findById(dto.getMemberId())
-        .orElseThrow(MemberNotFoundException::new);
+    @Override
+    @Transactional
+    public void edit(ModifyHotplaceDto dto) {
+        Member member = memberRepository.findById(dto.getMemberId())
+                .orElseThrow(MemberNotFoundException::new);
 
-    Hotplace findHotplace = hotplaceRepository.findById(dto.getId()).orElseThrow(HotplaceNotFoundException::new);
+        Hotplace findHotplace = hotplaceRepository.findById(dto.getId()).orElseThrow(HotplaceNotFoundException::new);
 
-    findHotplace.changeName(findHotplace.getName(), dto.getName());
-    findHotplace.changeDesc(findHotplace.getDesc(), dto.getDesc());
-    findHotplace.changeVisitedDate(findHotplace.getVisitedDate(), dto.getVisitedDate());
-    findHotplace.changeUploadFileName(findHotplace.getUploadFileName(), dto.getUploadFileName());
+        findHotplace.changeName(findHotplace.getName(), dto.getName());
+        findHotplace.changeDesc(findHotplace.getDesc(), dto.getDesc());
+        findHotplace.changeVisitedDate(findHotplace.getVisitedDate(), dto.getVisitedDate());
+        findHotplace.changeUploadFileName(findHotplace.getUploadFileName(), dto.getUploadFileName());
 
-    hotplaceRepository.update(findHotplace);
-  }
+        hotplaceRepository.update(findHotplace);
+    }
 
-  @Override
-  @Transactional
-  public void delete(Long hotplaceId) {
-    hotplaceRepository.deleteById(hotplaceId);
-  }
+    @Override
+    @Transactional
+    public void delete(Long hotplaceId) {
+        hotplaceRepository.deleteById(hotplaceId);
+    }
 }

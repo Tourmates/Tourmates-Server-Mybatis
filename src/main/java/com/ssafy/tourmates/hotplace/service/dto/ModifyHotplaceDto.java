@@ -21,7 +21,7 @@ public class ModifyHotplaceDto {
     private int contentTypeId;
 
     @Builder
-    public ModifyHotplaceDto(Long id, String name, String desc, String visitedDate, String uploadFileName, String storeFileName, Long memberId, int contentId, int contentTypeId){
+    public ModifyHotplaceDto(Long id, String name, String desc, String visitedDate, String uploadFileName, String storeFileName, Long memberId, int contentId, int contentTypeId) {
         this.id = id;
         this.name = name;
         this.desc = desc;

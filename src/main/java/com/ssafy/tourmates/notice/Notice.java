@@ -24,7 +24,7 @@ public class Notice {
     private LocalDateTime lastModifiedDate;
 
     @Builder
-    public Notice(Long noticeId, String title, String content, boolean top, Member createBy, Member lastModifiedBy, LocalDateTime createdDate, LocalDateTime lastModifiedDate){
+    public Notice(Long noticeId, String title, String content, boolean top, Member createBy, Member lastModifiedBy, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
         this.noticeId = noticeId;
         this.title = title;
         this.content = content;
@@ -37,7 +37,7 @@ public class Notice {
 
     //== 비즈니스 로직 ==//
 
-    public void change(String newTitle, String newContent, boolean newTop){
+    public void change(String newTitle, String newContent, boolean newTop) {
         this.title = newTitle;
         this.content = newContent;
         this.top = newTop;

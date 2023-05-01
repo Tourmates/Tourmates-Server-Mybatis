@@ -8,7 +8,7 @@ import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
-public class NoticeRepositoryIml implements NoticeRepository{
+public class NoticeRepositoryIml implements NoticeRepository {
 
     private final NoticeMapper noticeMapper;
 

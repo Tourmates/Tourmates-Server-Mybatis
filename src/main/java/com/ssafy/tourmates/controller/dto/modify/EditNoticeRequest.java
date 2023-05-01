@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class EditNoticeRequest {
 
-  private String title;
-  private String content;
-  private boolean top;
+    private String title;
+    private String content;
+    private boolean top;
 
 }

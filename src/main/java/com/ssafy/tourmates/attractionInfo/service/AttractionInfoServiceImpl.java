@@ -12,19 +12,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-public class AttractionInfoServiceImpl implements AttractionInfoService{
+public class AttractionInfoServiceImpl implements AttractionInfoService {
 
     private AttractionInfoRepository attractionInfoRepository;
 
-    public AttractionInfoServiceImpl(AttractionInfoRepository attractionInfoRepository){
+    public AttractionInfoServiceImpl(AttractionInfoRepository attractionInfoRepository) {
         this.attractionInfoRepository = attractionInfoRepository;
     }
 
     @Override
     @Transactional
-    public void add(AddAttractionInfoDto dto){
+    public void add(AddAttractionInfoDto dto) {
 
-        AttractionInfo attractionInfo  = AttractionInfo.builder()
+        AttractionInfo attractionInfo = AttractionInfo.builder()
                 .contentId(dto.getContentTypeId())
                 .sidoCode2(dto.getSidoCode())
                 .gugunCode2(dto.getGugunCode())
@@ -45,7 +45,7 @@ public class AttractionInfoServiceImpl implements AttractionInfoService{
 
     @Override
     @Transactional
-    public void edit(ModifyAttractionInfoDto dto){
+    public void edit(ModifyAttractionInfoDto dto) {
 
         AttractionInfo findAttractionInfo = attractionInfoRepository.findById(dto.getId()).orElseThrow(AttractionInfoNotFoundException::new);
 

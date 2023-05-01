@@ -19,7 +19,7 @@ public class AddNoticeDto {
 
 
     @Builder
-    public AddNoticeDto(String title, String content, boolean top, Member createdBy, Member lastModifiedBy){
+    public AddNoticeDto(String title, String content, boolean top, Member createdBy, Member lastModifiedBy) {
         this.title = title;
         this.content = content;
         this.top = top;

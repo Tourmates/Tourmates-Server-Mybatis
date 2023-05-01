@@ -14,7 +14,7 @@ public class AddAttractionInfoDto {
 
     private int sidoCode;
     private int gugunCode;
-    private  int contentTypeId;
+    private int contentTypeId;
     private String title;
     private String addr1;
     private String addr2;
@@ -28,7 +28,7 @@ public class AddAttractionInfoDto {
 
     @Builder
     public AddAttractionInfoDto(int sidoCode, int gugunCode, int contentTypeId, String title, String addr1, String addr2, String zipcode,
-                                String tel, String firstImage, String firstImage2, int readCount, BigDecimal latitude, BigDecimal longtitude){
+                                String tel, String firstImage, String firstImage2, int readCount, BigDecimal latitude, BigDecimal longtitude) {
         this.sidoCode = sidoCode;
         this.gugunCode = gugunCode;
         this.contentTypeId = contentTypeId;

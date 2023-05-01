@@ -19,7 +19,6 @@ public class AddMemberRequest {
     private String nickname;
 
 
-
     @Data
     public static class ModifyNoticeRequest {
 

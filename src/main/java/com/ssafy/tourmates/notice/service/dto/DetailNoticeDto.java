@@ -19,7 +19,7 @@ public class DetailNoticeDto {
     private LocalDateTime lastModifiedDate;
 
     @Builder
-    public DetailNoticeDto(Long noticeId, String title, String content, boolean top, Member createdBy, Member lastModifiedBy, LocalDateTime createdDate, LocalDateTime lastModifiedDate){
+    public DetailNoticeDto(Long noticeId, String title, String content, boolean top, Member createdBy, Member lastModifiedBy, LocalDateTime createdDate, LocalDateTime lastModifiedDate) {
         this.noticeId = noticeId;
         this.title = title;
         this.content = content;

@@ -45,7 +45,7 @@ public class Member {
     }
 
     //== 비즈니스 로직 ==//
-    public void changeLoginPw(String oldLoginPw,String newLoginPw) {
+    public void changeLoginPw(String oldLoginPw, String newLoginPw) {
         if (!this.loginPw.equals(oldLoginPw)) {
             throw new EditException();
         }
