@@ -47,7 +47,8 @@
     <update id="update">
         update article
         set title   = #{title},
-            content = #{content}
+            content = #{content},
+            hit = #{hit}
         where article_id = #{id}
     </update>
 

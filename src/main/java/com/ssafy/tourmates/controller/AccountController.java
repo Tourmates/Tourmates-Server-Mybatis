@@ -56,6 +56,7 @@ public class AccountController {
     public String login() {
         return "index";
     }
+
     @PostMapping("/login")
     public String login(
             @Valid LoginRequest request,

@@ -66,6 +66,7 @@ public class ArticleServiceImpl implements ArticleService {
         return DetailArticleResponse.builder()
                 .articleId(article.getId())
                 .title(article.getTitle())
+                .hit(article.getHit())
                 .content(article.getContent())
                 .createdDate(article.getCreatedDate())
                 .build();
