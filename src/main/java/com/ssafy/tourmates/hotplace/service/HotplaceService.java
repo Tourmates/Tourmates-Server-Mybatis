@@ -2,12 +2,14 @@ package com.ssafy.tourmates.hotplace.service;
 
 import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
 import com.ssafy.tourmates.hotplace.service.dto.ModifyHotplaceDto;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public interface HotplaceService {
 
-    public void registerHotplace(AddHotplaceDto dto);
+    Long registerHotplace(String loginId, Integer contentId, AddHotplaceDto dto);
 
-    public void edit(ModifyHotplaceDto dto);
+    Long edit(ModifyHotplaceDto dto);
 
-    public void delete(Long hotplaceId);
+    Long delete(Long hotplaceId);
 }

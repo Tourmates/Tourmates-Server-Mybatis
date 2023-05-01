@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface HotplaceMapper {
 
-    Hotplace save(@Param("hotplace") Hotplace hotplace);
+    void save(@Param("hotplace") Hotplace hotplace);
 
     Optional<Hotplace> findById(@Param("id") Long id);
 

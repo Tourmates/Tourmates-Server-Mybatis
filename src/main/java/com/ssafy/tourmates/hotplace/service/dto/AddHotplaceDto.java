@@ -9,24 +9,18 @@ import lombok.NoArgsConstructor;
 @Data
 public class AddHotplaceDto {
 
-    private String name;
-    private String desc;
+    private String tag;
+    private String title;
+    private String content;
     private String visitedDate;
     private String uploadFileName;
-    private String storeFileName;
-    private Long memberId;
-    private int contentId;
-    private int contentTypeId;
 
     @Builder
-    public AddHotplaceDto(String name, String desc, String visitedDate, String uploadFileName, String storeFileName, Long memberId, int contentId, int contentTypeId) {
-        this.name = name;
-        this.desc = desc;
+    public AddHotplaceDto(String tag, String title, String content, String visitedDate, String uploadFileName) {
+        this.tag = tag;
+        this.title = title;
+        this.content = content;
         this.visitedDate = visitedDate;
         this.uploadFileName = uploadFileName;
-        this.storeFileName = storeFileName;
-        this.memberId = memberId;
-        this.contentId = contentId;
-        this.contentTypeId = contentTypeId;
     }
 }

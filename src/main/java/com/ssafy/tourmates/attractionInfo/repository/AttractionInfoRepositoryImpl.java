@@ -19,7 +19,7 @@ public class AttractionInfoRepositoryImpl implements AttractionInfoRepository {
     }
 
     @Override
-    public Optional<AttractionInfo> findById(Long id) {
+    public Optional<AttractionInfo> findById(Integer contentId) {
 //        return attractionInfoMapper.findById(id);
         return null;
     }

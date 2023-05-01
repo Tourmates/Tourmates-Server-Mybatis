@@ -21,6 +21,6 @@ public interface HotplaceRepository {
 
     void update(Hotplace hotplace);
 
-    void deleteById(Long id);
+    void remove(Long id);
 
 }

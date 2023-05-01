@@ -50,7 +50,7 @@ public class HotplaceRepositoryImpl implements HotplaceRepository {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void remove(Long id) {
         hotplaceMapper.deleteById(id);
     }
 }

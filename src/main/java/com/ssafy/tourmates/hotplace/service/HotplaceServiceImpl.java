@@ -1,5 +1,8 @@
 package com.ssafy.tourmates.hotplace.service;
 
+import com.ssafy.tourmates.attractionInfo.AttractionInfo;
+import com.ssafy.tourmates.attractionInfo.repository.AttractionInfoRepository;
+import com.ssafy.tourmates.common.FileStore;
 import com.ssafy.tourmates.common.exception.HotplaceNotFoundException;
 import com.ssafy.tourmates.common.exception.MemberNotFoundException;
 import com.ssafy.tourmates.hotplace.Hotplace;
@@ -12,60 +15,47 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.NoSuchElementException;
+
 @Service
 @RequiredArgsConstructor
 public class HotplaceServiceImpl implements HotplaceService {
 
-    private HotplaceRepository hotplaceRepository;
-    private MemberRepository memberRepository;
+    private final HotplaceRepository hotplaceRepository;
+    private final MemberRepository memberRepository;
+    private final AttractionInfoRepository attractionInfoRepository;
 
-    public HotplaceServiceImpl(HotplaceRepository hotplaceRepository,
-                               MemberRepository memberRepository) {
-        this.hotplaceRepository = hotplaceRepository;
-        this.memberRepository = memberRepository;
-    }
 
     @Override
-    @Transactional
-    public void registerHotplace(AddHotplaceDto dto) {
-        Member member = memberRepository.findById(dto.getMemberId())
-                .orElseThrow(MemberNotFoundException::new);
+    public Long registerHotplace(String loginId, Integer contentId, AddHotplaceDto dto) {
+        Member findMember = memberRepository.findByLoginId(loginId)
+                .orElseThrow(NoSuchElementException::new);
 
+        AttractionInfo findContent = attractionInfoRepository.findById(contentId)
+                .orElseThrow(NoSuchElementException::new);
 
         Hotplace hotplace = Hotplace.builder()
-                .name(dto.getName())
-                .desc(dto.getDesc())
+                .tag(dto.getTag())
+                .title(dto.getTitle())
+                .content(dto.getContent())
                 .visitedDate(dto.getVisitedDate())
-                .uploadFileName(dto.getUploadFileName())
-                .storeFileName(dto.getStoreFileName())
-                .member(member)
-                .contentId(dto.getContentId())
-                .contentTypeId(dto.getContentTypeId())
+                .uploadFile(null)
+                .member(findMember)
+                .info(findContent)
                 .build();
 
-        hotplaceRepository.save(hotplace);
-
+        Hotplace savedHotplace = hotplaceRepository.save(hotplace);
+        return savedHotplace.getId();
     }
 
     @Override
-    @Transactional
-    public void edit(ModifyHotplaceDto dto) {
-        Member member = memberRepository.findById(dto.getMemberId())
-                .orElseThrow(MemberNotFoundException::new);
-
-        Hotplace findHotplace = hotplaceRepository.findById(dto.getId()).orElseThrow(HotplaceNotFoundException::new);
-
-        findHotplace.changeName(findHotplace.getName(), dto.getName());
-        findHotplace.changeDesc(findHotplace.getDesc(), dto.getDesc());
-        findHotplace.changeVisitedDate(findHotplace.getVisitedDate(), dto.getVisitedDate());
-        findHotplace.changeUploadFileName(findHotplace.getUploadFileName(), dto.getUploadFileName());
-
-        hotplaceRepository.update(findHotplace);
+    public Long edit(ModifyHotplaceDto dto) {
+        return null;
     }
 
     @Override
-    @Transactional
-    public void delete(Long hotplaceId) {
-        hotplaceRepository.deleteById(hotplaceId);
+    public Long delete(Long hotplaceId) {
+        hotplaceRepository.remove(hotplaceId);
+        return hotplaceId;
     }
 }

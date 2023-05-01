@@ -2,74 +2,49 @@ package com.ssafy.tourmates.hotplace;
 
 import static lombok.AccessLevel.PROTECTED;
 
+import com.ssafy.tourmates.attractionInfo.AttractionInfo;
+import com.ssafy.tourmates.common.UploadFile;
 import com.ssafy.tourmates.common.exception.EditException;
 import com.ssafy.tourmates.member.Member;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Getter
 @NoArgsConstructor(access = PROTECTED)
 public class Hotplace {
 
-    private long hotPlaceId;
-    private String name;
-    private String desc;
+    private Long id;
+    private String tag;
+    private String title;
+    private String content;
     private int hit;
     private int vote;
     private String visitedDate;
-    private String uploadFileName;
-    private String storeFileName;
+    private UploadFile uploadFile;
+    private LocalDateTime createdDate;
+    private LocalDateTime lastModifiedDate;
+
     private Member member;
-    private int contentId;
-    private int contentTypeId;
-    private String createdDate;
-    private String lastModifiedDate;
+    private AttractionInfo info;
 
     @Builder
-    public Hotplace(long hotPlaceId, String name, String desc, int hit, int vote, String visitedDate, String uploadFileName, String storeFileName, Member member, int contentId, int contentTypeId, String createdDate, String lastModifiedDate) {
-        this.hotPlaceId = hotPlaceId;
-        this.name = name;
-        this.desc = desc;
+    public Hotplace(Long id, String tag, String title, String content, int hit, int vote, String visitedDate, UploadFile uploadFile, LocalDateTime createdDate, LocalDateTime lastModifiedDate, Member member, AttractionInfo info) {
+        this.id = id;
+        this.tag = tag;
+        this.title = title;
+        this.content = content;
         this.hit = hit;
         this.vote = vote;
         this.visitedDate = visitedDate;
-        this.uploadFileName = uploadFileName;
-        this.storeFileName = storeFileName;
-        this.member = member;
-        this.contentId = contentTypeId;
-        this.contentTypeId = contentTypeId;
+        this.uploadFile = uploadFile;
         this.createdDate = createdDate;
         this.lastModifiedDate = lastModifiedDate;
+        this.member = member;
+        this.info = info;
     }
 
-    //비즈니스 로직 추가
-
-    public void changeName(String oldName, String newName) {
-        if (!this.name.equals(oldName)) {
-            throw new EditException();
-        }
-        this.name = newName;
-    }
-
-    public void changeDesc(String oldDesc, String newDesc) {
-        if (!this.desc.equals(oldDesc)) {
-            throw new EditException();
-        }
-        this.desc = newDesc;
-    }
-
-    public void changeVisitedDate(String oldVisitedDate, String newVisitedDate) {
-        if (!this.visitedDate.equals(oldVisitedDate)) {
-            throw new EditException();
-        }
-        this.visitedDate = newVisitedDate;
-    }
-
-    public void changeUploadFileName(String OldUploadFileName, String NewUploadFileName) {
-        if (!this.uploadFileName.equals(OldUploadFileName)) {
-            throw new EditException();
-        }
-        this.uploadFileName = NewUploadFileName;
-    }
+    //== 비즈니스 로직 ==//
 }
