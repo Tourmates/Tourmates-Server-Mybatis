@@ -1,5 +1,6 @@
 package com.ssafy.tourmates.article.service;
 
+import com.ssafy.tourmates.article.repository.dto.SearchArticleCondition;
 import com.ssafy.tourmates.article.service.dto.AddArticleDto;
 import com.ssafy.tourmates.article.service.dto.EditArticleDto;
 import com.ssafy.tourmates.controller.dto.response.ArticleResponse;
@@ -11,7 +12,7 @@ public interface ArticleService {
 
     Long addArticle(String loginId, AddArticleDto dto);
 
-    List<ArticleResponse> searchArticle();
+    List<ArticleResponse> searchArticle(SearchArticleCondition condition);
 
     DetailArticleResponse detailArticle(Long articleId);
 

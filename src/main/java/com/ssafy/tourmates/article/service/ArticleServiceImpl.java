@@ -2,6 +2,7 @@ package com.ssafy.tourmates.article.service;
 
 import com.ssafy.tourmates.article.Article;
 import com.ssafy.tourmates.article.repository.ArticleRepository;
+import com.ssafy.tourmates.article.repository.dto.SearchArticleCondition;
 import com.ssafy.tourmates.article.service.dto.AddArticleDto;
 import com.ssafy.tourmates.article.service.dto.EditArticleDto;
 import com.ssafy.tourmates.controller.dto.response.ArticleResponse;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -41,8 +43,16 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<ArticleResponse> searchArticle() {
-        return null;
+    public List<ArticleResponse> searchArticle(SearchArticleCondition condition) {
+        List<Article> articles = articleRepository.findByCondition(condition);
+        return articles.stream()
+                .map(article -> ArticleResponse.builder()
+                        .articleId(article.getId())
+                        .title(article.getTitle())
+                        .hit(article.getHit())
+                        .createdDate(article.getCreatedDate())
+                        .build())
+                .collect(Collectors.toList());
     }
 
     @Override
