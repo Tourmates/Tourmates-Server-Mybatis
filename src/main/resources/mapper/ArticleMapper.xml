@@ -2,18 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.tourmates.article.repository.ArticleMapper">
+    <resultMap id="article" type="Article">
+        <id column="article_id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="hit" property="hit"/>
+        <association property="member" javaType="Member">
+            <id column="member_id" property="id"/>
+        </association>
+    </resultMap>
+
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
         insert into article(title, content, member_id)
         values (#{title}, #{content}, #{member.id})
     </insert>
 
-    <select id="findById" resultType="Article">
+    <select id="findById" resultMap="article">
         select *
         from article
         where article_id = #{articleId}
     </select>
 
-    <select id="findAll" resultType="Article">
+    <select id="findAll" resultMap="article">
         select *
         from article
     </select>
