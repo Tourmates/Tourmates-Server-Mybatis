@@ -64,9 +64,7 @@ public class NoticeServiceImpl implements NoticeService{
 
         Notice findNotice = noticeRepository.findById(modifyId).orElseThrow(NoticeNotFoundException::new);
 
-        findNotice.changeTitle(findNotice.getTitle(), dto.getTitle());
-        findNotice.changeContent(findNotice.getContent(), dto.getContent());
-        findNotice.changeTop(findNotice.isTop(), dto.isTop());
+        findNotice.change(dto.getTitle(), dto.getContent(), dto.isTop());
 
         return noticeRepository.update(findNotice);
     }
