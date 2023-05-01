@@ -15,11 +15,11 @@
     <h1 class="text-center"> 공지사항 등록 </h1>
 
 
-    <form method="post" action="/${root}/notice/register">
+    <form method="post" action="${root}/notice/register">
         <div class="mb-3">
             <label for="noticeTitle" class="form-label ">공지 제목</label>
             <input type="text" class="form-control border border-black" id="title"
-                   aria-describedby="emailHelp">
+                   aria-describedby="emailHelp" name = "title">
         </div>
 
         <label for="noticeText" class="form-label ">공지 내용</label>
