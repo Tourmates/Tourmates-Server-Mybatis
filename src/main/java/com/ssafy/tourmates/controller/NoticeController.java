@@ -10,12 +10,7 @@ import com.ssafy.tourmates.notice.service.dto.ModifyNoticeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -23,11 +18,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 public class NoticeController {
 
 
-  private NoticeService noticeService;
-
-  public NoticeController(NoticeService noticeService) {
-    this.noticeService = noticeService;
-  }
+  private final NoticeService noticeService;
 
   @GetMapping("/add")
   public String addNotice(@SessionAttribute("loginMember") Member loginMember) {
@@ -74,9 +65,10 @@ public class NoticeController {
 
 
   @PostMapping("/register")
-  public String addNotice(@RequestBody AddNoticeRequest addNoticeRequest,
+  public String addNotice(@ModelAttribute AddNoticeRequest addNoticeRequest,
       @SessionAttribute(value = "loginMember", required = false) Member loginMember,
       Model model) {
+
 
     if (loginMember == null) {
       return "loginForm"; //TODO: 나중에 바꾸기

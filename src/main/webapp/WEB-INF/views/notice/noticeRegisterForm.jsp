@@ -14,18 +14,19 @@
 <section class="container">
     <h1 class="text-center"> 공지사항 등록 </h1>
 
-    <form method="post" action="/${root}/notice/register">
+
+    <form method="post" action="${root}/notice/register">
         <div class="mb-3">
             <label for="noticeTitle" class="form-label ">공지 제목</label>
-            <input type="text" class="form-control border border-black" id="exampleInputEmail1"
-                   aria-describedby="emailHelp">
+            <input type="text" class="form-control border border-black" id="title"
+                   aria-describedby="emailHelp" name = "title">
         </div>
 
         <label for="noticeText" class="form-label ">공지 내용</label>
         <div class="input-group">
             <textarea class="form-control h-25 border border-black" rows="10"
                       id="submission_content{{submission.id}}"
-                      aria-label="With textarea"></textarea>
+                      aria-label="With textarea" name = "content"></textarea>
         </div>
         <br/>
         <div class="mb-3 form-check">
