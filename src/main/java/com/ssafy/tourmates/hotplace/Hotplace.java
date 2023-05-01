@@ -47,4 +47,11 @@ public class Hotplace {
     }
 
     //== 비즈니스 로직 ==//
+    public void increaseHit() {
+        this.hit += 1;
+    }
+
+    public void increaseVote() {
+        this.vote += 1;
+    }
 }

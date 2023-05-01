@@ -9,7 +9,11 @@ public interface HotplaceService {
 
     Long registerHotplace(String loginId, Integer contentId, AddHotplaceDto dto);
 
-    Long edit(ModifyHotplaceDto dto);
+    Long increaseHit(Long hotplaceId);
 
-    Long delete(Long hotplaceId);
+    Long increaseVote(Long hotplaceId, String loginId);
+
+    Long editHotplace(Long hotplaceId, String loginId, ModifyHotplaceDto dto);
+
+    Long removeHotplace(Long hotplaceId);
 }
