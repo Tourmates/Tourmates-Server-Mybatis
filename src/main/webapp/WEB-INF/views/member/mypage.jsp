@@ -18,7 +18,7 @@
     <h1>마이페이지</h1>
     <p>여기에서 계정 및 설정을 관리합니다.</p>
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
+      <div class="col" onclick="location.href='${root}/my/hotplaces'">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">
             <div
@@ -34,7 +34,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col" onclick="location.href='${root}/my/tripplans'">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">
             <div
@@ -81,7 +81,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col" onclick="location.href='${root}/my/account'">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">
             <div
@@ -96,7 +96,7 @@
           </div>
         </div>
       </div>
-      <div class="col">
+      <div class="col" onclick="location.href='${root}/my/withdrawal'">
         <div class="card h-100 border-0 shadow">
           <div class="card-body">
             <div
