@@ -13,7 +13,7 @@ import static lombok.AccessLevel.*;
 @NoArgsConstructor(access = PROTECTED)
 public class TripPlan {
 
-    private Long tripPlanId;
+    private Long id;
     private String title;
     private int hit;
     private int vote;
@@ -23,8 +23,8 @@ public class TripPlan {
     private Member member;
 
     @Builder
-    public TripPlan(Long tripPlanId, String title, int hit, int vote, LocalDateTime createdDate, LocalDateTime lastModifiedDate, Member member) {
-        this.tripPlanId = tripPlanId;
+    public TripPlan(Long id, String title, int hit, int vote, LocalDateTime createdDate, LocalDateTime lastModifiedDate, Member member) {
+        this.id = id;
         this.title = title;
         this.hit = hit;
         this.vote = vote;
