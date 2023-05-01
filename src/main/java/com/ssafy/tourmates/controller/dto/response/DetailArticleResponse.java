@@ -4,6 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Data
 public class DetailArticleResponse {
@@ -13,7 +14,7 @@ public class DetailArticleResponse {
     private String content;
     private int hit;
     private String tag;
-    private LocalDateTime createdDate;
+    private String createdDate;
 
     @Builder
     public DetailArticleResponse(Long articleId, String title, String content, int hit, String tag, LocalDateTime createdDate) {
@@ -22,6 +23,6 @@ public class DetailArticleResponse {
         this.content = content;
         this.hit = hit;
         this.tag = tag;
-        this.createdDate = createdDate;
+        this.createdDate = createdDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
     }
 }
