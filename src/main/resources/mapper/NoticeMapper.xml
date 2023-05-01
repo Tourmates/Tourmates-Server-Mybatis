@@ -3,12 +3,21 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.tourmates.notice.repository.NoticeMapper">
 
+  <resultMap id = "notice" type="Notice">
+    <association property = "createdBy" javaType="com.ssafy.tourmates.member.Member">
+      <id column = "created_by" property = "id"/>
+    </association>
+    <association property = "lastModifiedBy"  javaType="com.ssafy.tourmates.member.Member">
+      <id column = "last_modified_by" property = "id"/>
+    </association>
+  </resultMap>
+
   <insert id="save" useGeneratedKeys="true" keyProperty="id">
     insert into notice(title, content, top, created_by, last_modified_by)
     values (#{notice.title}, #{notice.content}, #{notice.top}, #{notice.createdBy.id}, #{notice.lastModifiedBy.id})
   </insert>
 
-  <select id="findById" resultType="com.ssafy.tourmates.notice.Notice">
+  <select id="findById" resultType="notice">
     select *
     from notice
     where notice_id = #{noticeId}

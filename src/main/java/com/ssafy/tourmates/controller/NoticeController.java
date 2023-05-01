@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/notice")
 public class NoticeController {
 
-
   private final NoticeService noticeService;
 
   @GetMapping("/add")
@@ -56,7 +55,7 @@ public class NoticeController {
   }
 
   @GetMapping("/{noticeId}/delete")
-  public String delteNotice(@PathVariable("noticeId") Long noticeId,
+  public String deleteNotice(@PathVariable("noticeId") Long noticeId,
       @SessionAttribute("loginMember") Member loginMember) {
 
     if (loginMember == null) {
