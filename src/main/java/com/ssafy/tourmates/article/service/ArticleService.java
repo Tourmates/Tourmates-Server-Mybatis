@@ -9,5 +9,7 @@ public interface ArticleService {
 
     Long editArticle(Long articleId, String loginId, EditArticleDto editArticleDto);
 
+    Long increaseHit(Long articleId);
+
     Long removeArticle(Long articleId, String loginId);
 }
