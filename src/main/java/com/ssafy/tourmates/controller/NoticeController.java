@@ -73,6 +73,7 @@ public class NoticeController {
       @SessionAttribute(value = "loginMember", required = false) Member loginMember,
       Model model) {
 
+
     if (loginMember == null) {
       return "loginForm"; //TODO: 나중에 바꾸기
     }
