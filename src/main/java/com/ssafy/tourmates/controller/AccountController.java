@@ -1,6 +1,6 @@
 package com.ssafy.tourmates.controller;
 
-import com.ssafy.tourmates.controller.dto.AddMemberRequest;
+import com.ssafy.tourmates.controller.dto.request.AddMemberRequest;
 import com.ssafy.tourmates.controller.dto.request.ForgotLoginIdRequest;
 import com.ssafy.tourmates.controller.dto.request.ForgotLoginPwRequest;
 import com.ssafy.tourmates.controller.dto.request.LoginRequest;

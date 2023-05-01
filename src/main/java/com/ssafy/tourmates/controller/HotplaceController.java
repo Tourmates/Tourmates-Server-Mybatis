@@ -1,16 +1,13 @@
 package com.ssafy.tourmates.controller;
 
 
-import com.ssafy.tourmates.controller.dto.AddHotplaceRequest;
+import com.ssafy.tourmates.controller.dto.request.AddHotplaceRequest;
+import com.ssafy.tourmates.controller.dto.request.EditHotplaceRequest;
 import com.ssafy.tourmates.hotplace.service.HotplaceService;
-import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -25,6 +22,11 @@ public class HotplaceController {
     }
 
     @GetMapping("/register")
+    public String registerHotplace() {
+        return "hotplace/registerHotplace";
+    }
+
+    @PostMapping("/register")
     public String registerHotplace(AddHotplaceRequest request) {
         return "hotplace/registerHotplace";
     }
@@ -36,6 +38,11 @@ public class HotplaceController {
 
     @GetMapping("/{hotplaceId}/edit")
     public String editHotplace(@PathVariable Long hotplaceId, Model model) {
+        return "hotplace/editHotplace";
+    }
+
+    @PostMapping("/{hotplaceId}/edit")
+    public String editHotplace(@PathVariable Long hotplaceId, EditHotplaceRequest request, Model model) {
         return "hotplace/editHotplace";
     }
 

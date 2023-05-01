@@ -27,7 +27,7 @@ public class HotplaceServiceImpl implements HotplaceService {
 
   @Override
   @Transactional
-  public void add(AddHotplaceDto dto) {
+  public void registerHotplace(AddHotplaceDto dto) {
     Member member = memberRepository.findById(dto.getMemberId())
         .orElseThrow(MemberNotFoundException::new);
 

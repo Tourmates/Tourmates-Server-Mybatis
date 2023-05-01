@@ -1,4 +1,4 @@
-package com.ssafy.tourmates.controller.dto;
+package com.ssafy.tourmates.controller.dto.request;
 
 import lombok.Data;
 
