@@ -40,6 +40,22 @@
         <td> X </td>
       </c:if>
     </tr>
+    <tr>
+      <th> 게시물 작성자</th>
+      <td> ${detailNoticeDto.createdBy.loginId}</td>
+    </tr>
+    <tr>
+      <th> 게시물 최종 수정자 </th>
+      <td> ${detailNoticeDto.lastModifiedBy.loginId}</td>
+    </tr>
+    <tr>
+      <th> 게시물 생성일 </th>
+      <td> ${detailNoticeDto.createdDate}</td>
+    </tr>
+    <tr>
+      <th> 게시물 최종 수정일 </th>
+      <td> ${detailNoticeDto.lastModifiedDate}</td>
+    </tr>
     </tbody>
   </table>
 
