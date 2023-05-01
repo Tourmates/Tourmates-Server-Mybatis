@@ -1,10 +1,12 @@
-package com.ssafy.tourmates.hotplace.repository;
+package com.ssafy.tourmates.hotplace.repository.impl;
 
 import com.ssafy.tourmates.hotplace.Hotplace;
 
 import java.util.List;
 import java.util.Optional;
 
+import com.ssafy.tourmates.hotplace.repository.HotplaceMapper;
+import com.ssafy.tourmates.hotplace.repository.HotplaceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

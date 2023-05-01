@@ -1,4 +1,4 @@
-package com.ssafy.tourmates.hotplace.service;
+package com.ssafy.tourmates.hotplace.service.impl;
 
 import com.ssafy.tourmates.attractionInfo.AttractionInfo;
 import com.ssafy.tourmates.attractionInfo.repository.AttractionInfoRepository;
@@ -7,6 +7,7 @@ import com.ssafy.tourmates.common.exception.HotplaceNotFoundException;
 import com.ssafy.tourmates.common.exception.MemberNotFoundException;
 import com.ssafy.tourmates.hotplace.Hotplace;
 import com.ssafy.tourmates.hotplace.repository.HotplaceRepository;
+import com.ssafy.tourmates.hotplace.service.HotplaceService;
 import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
 import com.ssafy.tourmates.hotplace.service.dto.ModifyHotplaceDto;
 import com.ssafy.tourmates.member.Member;
