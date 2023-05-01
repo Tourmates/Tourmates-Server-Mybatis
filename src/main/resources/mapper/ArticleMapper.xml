@@ -35,17 +35,17 @@
         select *
         from article
         <where>
-            <if test="keyword != null">
+            <if test="condition.keyword != null">
                 and title = #{keyword}
             </if>
         </where>
-        <if test="sorted == 1">
+        <if test="condition.sorted == 1">
             order by created_date desc
         </if>
-        <if test="sorted == 2">
+        <if test="condition.sorted == 2">
             order by hit desc
         </if>
-        limit #{(pageNum-1) * amount}, #{amount}
+        limit (#{pageNum} - 1) * #{amount}, #{amount}
     </select>
 
     <select id="findCountAll" resultType="integer">
