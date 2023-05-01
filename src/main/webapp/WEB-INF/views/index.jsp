@@ -168,7 +168,7 @@
 <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
      aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <form class="modal-content" method="post" action="${root}/login">
+    <form class="modal-content" method="post">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="loginModalLabel">로그인</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

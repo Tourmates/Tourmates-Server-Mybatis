@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
@@ -51,8 +52,16 @@ public class AccountController {
         return "redirect:/";
     }
 
+    @GetMapping("/login")
+    public String login() {
+        return "index";
+    }
     @PostMapping("/login")
-    public String login(@Valid LoginRequest request, HttpSession session, HttpServletResponse response) {
+    public String login(
+            @Valid LoginRequest request,
+            @RequestParam(defaultValue = "/") String redirectURL,
+            HttpSession session,
+            HttpServletResponse response) {
         log.debug("AccountController#login");
 
         Member loginMember = accountService.login(request.getLoginId(), request.getLoginPw());
@@ -66,7 +75,8 @@ public class AccountController {
         }
         session.setAttribute("loginMember", loginMember);
         log.info("회원 로그인={}", loginMember.getLoginId());
-        return "redirect:/";
+        log.info("redirectURL={}", redirectURL);
+        return "redirect:" + redirectURL;
     }
 
     @GetMapping("/logout")
