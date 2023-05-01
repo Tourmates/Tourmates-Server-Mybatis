@@ -26,8 +26,13 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
-    public List<Article> findByCondition(SearchArticleCondition condition) {
-        return articleMapper.findByCondition(condition);
+    public List<Article> findByCondition(SearchArticleCondition condition, int pageNum, int amount) {
+        return articleMapper.findByCondition(condition, pageNum, amount);
+    }
+
+    @Override
+    public Integer findCountAll() {
+        return articleMapper.findCountAll();
     }
 
     @Override

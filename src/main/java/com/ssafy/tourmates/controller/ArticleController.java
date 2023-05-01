@@ -4,6 +4,7 @@ import com.ssafy.tourmates.article.repository.dto.SearchArticleCondition;
 import com.ssafy.tourmates.article.service.ArticleService;
 import com.ssafy.tourmates.article.service.dto.AddArticleDto;
 import com.ssafy.tourmates.article.service.dto.EditArticleDto;
+import com.ssafy.tourmates.common.Page;
 import com.ssafy.tourmates.controller.dto.request.AddArticleRequest;
 import com.ssafy.tourmates.controller.dto.request.EditArticleRequest;
 import com.ssafy.tourmates.controller.dto.response.ArticleResponse;
@@ -29,6 +30,8 @@ public class ArticleController {
     public String articles(
             @RequestParam(required = false) String keyword,
             @RequestParam(defaultValue = "1") Integer sorted,
+            @RequestParam(defaultValue = "1") Integer pageNum,
+            @RequestParam(defaultValue = "10") Integer amount,
             Model model) {
 
         SearchArticleCondition condition = SearchArticleCondition.builder()
@@ -36,7 +39,12 @@ public class ArticleController {
                 .sorted(sorted)
                 .build();
 
-        List<ArticleResponse> articles = articleService.searchArticle(condition);
+
+        List<ArticleResponse> articles = articleService.searchArticle(condition, pageNum, amount);
+        int totalCount = articleService.totalCount();
+        Page page = new Page(pageNum, amount, totalCount);
+
+        model.addAttribute("page", page);
         model.addAttribute("articles", articles);
         return "article/articleList";
     }

@@ -45,6 +45,12 @@
         <if test="sorted == 2">
             order by hit desc
         </if>
+        limit #{(pageNum-1) * amount}, #{amount}
+    </select>
+
+    <select id="findCountAll" resultType="integer">
+        select count(article_id)
+        from article
     </select>
 
     <update id="update">

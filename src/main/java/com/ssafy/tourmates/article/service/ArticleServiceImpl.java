@@ -44,8 +44,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<ArticleResponse> searchArticle(SearchArticleCondition condition) {
-        List<Article> articles = articleRepository.findByCondition(condition);
+    public List<ArticleResponse> searchArticle(SearchArticleCondition condition, int pageNum, int amount) {
+        List<Article> articles = articleRepository.findByCondition(condition, pageNum, amount);
         return articles.stream()
                 .map(article -> ArticleResponse.builder()
                         .articleId(article.getId())
@@ -73,6 +73,11 @@ public class ArticleServiceImpl implements ArticleService {
                 .content(article.getContent())
                 .createdDate(article.getCreatedDate())
                 .build();
+    }
+
+    @Override
+    public Integer totalCount() {
+        return articleRepository.findCountAll();
     }
 
     @Override
