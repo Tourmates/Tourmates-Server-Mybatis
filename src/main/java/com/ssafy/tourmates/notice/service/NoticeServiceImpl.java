@@ -6,6 +6,7 @@ import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.notice.Notice;
 import com.ssafy.tourmates.notice.repository.NoticeRepository;
 import com.ssafy.tourmates.notice.service.dto.AddNoticeDto;
+import com.ssafy.tourmates.notice.service.dto.DetailNoticeDto;
 import com.ssafy.tourmates.notice.service.dto.ModifyNoticeDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,7 +47,7 @@ public class NoticeServiceImpl implements NoticeService{
 
     @Override
     @Transactional(readOnly = true)
-    public ModifyNoticeDto getNotice(Long noticeId) {
+    public ModifyNoticeDto getModifyNotice(Long noticeId) {
 
         Notice notice =  noticeRepository.findById(noticeId).orElseThrow(NoticeNotFoundException::new);
 
@@ -56,6 +57,23 @@ public class NoticeServiceImpl implements NoticeService{
                         .content(notice.getContent())
                         .top(notice.isTop())
                         .build();
+    }
+
+    @Override
+    public DetailNoticeDto getDetailNotice(Long noticeId) {
+
+        Notice notice =  noticeRepository.findById(noticeId).orElseThrow(NoticeNotFoundException::new);
+
+        return DetailNoticeDto.builder()
+                .noticeId(noticeId)
+                .title(notice.getTitle())
+                .content(notice.getContent())
+                .top(notice.isTop())
+                .createdBy(notice.getCreatedBy())
+                .lastModifiedBy(notice.getLastModifiedBy())
+                .createdDate(notice.getCreatedDate())
+                .lastModifiedDate(notice.getLastModifiedDate())
+                .build();
     }
 
     @Override
