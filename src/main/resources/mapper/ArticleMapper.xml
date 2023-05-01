@@ -7,14 +7,15 @@
         <result column="title" property="title"/>
         <result column="content" property="content"/>
         <result column="hit" property="hit"/>
+        <result column="tag" property="tag"/>
         <association property="member" javaType="Member">
             <id column="member_id" property="id"/>
         </association>
     </resultMap>
 
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into article(title, content, member_id)
-        values (#{title}, #{content}, #{member.id})
+        insert into article(title, content, tag, member_id)
+        values (#{title}, #{content}, #{tag}, #{member.id})
     </insert>
 
     <select id="findById" resultMap="article">

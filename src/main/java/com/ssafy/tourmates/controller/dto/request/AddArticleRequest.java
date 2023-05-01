@@ -6,4 +6,5 @@ import lombok.Data;
 public class AddArticleRequest {
     private String title;
     private String content;
+    private String tag;
 }

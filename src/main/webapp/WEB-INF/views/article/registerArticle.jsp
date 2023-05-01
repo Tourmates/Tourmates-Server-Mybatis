@@ -16,10 +16,14 @@
                 <th class='align-middle'>말머리</th>
                 <td>
                     <select class="form-select w-50" aria-label="Default select example" name="tag">
-                        <option selected>말머리를 선택하세요.</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
+                        <option value="관광지" selected>관광지</option>
+                        <option value="문화시설">문화시설</option>
+                        <option value="축제공연행사">축제공연행사</option>
+                        <option value="여행코스">여행코스</option>
+                        <option value="레포츠">레포츠</option>
+                        <option value="숙박">숙박</option>
+                        <option value="쇼핑">쇼핑</option>
+                        <option value="음식점">음식점</option>
                     </select>
                 </td>
             </tr>

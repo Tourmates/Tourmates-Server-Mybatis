@@ -51,6 +51,7 @@ public class ArticleController {
         AddArticleDto dto = AddArticleDto.builder()
                 .title(request.getTitle())
                 .content(request.getContent())
+                .tag(request.getTag())
                 .build();
         Long savedArticleId = articleService.addArticle(member.getLoginId(), dto);
         return "redirect:/articles";

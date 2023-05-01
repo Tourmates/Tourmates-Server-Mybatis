@@ -12,14 +12,16 @@ public class DetailArticleResponse {
     private String title;
     private String content;
     private int hit;
+    private String tag;
     private LocalDateTime createdDate;
 
     @Builder
-    public DetailArticleResponse(Long articleId, String title, String content, int hit, LocalDateTime createdDate) {
+    public DetailArticleResponse(Long articleId, String title, String content, int hit, String tag, LocalDateTime createdDate) {
         this.articleId = articleId;
         this.title = title;
         this.content = content;
         this.hit = hit;
+        this.tag = tag;
         this.createdDate = createdDate;
     }
 }

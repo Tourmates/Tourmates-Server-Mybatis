@@ -17,6 +17,7 @@ public class Article {
     private String title;
     private String content;
     private int hit;
+    private String tag;
     private LocalDateTime createdDate;
     private LocalDateTime lastModifiedDate;
 
@@ -27,11 +28,14 @@ public class Article {
     }
 
     @Builder
-    public Article(Long id, String title, String content, int hit, Member member) {
+    public Article(Long id, String title, String content, int hit, String tag, LocalDateTime createdDate, LocalDateTime lastModifiedDate, Member member) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.hit = hit;
+        this.tag = tag;
+        this.createdDate = createdDate;
+        this.lastModifiedDate = lastModifiedDate;
         this.member = member;
     }
 

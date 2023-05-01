@@ -35,6 +35,7 @@ public class ArticleServiceImpl implements ArticleService {
         Article article = Article.builder()
                 .title(dto.getTitle())
                 .content(dto.getContent())
+                .tag(dto.getTag())
                 .member(member)
                 .build();
 
@@ -50,6 +51,7 @@ public class ArticleServiceImpl implements ArticleService {
                         .articleId(article.getId())
                         .title(article.getTitle())
                         .hit(article.getHit())
+                        .tag(article.getTag())
                         .createdDate(article.getCreatedDate())
                         .build())
                 .collect(Collectors.toList());
@@ -67,6 +69,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .articleId(article.getId())
                 .title(article.getTitle())
                 .hit(article.getHit())
+                .tag(article.getTag())
                 .content(article.getContent())
                 .createdDate(article.getCreatedDate())
                 .build();

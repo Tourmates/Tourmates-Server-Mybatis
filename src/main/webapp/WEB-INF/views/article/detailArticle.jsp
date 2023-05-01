@@ -14,7 +14,7 @@
         <tr>
             <td>
                 <div class='pt-3 pb-3'>
-                    <div class='mb-3'>${articleId} ${article.title}</div>
+                    <div class='mb-3'>${article.tag} ${article.title}</div>
                     <div class="d-flex justify-content-between">
                         <div>닉네임 | ${article.createdDate}</div>
                         <div>조회수 ${article.hit}</div>
