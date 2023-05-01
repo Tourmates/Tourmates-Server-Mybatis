@@ -16,7 +16,8 @@ public class HotplaceRepositoryImpl implements HotplaceRepository {
 
     @Override
     public Hotplace save(Hotplace hotplace) {
-        return hotplaceMapper.save(hotplace);
+        hotplaceMapper.save(hotplace);
+        return hotplace;
     }
 
     @Override

@@ -25,5 +25,5 @@ public interface HotplaceMapper {
 
     void update(@Param("hotplace") Hotplace hotplace);
 
-    void deleteById(@Param("id") Long id);
+    void remove(@Param("id") Long id);
 }
