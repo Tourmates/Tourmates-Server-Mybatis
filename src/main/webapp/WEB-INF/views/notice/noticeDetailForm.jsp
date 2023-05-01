@@ -19,21 +19,26 @@
     <thead>
     <tr>
       <th> 게시물 번호</th>
-      <td>#</td>
+      <td>${detailNoticeDto.noticeId}</td>
     </tr>
     </thead>
     <tbody>
     <tr>
       <th> 게시물 제목</th>
-      <td>#</td>
+      <td>${detailNoticeDto.title}</td>
     </tr>
     <tr>
       <th> 게시물 내용</th>
-      <td>#</td>
+      <td>${detailNoticeDto.content}</td>
     </tr>
     <tr>
       <th> 게시물 상단 여부</th>
-      <td>#</td>
+      <c:if test = "${detailNoticeDto.top == true}">
+          <td> O </td>
+      </c:if>
+      <c:if test = "${detailNoticeDto.top == false}">
+        <td> X </td>
+      </c:if>
     </tr>
     </tbody>
   </table>
