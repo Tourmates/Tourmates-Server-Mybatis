@@ -26,11 +26,10 @@ public class NoticeController {
       return "loginForm"; //TODO: 나중에 바꾸기
     }
 
-
     return "/notice/noticeRegisterForm";
   }
 
-  @GetMapping("/modify/{noticeId}")
+  @GetMapping("/{noticeId}/modify")
   public String modifyNotice(@PathVariable("noticeId") Long noticeId,
       @SessionAttribute(value = "loginMember", required = false) Member loginMember,
       Model model) {
@@ -39,7 +38,7 @@ public class NoticeController {
     ModifyNoticeDto modifyNoticeDto = noticeService.getNotice(noticeId);
     model.addAttribute("modifyNoticeDto", modifyNoticeDto);
 
-    return "modifyForm"; //TODO: 나중에 바꾸기
+    return "/notice/noticeModifyForm";
 
   }
 
