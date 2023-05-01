@@ -13,6 +13,21 @@
     <table class="table table-bordered">
       <tbody>
       <tr>
+        <th class='align-middle'>말머리</th>
+        <td>
+          <select class="form-select w-50" aria-label="Default select example" name="tag">
+            <option value="관광지" selected>관광지</option>
+            <option value="문화시설">문화시설</option>
+            <option value="축제공연행사">축제공연행사</option>
+            <option value="여행코스">여행코스</option>
+            <option value="레포츠">레포츠</option>
+            <option value="숙박">숙박</option>
+            <option value="쇼핑">쇼핑</option>
+            <option value="음식점">음식점</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
         <th class='align-middle'>장소 이름</th>
         <td>
           <div>
@@ -24,6 +39,14 @@
         <th class='align-middle'>장소 설명</th>
         <td>
           <textarea class='form-control' name='content' rows='20'></textarea>
+        </td>
+      </tr>
+      <tr>
+        <th class='align-middle'>파일첨부</th>
+        <td>
+          <div>
+            <input class="form-control" type="file" id="formFile">
+          </div>
         </td>
       </tr>
       </tbody>

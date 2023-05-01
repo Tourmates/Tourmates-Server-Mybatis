@@ -6,35 +6,41 @@ import com.ssafy.tourmates.hotplace.service.HotplaceService;
 import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/hotplace")
+@RequestMapping("/hotplaces")
 public class HotplaceController {
 
-  private HotplaceService hotplaceService;
+    private final HotplaceService hotplaceService;
 
-  public HotplaceController(HotplaceService hotplaceService) {
-    this.hotplaceService = hotplaceService;
-  }
+    @GetMapping
+    public String hotplaceList() {
+        return "hotplace/hotplaceList";
+    }
 
+    @GetMapping("/register")
+    public String registerHotplace(AddHotplaceRequest request) {
+        return "hotplace/registerHotplace";
+    }
 
-  @GetMapping("/add")
-  public String addHotplace(@RequestBody AddHotplaceRequest request) {
+    @GetMapping("/{hotplaceId}")
+    public String detailHotplace(@PathVariable Long hotplaceId, Model model) {
+        return "hotplace/detailHotplace";
+    }
 
-    AddHotplaceDto dto = AddHotplaceDto.builder()
-        .name(request.getName())
-        .desc(request.getDesc())
-        .visitedDate(request.getVisitedDate())
-        .uploadFileName(request.getUploadFileName())
-        .contentTypeId(request.getContentTypeId())
-        .contentTypeId(request.getContentTypeId())
-        .build();
+    @GetMapping("/{hotplaceId}/edit")
+    public String editHotplace(@PathVariable Long hotplaceId, Model model) {
+        return "hotplace/editHotplace";
+    }
 
-    hotplaceService.add(dto);
-    return null;
-  }
+    @GetMapping("/{hotplaceId}/remove")
+    public String removeHotplace(@PathVariable Long hotplaceId) {
+        return "redirect:/hotplaces";
+    }
 }

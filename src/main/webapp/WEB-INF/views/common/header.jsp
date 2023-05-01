@@ -6,9 +6,9 @@
       <img src="${root}/resources/img/logo.svg">
     </a>
     <ul class="nav">
-      <li class="nav-item"><a href="${root}/attractionInfo" class="nav-link active text-dark" aria-current="page">지역별여행지</a></li>
-      <li class="nav-item"><a href="${root}/tripPlan" class="nav-link text-dark">나의여행계획</a></li>
-      <li class="nav-item"><a href="${root}/hotplace" class="nav-link text-dark">핫플자랑하기</a></li>
+      <li class="nav-item"><a href="${root}/attractionInfos" class="nav-link active text-dark" aria-current="page">지역별여행지</a></li>
+      <li class="nav-item"><a href="${root}/tripPlans" class="nav-link text-dark">나의여행계획</a></li>
+      <li class="nav-item"><a href="${root}/hotplaces" class="nav-link text-dark">핫플자랑하기</a></li>
       <li class="nav-item"><a href="${root}/articles" class="nav-link text-dark">자유게시판</a></li>
       <c:if test="${empty loginMember}">
         <li class="nav-item"><a href="${root}/" class="nav-link text-dark" data-bs-toggle="modal"
