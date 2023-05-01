@@ -33,6 +33,11 @@ public class HotplaceRepositoryImpl implements HotplaceRepository {
     }
 
     @Override
+    public List<Hotplace> findByCondition() {
+        return mapper.findByCondition();
+    }
+
+    @Override
     public Optional<Hotplace> findByMemberId(Long memberId) {
         return Optional.empty();
     }

@@ -13,6 +13,8 @@ public interface HotplaceRepository {
 
     List<Hotplace> findAll();
 
+    List<Hotplace> findByCondition();
+
     Optional<Hotplace> findByMemberId(Long memberId);
 
     Optional<Hotplace> findByContentId(int contentId);

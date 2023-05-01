@@ -5,6 +5,7 @@ import com.ssafy.tourmates.attractionInfo.repository.AttractionInfoRepository;
 import com.ssafy.tourmates.common.FileStore;
 import com.ssafy.tourmates.common.exception.HotplaceNotFoundException;
 import com.ssafy.tourmates.common.exception.MemberNotFoundException;
+import com.ssafy.tourmates.controller.dto.response.HotplaceResponse;
 import com.ssafy.tourmates.hotplace.Hotplace;
 import com.ssafy.tourmates.hotplace.repository.HotplaceRepository;
 import com.ssafy.tourmates.hotplace.service.HotplaceService;
@@ -16,7 +17,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -47,6 +50,22 @@ public class HotplaceServiceImpl implements HotplaceService {
 
         Hotplace savedHotplace = hotplaceRepository.save(hotplace);
         return savedHotplace.getId();
+    }
+
+    @Override
+    public List<HotplaceResponse> searchHotplaces() {
+        List<Hotplace> hotplaces = hotplaceRepository.findByCondition();
+        return hotplaces.stream()
+                .map(hotplace ->
+                        HotplaceResponse.builder()
+                                .hotplaceId(hotplace.getId())
+                                .tag(hotplace.getTag())
+                                .title(hotplace.getTitle())
+                                .content(hotplace.getContent())
+                                .storeFileName(hotplace.getUploadFile().getStoreFileName())
+                                .createdDate(hotplace.getCreatedDate())
+                                .build())
+                .collect(Collectors.toList());
     }
 
     @Override
