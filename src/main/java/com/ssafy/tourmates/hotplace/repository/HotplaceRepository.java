@@ -9,7 +9,7 @@ public interface HotplaceRepository {
 
     Hotplace save(Hotplace hotplace);
 
-    Optional<Hotplace> findById(Long id);
+    Optional<Hotplace> findById(Long hotplaceId);
 
     List<Hotplace> findAll();
 
@@ -17,10 +17,7 @@ public interface HotplaceRepository {
 
     Optional<Hotplace> findByContentId(int contentId);
 
-    Optional<Hotplace> findByContentTypeId(int contentTypeId);
-
     void update(Hotplace hotplace);
 
-    void remove(Long id);
-
+    void remove(Long hotplaceId);
 }

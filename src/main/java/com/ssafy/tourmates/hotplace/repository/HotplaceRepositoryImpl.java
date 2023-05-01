@@ -12,46 +12,41 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 public class HotplaceRepositoryImpl implements HotplaceRepository {
 
-    private final HotplaceMapper hotplaceMapper;
+    private final HotplaceMapper mapper;
 
     @Override
     public Hotplace save(Hotplace hotplace) {
-        hotplaceMapper.save(hotplace);
+        mapper.save(hotplace);
         return hotplace;
     }
 
     @Override
-    public Optional<Hotplace> findById(Long id) {
-        return hotplaceMapper.findById(id);
+    public Optional<Hotplace> findById(Long hotplaceId) {
+        return mapper.findById(hotplaceId);
     }
 
     @Override
     public List<Hotplace> findAll() {
-        return hotplaceMapper.findAll();
+        return mapper.findAll();
     }
 
     @Override
     public Optional<Hotplace> findByMemberId(Long memberId) {
-        return hotplaceMapper.findByMemberId(memberId);
+        return Optional.empty();
     }
 
     @Override
     public Optional<Hotplace> findByContentId(int contentId) {
-        return hotplaceMapper.findByContentId(contentId);
-    }
-
-    @Override
-    public Optional<Hotplace> findByContentTypeId(int contentTypeId) {
-        return hotplaceMapper.findByContentTypeId(contentTypeId);
+        return Optional.empty();
     }
 
     @Override
     public void update(Hotplace hotplace) {
-        hotplaceMapper.update(hotplace);
+        mapper.update(hotplace);
     }
 
     @Override
-    public void remove(Long id) {
-        hotplaceMapper.deleteById(id);
+    public void remove(Long hotplaceId) {
+        mapper.remove(hotplaceId);
     }
 }
