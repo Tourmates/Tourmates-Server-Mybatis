@@ -15,10 +15,15 @@
         </div>
         <div>
             <select class="form-select" aria-label="Default select example" name="tag">
-                <option value="0" selected>전체</option>
-                <option value="1">관광지</option>
-                <option value="2">숙박</option>
-                <option value="3">음식점</option>
+                <option value="1">전체</option>
+                <option value="12">관광지</option>
+                <option value="14">문화시설</option>
+                <option value="15">축제공연행사</option>
+                <option value="25">여행코스</option>
+                <option value="28">레포츠</option>
+                <option value="32">숙박</option>
+                <option value="38">쇼핑</option>
+                <option value="39">음식점</option>
             </select>
         </div>
         <div>
@@ -36,13 +41,12 @@
         <c:forEach items="${articles}" var="article">
             <tr>
                 <th class='align-middle text-center'>
-                    <%-- 수정 --%>
-                    ${article.articleId}
+                        ${article.tag}
                 </th>
                 <td>
                     <div>
                         <a href='${root}/articles/${article.articleId}'>
-                            ${article.title}
+                                ${article.title}
                         </a>
                     </div>
                     <div>
@@ -56,25 +60,33 @@
         </c:forEach>
         </tbody>
     </table>
+    <%-- 페이징 시작 --%>
     <div class="d-flex justify-content-center">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
+                <%-- 이전버튼 시작 --%>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
                         <span aria-hidden="true">&laquo;</span>
                     </a>
                 </li>
+                <%-- 이전버튼 종료 --%>
+                <%-- 페이징번호 처리시작 --%>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <%-- 페이징번호 처리종료 --%>
+                <%-- 다음버튼 시작 --%>
                 <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
+                <%-- 다음버튼 시작 --%>
             </ul>
         </nav>
     </div>
+    <%-- 페이징 종료 --%>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
         <a href="${root}/articles/register" class="btn btn-primary" type="button">글쓰기</a>
     </div>

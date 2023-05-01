@@ -12,7 +12,9 @@ public interface ArticleRepository {
 
     Optional<Article> findById(Long articleId);
 
-    List<Article> findByCondition(SearchArticleCondition condition);
+    List<Article> findByCondition(SearchArticleCondition condition, int pageNum, int amount);
+
+    Integer findCountAll();
 
     void update(Article article);
 

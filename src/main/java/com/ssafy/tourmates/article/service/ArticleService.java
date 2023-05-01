@@ -12,9 +12,11 @@ public interface ArticleService {
 
     Long addArticle(String loginId, AddArticleDto dto);
 
-    List<ArticleResponse> searchArticle(SearchArticleCondition condition);
+    List<ArticleResponse> searchArticle(SearchArticleCondition condition, int pageNum, int amount);
 
     DetailArticleResponse detailArticle(Long articleId);
+
+    Integer totalCount();
 
     Long editArticle(Long articleId, String loginId, EditArticleDto editArticleDto);
 

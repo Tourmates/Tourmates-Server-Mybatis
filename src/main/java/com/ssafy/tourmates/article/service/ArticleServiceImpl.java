@@ -35,6 +35,7 @@ public class ArticleServiceImpl implements ArticleService {
         Article article = Article.builder()
                 .title(dto.getTitle())
                 .content(dto.getContent())
+                .tag(dto.getTag())
                 .member(member)
                 .build();
 
@@ -43,13 +44,14 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public List<ArticleResponse> searchArticle(SearchArticleCondition condition) {
-        List<Article> articles = articleRepository.findByCondition(condition);
+    public List<ArticleResponse> searchArticle(SearchArticleCondition condition, int pageNum, int amount) {
+        List<Article> articles = articleRepository.findByCondition(condition, pageNum, amount);
         return articles.stream()
                 .map(article -> ArticleResponse.builder()
                         .articleId(article.getId())
                         .title(article.getTitle())
                         .hit(article.getHit())
+                        .tag(article.getTag())
                         .createdDate(article.getCreatedDate())
                         .build())
                 .collect(Collectors.toList());
@@ -67,9 +69,15 @@ public class ArticleServiceImpl implements ArticleService {
                 .articleId(article.getId())
                 .title(article.getTitle())
                 .hit(article.getHit())
+                .tag(article.getTag())
                 .content(article.getContent())
                 .createdDate(article.getCreatedDate())
                 .build();
+    }
+
+    @Override
+    public Integer totalCount() {
+        return articleRepository.findCountAll();
     }
 
     @Override
