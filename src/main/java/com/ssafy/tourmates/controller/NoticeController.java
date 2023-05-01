@@ -5,6 +5,7 @@ import com.ssafy.tourmates.controller.dto.request.AddNoticeRequest;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.notice.service.NoticeService;
 import com.ssafy.tourmates.notice.service.dto.AddNoticeDto;
+import com.ssafy.tourmates.notice.service.dto.DetailNoticeDto;
 import com.ssafy.tourmates.notice.service.dto.ModifyNoticeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -34,8 +35,8 @@ public class NoticeController {
                              Model model) {
 
     noticeService.checkAuthority(loginMember);
-    ModifyNoticeDto modifyNoticeDto = noticeService.getNotice(noticeId);
-    model.addAttribute("modifyNoticeDto", modifyNoticeDto);
+    DetailNoticeDto detailNoticeDto = noticeService.getDetailNotice(noticeId);
+    model.addAttribute("detailNoticeDto", detailNoticeDto);
 
     return "/notice/noticeDetailForm";
 
@@ -47,7 +48,7 @@ public class NoticeController {
       Model model) {
 
     noticeService.checkAuthority(loginMember);
-    ModifyNoticeDto modifyNoticeDto = noticeService.getNotice(noticeId);
+    ModifyNoticeDto modifyNoticeDto = noticeService.getModifyNotice(noticeId);
     model.addAttribute("modifyNoticeDto", modifyNoticeDto);
 
     return "/notice/noticeModifyForm";
