@@ -19,7 +19,7 @@
     set title   = #{notice.title},
         content = #{notice.content},
         top     = #{notice.top}
-    where notice_id = #{notice.id}
+    where notice_id = #{notice.noticeId}
   </update>
 
   <delete id="deleteById">

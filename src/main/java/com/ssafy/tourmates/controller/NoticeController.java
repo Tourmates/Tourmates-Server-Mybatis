@@ -1,11 +1,11 @@
 package com.ssafy.tourmates.controller;
 
-import com.ssafy.tourmates.controller.dto.AddMemberRequest;
-import com.ssafy.tourmates.controller.dto.modify.ModifyNoticeRequest;
+import com.ssafy.tourmates.controller.dto.modify.EditNoticeRequest;
 import com.ssafy.tourmates.controller.dto.request.AddNoticeRequest;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.notice.service.NoticeService;
 import com.ssafy.tourmates.notice.service.dto.AddNoticeDto;
+import com.ssafy.tourmates.notice.service.dto.DetailNoticeDto;
 import com.ssafy.tourmates.notice.service.dto.ModifyNoticeDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -29,20 +29,33 @@ public class NoticeController {
     return "/notice/noticeRegisterForm";
   }
 
+  @GetMapping("/{noticeId}/detail")
+  public String detailNotice(@PathVariable("noticeId") Long noticeId,
+                             @SessionAttribute(value = "loginMember", required = false) Member loginMember,
+                             Model model) {
+
+    noticeService.checkAuthority(loginMember);
+    DetailNoticeDto detailNoticeDto = noticeService.getDetailNotice(noticeId);
+    model.addAttribute("detailNoticeDto", detailNoticeDto);
+
+    return "/notice/noticeDetailForm";
+
+  }
+
   @GetMapping("/{noticeId}/modify")
   public String modifyNotice(@PathVariable("noticeId") Long noticeId,
       @SessionAttribute(value = "loginMember", required = false) Member loginMember,
       Model model) {
 
     noticeService.checkAuthority(loginMember);
-    ModifyNoticeDto modifyNoticeDto = noticeService.getNotice(noticeId);
+    ModifyNoticeDto modifyNoticeDto = noticeService.getModifyNotice(noticeId);
     model.addAttribute("modifyNoticeDto", modifyNoticeDto);
 
     return "/notice/noticeModifyForm";
 
   }
 
-  @GetMapping("/delete/{noticeId}")
+  @GetMapping("/{noticeId}/delete")
   public String delteNotice(@PathVariable("noticeId") Long noticeId,
       @SessionAttribute("loginMember") Member loginMember) {
 
@@ -92,7 +105,7 @@ public class NoticeController {
 
   @PostMapping("/{noticeId}/modify")
   public String modifyNotice(@PathVariable("noticeId") Long noticeId,
-      @ModelAttribute ModifyNoticeRequest modifyNoticeRequest,
+      @ModelAttribute EditNoticeRequest editNoticeRequest,
       @SessionAttribute("loginMember") Member loginMember) {
 
     if (loginMember == null) {
@@ -102,9 +115,10 @@ public class NoticeController {
     noticeService.checkAuthority(loginMember);
 
     ModifyNoticeDto modifyNoticeDto = ModifyNoticeDto.builder()
-        .title(modifyNoticeRequest.getTitle())
-        .content(modifyNoticeRequest.getContent())
-        .top(modifyNoticeRequest.isTop())
+        .id(noticeId)
+        .title(editNoticeRequest.getTitle())
+        .content(editNoticeRequest.getContent())
+        .top(editNoticeRequest.isTop())
         .build();
 
     noticeService.edit(noticeId, modifyNoticeDto);
