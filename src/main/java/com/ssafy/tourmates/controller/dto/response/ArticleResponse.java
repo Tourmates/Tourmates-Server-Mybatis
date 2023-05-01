@@ -14,7 +14,7 @@ public class ArticleResponse {
     private int hit;
     private String tag;
     private String createdDate;
-//date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS"))
+
     @Builder
     public ArticleResponse(Long articleId, String title, int hit, String tag, LocalDateTime createdDate) {
         this.articleId = articleId;
