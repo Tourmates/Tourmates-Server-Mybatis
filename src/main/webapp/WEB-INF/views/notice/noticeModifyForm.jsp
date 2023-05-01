@@ -15,7 +15,7 @@
   <h1 class="text-center"> 공지사항 수정 </h1>
 
 
-  <form method="post" action="${root}/notice/register">
+  <form method="post" action="${root}/notice/${modifyNoticeDto.id}/modify">
     <div class="mb-3">
       <label for="noticeTitle" class="form-label ">수정할 공지 제목</label>
       <input type="text" class="form-control border border-black" id="title"
@@ -26,13 +26,13 @@
     <div class="input-group">
             <textarea class="form-control h-25 border border-black" rows="10"
                       id="submission_content{{submission.id}}"
-                      aria-label="With textarea" name = "content" value = "${modifyNoticeDto.content}"></textarea>
+                      aria-label="With textarea" name = "content">${modifyNoticeDto.content}</textarea>
     </div>
     <br/>
     <div class="mb-3 form-check">
       <input type="checkbox" class="form-check-input" id="top" name = "top">
       <label class="form-check-label" for="top">상단 등록</label></div>
-    <button type="submit" class="d-grid gap-2 col-2 mx-auto btn btn-primary text-center ">등록
+    <button type="submit" class="d-grid gap-2 col-2 mx-auto btn btn-primary text-center ">수정
     </button>
   </form>
 
