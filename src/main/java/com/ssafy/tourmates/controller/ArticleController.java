@@ -53,7 +53,7 @@ public class ArticleController {
                 .content(request.getContent())
                 .build();
         Long savedArticleId = articleService.addArticle(member.getLoginId(), dto);
-        return "redirect:/article";
+        return "redirect:/articles";
     }
 
     @GetMapping("/{articleId}")
