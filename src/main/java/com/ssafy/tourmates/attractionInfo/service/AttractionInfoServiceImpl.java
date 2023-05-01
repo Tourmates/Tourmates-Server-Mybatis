@@ -47,23 +47,22 @@ public class AttractionInfoServiceImpl implements AttractionInfoService {
     @Transactional
     public void edit(ModifyAttractionInfoDto dto) {
 
-        AttractionInfo findAttractionInfo = attractionInfoRepository.findById(dto.getId()).orElseThrow(AttractionInfoNotFoundException::new);
-
-        findAttractionInfo.change(dto.getSidoCode(),
-                dto.getGugunCode(),
-                dto.getContentTypeId(),
-                dto.getTitle(),
-                dto.getAddr1(),
-                dto.getAddr2(),
-                dto.getTel(),
-                dto.getZipcode(),
-                dto.getFirstImage(),
-                dto.getFirstImage2(),
-                dto.getLatitude(),
-                dto.getLongtitude());
-
-        attractionInfoRepository.update(findAttractionInfo);
-
+//        AttractionInfo findAttractionInfo = attractionInfoRepository.findById(dto.getId()).orElseThrow(AttractionInfoNotFoundException::new);
+//
+//        findAttractionInfo.change(dto.getSidoCode(),
+//                dto.getGugunCode(),
+//                dto.getContentTypeId(),
+//                dto.getTitle(),
+//                dto.getAddr1(),
+//                dto.getAddr2(),
+//                dto.getTel(),
+//                dto.getZipcode(),
+//                dto.getFirstImage(),
+//                dto.getFirstImage2(),
+//                dto.getLatitude(),
+//                dto.getLongtitude());
+//
+//        attractionInfoRepository.update(findAttractionInfo);
 
     }
 

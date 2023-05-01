@@ -1,9 +1,12 @@
 package com.ssafy.tourmates.controller;
 
 
+import com.ssafy.tourmates.authoriry.Login;
 import com.ssafy.tourmates.controller.dto.request.AddHotplaceRequest;
 import com.ssafy.tourmates.controller.dto.request.EditHotplaceRequest;
 import com.ssafy.tourmates.hotplace.service.HotplaceService;
+import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
+import com.ssafy.tourmates.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,8 +30,16 @@ public class HotplaceController {
     }
 
     @PostMapping("/register")
-    public String registerHotplace(AddHotplaceRequest request) {
-        return "hotplace/registerHotplace";
+    public String registerHotplace(@Login Member member, AddHotplaceRequest request) {
+        AddHotplaceDto dto = AddHotplaceDto.builder()
+                .tag(request.getTag())
+                .title(request.getTitle())
+                .content(request.getContent())
+                .visitedDate(request.getVisitedDate())
+                .uploadFileName(request.getUploadFileName())
+                .build();
+        Long hotplaceId = hotplaceService.registerHotplace(member.getLoginId(), request.getContentId(), dto);
+        return "redirect:/hotplaces";
     }
 
     @GetMapping("/{hotplaceId}")
