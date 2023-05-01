@@ -7,29 +7,20 @@ import lombok.NoArgsConstructor;
 import static lombok.AccessLevel.PROTECTED;
 
 @Data
-@NoArgsConstructor(access = PROTECTED)
 public class ModifyHotplaceDto {
 
-    private Long id;
-    private String name;
-    private String desc;
+    private String tag;
+    private String title;
+    private String content;
     private String visitedDate;
     private String uploadFileName;
-    private String storeFileName;
-    private Long memberId;
-    private int contentId;
-    private int contentTypeId;
 
     @Builder
-    public ModifyHotplaceDto(Long id, String name, String desc, String visitedDate, String uploadFileName, String storeFileName, Long memberId, int contentId, int contentTypeId) {
-        this.id = id;
-        this.name = name;
-        this.desc = desc;
+    public ModifyHotplaceDto(String tag, String title, String content, String visitedDate, String uploadFileName) {
+        this.tag = tag;
+        this.title = title;
+        this.content = content;
         this.visitedDate = visitedDate;
         this.uploadFileName = uploadFileName;
-        this.storeFileName = storeFileName;
-        this.memberId = memberId;
-        this.contentId = contentId;
-        this.contentTypeId = contentTypeId;
     }
 }

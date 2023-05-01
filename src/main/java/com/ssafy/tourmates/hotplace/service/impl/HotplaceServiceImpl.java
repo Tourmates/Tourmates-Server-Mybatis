@@ -69,7 +69,12 @@ public class HotplaceServiceImpl implements HotplaceService {
 
     @Override
     public Long editHotplace(Long hotplaceId, String loginId, ModifyHotplaceDto dto) {
-        return null;
+        Hotplace findHotplace = hotplaceRepository.findById(hotplaceId)
+                .orElseThrow(NoSuchElementException::new);
+
+        findHotplace.changeHotplace(dto.getTag(), dto.getTitle(), dto.getContent(), dto.getVisitedDate(), null);
+        hotplaceRepository.update(findHotplace);
+        return findHotplace.getId();
     }
 
 

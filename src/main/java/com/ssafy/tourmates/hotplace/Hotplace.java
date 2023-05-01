@@ -47,6 +47,14 @@ public class Hotplace {
     }
 
     //== 비즈니스 로직 ==//
+    public void changeHotplace(String tag, String title, String content, String visitedDate, UploadFile uploadFile) {
+        this.tag = tag;
+        this.title = title;
+        this.content = content;
+        this.visitedDate = visitedDate;
+        this.uploadFile = uploadFile;
+    }
+
     public void increaseHit() {
         this.hit += 1;
     }
