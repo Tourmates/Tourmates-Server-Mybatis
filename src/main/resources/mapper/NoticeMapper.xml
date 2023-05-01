@@ -8,7 +8,7 @@
     values (#{notice.title}, #{notice.content}, #{notice.top}, #{notice.createdBy.id}, #{notice.lastModifiedBy.id})
   </insert>
 
-  <select id="findById" resultType="notice">
+  <select id="findById" resultType="com.ssafy.tourmates.notice.Notice">
     select *
     from notice
     where notice_id = #{noticeId}
