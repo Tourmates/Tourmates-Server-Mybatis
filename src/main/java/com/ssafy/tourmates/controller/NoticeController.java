@@ -2,6 +2,7 @@ package com.ssafy.tourmates.controller;
 
 import com.ssafy.tourmates.controller.dto.AddMemberRequest;
 import com.ssafy.tourmates.controller.dto.modify.ModifyNoticeRequest;
+import com.ssafy.tourmates.controller.dto.request.AddNoticeRequest;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.notice.service.NoticeService;
 import com.ssafy.tourmates.notice.service.dto.AddNoticeDto;
@@ -72,8 +73,8 @@ public class NoticeController {
   }
 
 
-  @PostMapping("/add")
-  public String addNotice(@RequestBody AddMemberRequest.AddNoticeRequest addNoticeRequest,
+  @PostMapping("/register")
+  public String addNotice(@RequestBody AddNoticeRequest addNoticeRequest,
       @SessionAttribute(value = "loginMember", required = false) Member loginMember,
       Model model) {
 
