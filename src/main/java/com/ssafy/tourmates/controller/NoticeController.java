@@ -34,6 +34,7 @@ public class NoticeController {
       return "loginForm"; //TODO: 나중에 바꾸기
     }
 
+
     return "/notice/noticeRegisterForm";
   }
 
