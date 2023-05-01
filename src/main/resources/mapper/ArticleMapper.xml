@@ -15,6 +15,20 @@
         </association>
     </resultMap>
 
+    <resultMap id="articleView" type="Article">
+        <id column="article_id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="hit" property="hit"/>
+        <result column="tag" property="tag"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="last_modified_date" property="lastModifiedDate"/>
+        <association property="member" javaType="Member">
+            <id column="m.member_id" property="id"/>
+            <result column="nickname" property="nickname"/>
+        </association>
+    </resultMap>
+
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
         insert into article(title, content, tag, member_id)
         values (#{title}, #{content}, #{tag}, #{member.id})
@@ -31,9 +45,19 @@
         from article
     </select>
 
-    <select id="findByCondition" resultMap="article">
+    <select id="findDetailById" resultMap="articleView">
         select *
-        from article
+        from article a
+        join member m
+        on a.member_id = m.member_id
+        where a.article_id = #{articleId};
+    </select>
+
+    <select id="findByCondition" resultMap="articleView">
+        select *
+        from article a
+        join member m
+        on a.member_id = m.member_id
         <where>
             <if test="condition.keyword != null">
                 and title = #{keyword}

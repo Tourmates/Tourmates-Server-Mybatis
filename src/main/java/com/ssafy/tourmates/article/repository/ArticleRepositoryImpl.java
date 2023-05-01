@@ -31,6 +31,11 @@ public class ArticleRepositoryImpl implements ArticleRepository {
     }
 
     @Override
+    public Optional<Article> findDetailById(Long articleId) {
+        return articleMapper.findDetailById(articleId);
+    }
+
+    @Override
     public Integer findCountAll() {
         return articleMapper.findCountAll();
     }

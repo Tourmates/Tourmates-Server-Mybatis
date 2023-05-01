@@ -52,6 +52,7 @@ public class ArticleServiceImpl implements ArticleService {
                         .title(article.getTitle())
                         .hit(article.getHit())
                         .tag(article.getTag())
+                        .nickname(article.getMember().getNickname())
                         .createdDate(article.getCreatedDate())
                         .build())
                 .collect(Collectors.toList());
@@ -59,7 +60,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public DetailArticleResponse detailArticle(Long articleId) {
-        Optional<Article> findArticle = articleRepository.findById(articleId);
+        Optional<Article> findArticle = articleRepository.findDetailById(articleId);
         if (!findArticle.isPresent()) {
             throw new NoSuchElementException();
         }
@@ -70,6 +71,7 @@ public class ArticleServiceImpl implements ArticleService {
                 .title(article.getTitle())
                 .hit(article.getHit())
                 .tag(article.getTag())
+                .nickname(article.getMember().getNickname())
                 .content(article.getContent())
                 .createdDate(article.getCreatedDate())
                 .build();

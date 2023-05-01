@@ -13,14 +13,16 @@ public class ArticleResponse {
     private String title;
     private int hit;
     private String tag;
+    private String nickname;
     private String createdDate;
 
     @Builder
-    public ArticleResponse(Long articleId, String title, int hit, String tag, LocalDateTime createdDate) {
+    public ArticleResponse(Long articleId, String title, int hit, String tag, String nickname, LocalDateTime createdDate) {
         this.articleId = articleId;
         this.title = title;
         this.hit = hit;
         this.tag = tag;
+        this.nickname = nickname;
         this.createdDate = createdDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
     }
 }

@@ -14,6 +14,8 @@ public interface ArticleRepository {
 
     List<Article> findByCondition(SearchArticleCondition condition, int pageNum, int amount);
 
+    Optional<Article> findDetailById(Long articleId);
+
     Integer findCountAll();
 
     void update(Article article);

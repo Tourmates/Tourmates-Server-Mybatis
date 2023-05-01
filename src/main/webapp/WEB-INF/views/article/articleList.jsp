@@ -50,7 +50,7 @@
                         </a>
                     </div>
                     <div>
-                        작성자 | ${article.createdDate}
+                        ${article.nickname} | ${article.createdDate}
                     </div>
                 </td>
                 <td class='align-bottom'>

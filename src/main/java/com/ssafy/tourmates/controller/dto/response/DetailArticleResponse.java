@@ -14,15 +14,17 @@ public class DetailArticleResponse {
     private String content;
     private int hit;
     private String tag;
+    private String nickname;
     private String createdDate;
 
     @Builder
-    public DetailArticleResponse(Long articleId, String title, String content, int hit, String tag, LocalDateTime createdDate) {
+    public DetailArticleResponse(Long articleId, String title, String content, int hit, String tag, String nickname, LocalDateTime createdDate) {
         this.articleId = articleId;
         this.title = title;
         this.content = content;
         this.hit = hit;
         this.tag = tag;
+        this.nickname = nickname;
         this.createdDate = createdDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
     }
 }

@@ -17,6 +17,8 @@ public interface ArticleMapper {
 
     List<Article> findAll();
 
+    Optional<Article> findDetailById(Long articleId);
+
     List<Article> findByCondition(@Param("condition") SearchArticleCondition condition, @Param("pageNum") int pageNum, @Param("amount") int amount);
 
     Integer findCountAll();
