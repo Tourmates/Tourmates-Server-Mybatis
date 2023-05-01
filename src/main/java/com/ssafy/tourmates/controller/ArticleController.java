@@ -27,7 +27,7 @@ public class ArticleController {
 
     @GetMapping
     public String articles(
-            @RequestParam String keyword,
+            @RequestParam(required = false) String keyword,
             @RequestParam(defaultValue = "1") Integer sorted,
             Model model) {
 

@@ -1,9 +1,11 @@
 package com.ssafy.tourmates.controller;
 
+import com.ssafy.tourmates.controller.dto.request.EditLoginPwRequest;
 import com.ssafy.tourmates.controller.dto.request.EditPersonalInfoRequest;
 import com.ssafy.tourmates.controller.dto.response.PersonalInfoResponse;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.member.service.MemberService;
+import com.ssafy.tourmates.member.service.dto.EditLoginPwDto;
 import com.ssafy.tourmates.member.service.dto.EditPersonalInfoDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,5 +48,21 @@ public class MemberController {
 
         Long memberId = memberService.editPersonalInfo(member.getLoginId(), dto);
         return "redirect:/mypage/personal";
+    }
+
+    @GetMapping("/account")
+    public String account(@SessionAttribute(name = "loginMember") Member member, Model model) {
+        return "member/account";
+    }
+
+    @PostMapping("/account")
+    public String account(EditLoginPwRequest request, @SessionAttribute(name = "loginMember") Member member) {
+        EditLoginPwDto dto = EditLoginPwDto.builder()
+                .oldLoginPw(request.getOldLoginPw())
+                .newLoginPw(request.getNewLoginPw())
+                .build();
+
+        Long memberId = memberService.editLoginPw(member.getLoginId(), dto);
+        return "redirect:/mypage/account";
     }
 }
