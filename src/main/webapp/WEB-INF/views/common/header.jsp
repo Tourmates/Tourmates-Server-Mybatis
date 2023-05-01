@@ -9,7 +9,7 @@
       <li class="nav-item"><a href="${root}/attractionInfo" class="nav-link active text-dark" aria-current="page">지역별여행지</a></li>
       <li class="nav-item"><a href="${root}/tripPlan" class="nav-link text-dark">나의여행계획</a></li>
       <li class="nav-item"><a href="${root}/hotplace" class="nav-link text-dark">핫플자랑하기</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-dark">여행정보공유</a></li>
+      <li class="nav-item"><a href="${root}/articles" class="nav-link text-dark">자유게시판</a></li>
       <c:if test="${empty loginMember}">
         <li class="nav-item"><a href="${root}/" class="nav-link text-dark" data-bs-toggle="modal"
                                 data-bs-target="#joinModal">회원가입</a></li>
