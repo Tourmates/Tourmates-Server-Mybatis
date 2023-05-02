@@ -11,10 +11,11 @@ import static lombok.AccessLevel.PROTECTED;
 @Getter
 @NoArgsConstructor(access = PROTECTED)
 public class AttractionInfo {
+
     private int contentId;
+    private int contentTypeId;
     private int sidoCode2;
     private int gugunCode2;
-    private int contentTypeId;
     private String title;
     private String addr1;
     private String addr2;
@@ -28,11 +29,11 @@ public class AttractionInfo {
     private String mlevel;
 
     @Builder
-    public AttractionInfo(int contentId, int sidoCode2, int gugunCode2, int contentTypeId, String title, String addr1, String addr2, String tel, String zipcode, String firstImage, String firstImage2, int readCount, Double latitude, Double longtitude, String mlevel) {
+    public AttractionInfo(int contentId, int contentTypeId, int sidoCode2, int gugunCode2, String title, String addr1, String addr2, String tel, String zipcode, String firstImage, String firstImage2, int readCount, Double latitude, Double longtitude, String mlevel) {
         this.contentId = contentId;
+        this.contentTypeId = contentTypeId;
         this.sidoCode2 = sidoCode2;
         this.gugunCode2 = gugunCode2;
-        this.contentTypeId = contentTypeId;
         this.title = title;
         this.addr1 = addr1;
         this.addr2 = addr2;
