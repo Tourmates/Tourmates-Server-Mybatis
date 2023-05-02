@@ -254,7 +254,7 @@
   function setCenter(response) {
     // 이동할 위도 경도 위치를 생성합니다
     // console.log(response.data);
-    let attraction = response.data;
+    let attraction = response[0];
     console.log("#####");
     console.log(attraction);
     console.log(typeof (attraction));
