@@ -1,9 +1,12 @@
 package com.ssafy.tourmates.attractionInfo.repository;
 
 import com.ssafy.tourmates.attractionInfo.AttractionInfo;
+import com.ssafy.tourmates.controller.dto.request.AttractionInfoSearchRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -31,5 +34,11 @@ public class AttractionInfoRepositoryImpl implements AttractionInfoRepository {
     @Override
     public void deleteById(int contentId) {
         mapper.deleteById(contentId);
+    }
+
+    @Override
+    public List<AttractionInfo> findByConditions(AttractionInfoSearchRequest condition) {
+
+        return mapper.findByConditions(condition);
     }
 }
