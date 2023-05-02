@@ -4,6 +4,7 @@ import com.ssafy.tourmates.notice.Notice;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Optional;
 
 @Mapper
@@ -16,4 +17,6 @@ public interface NoticeMapper {
     void update(@Param("notice") Notice notice);
 
     void deleteById(@Param("noticeId") Long noticeId);
+
+    List<Notice> findAll();
 }
