@@ -41,8 +41,8 @@
         </svg>
         01011112222
       </p>
-      <div class="collapse" id="collapseExample">
-        <form class="card card-body" method="post" action="${rooy}/my/personal">
+      <div class="collapse mt-3" id="collapseExample">
+        <form class="card card-body" method="post" action="${root}/my/personal">
           <div class="mb-3">
             <label for="nickname" class="form-label">닉네임</label>
             <input type="text" class="form-control" id="nickname" name="nickname" placeholder="닉네임" value="${personalInfo.nickname}">

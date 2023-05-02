@@ -95,4 +95,10 @@ public class MemberController {
     public String withdrawal(@Login Member member) {
         return "member/withdrawal";
     }
+
+    @PostMapping("/withdrawal")
+    public String withdrawal(@Login Member member, String loginPw) {
+        log.debug("회원탈퇴");
+        return "member/withdrawal";
+    }
 }
