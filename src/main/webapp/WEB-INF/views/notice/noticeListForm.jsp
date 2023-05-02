@@ -46,6 +46,8 @@
   </div>
 </section>
 <!-- footer start -->
+<button type="button" class="d-grid gap-2 col-2 mx-auto btn btn-primary text-center" onclick = "location.href = '${root}/notice/add'">공지사항 글쓰기</button>
+
 <%@ include file="../common/footer.jsp" %>
 
 </body>
