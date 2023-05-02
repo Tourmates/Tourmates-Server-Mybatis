@@ -44,6 +44,13 @@
 ![image](https://user-images.githubusercontent.com/62228401/235671473-49501993-e892-4c34-aa5e-4ce325662701.png)
 ![image](https://user-images.githubusercontent.com/62228401/235671867-3ae66337-152a-45bc-aa0c-ccdbea930402.png)
 
+## 마이페이지
+- 마이페이지 화면입니다.
+- 로그인 한 유저가 본인의 정보를 확인할 수 있습니다.
+![image](https://user-images.githubusercontent.com/62228401/235674387-5ddde011-1d87-4a56-b7d4-5ceacb78e00f.png)
+- UPDATE 버튼을 누르면 개인 정보 수정이 가능합니다.
+![image](https://user-images.githubusercontent.com/62228401/235674522-c81a5a48-c415-437f-a77d-07ecfb72f0bc.png)
+
 
 ### 게시판 구현
 - 자유게시판과 공지사항 게시판 입니다.
