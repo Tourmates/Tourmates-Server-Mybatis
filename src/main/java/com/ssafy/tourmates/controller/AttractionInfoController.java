@@ -30,7 +30,7 @@ public class AttractionInfoController {
     private final GugunService gugunService;
 
 
-    @GetMapping("/search")
+    @GetMapping
     public String search(@RequestParam HashMap<String, Integer> paramMap, Model model){
         int sidoCode = (paramMap.get("sidoCode") == null) ? 1 : paramMap.get("sidoCode");
         int gugunCode =  (paramMap.get("gugunCode") == null) ? 1 : paramMap.get("gugunCode");
