@@ -2,13 +2,14 @@ package com.ssafy.tourmates.attractionInfo.service;
 
 import com.ssafy.tourmates.attractionInfo.AttractionInfo;
 import com.ssafy.tourmates.attractionInfo.repository.AttractionInfoRepository;
-import com.ssafy.tourmates.attractionInfo.repository.AttractionInfoRepositoryImpl;
 import com.ssafy.tourmates.attractionInfo.service.dto.AddAttractionInfoDto;
-import com.ssafy.tourmates.attractionInfo.service.dto.ModifyAttractionInfoDto;
-import com.ssafy.tourmates.common.exception.AttractionInfoNotFoundException;
+import com.ssafy.tourmates.attractionInfo.service.dto.AttractionInfoDto;
+import com.ssafy.tourmates.controller.dto.request.AttractionInfoSearchRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -44,33 +45,20 @@ public class AttractionInfoServiceImpl implements AttractionInfoService {
     }
 
     @Override
-    @Transactional
-    public void edit(ModifyAttractionInfoDto dto) {
+    public List<AttractionInfoDto> searchAttraction(AttractionInfoSearchRequest condition) {
 
-//        AttractionInfo findAttractionInfo = attractionInfoRepository.findById(dto.getId()).orElseThrow(AttractionInfoNotFoundException::new);
-//
-//        findAttractionInfo.change(dto.getSidoCode(),
-//                dto.getGugunCode(),
-//                dto.getContentTypeId(),
-//                dto.getTitle(),
-//                dto.getAddr1(),
-//                dto.getAddr2(),
-//                dto.getTel(),
-//                dto.getZipcode(),
-//                dto.getFirstImage(),
-//                dto.getFirstImage2(),
-//                dto.getLatitude(),
-//                dto.getLongtitude());
-//
-//        attractionInfoRepository.update(findAttractionInfo);
-
+        List<AttractionInfo> findAttractionInfoList = attractionInfoRepository.findByConditions(condition);
+        return null;
     }
+
 
     @Override
     public void delete(int contentId) {
 
         attractionInfoRepository.deleteById(contentId);
     }
+
+
 
 
 }
