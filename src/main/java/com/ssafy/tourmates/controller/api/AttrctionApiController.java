@@ -11,12 +11,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @Slf4j
 @RequestMapping("/api/attraction")
@@ -25,12 +27,12 @@ public class AttrctionApiController {
     private final AttractionInfoService attractionInfoService;
 
     @GetMapping("/search")
-    public void searchAttractionInfo(HttpServletResponse response,
-                                       @RequestParam HashMap<String, Integer> paramMap) throws IOException {
+    public List<AttractionInfoDto> searchAttractionInfo(HttpServletResponse response,
+                                       @RequestParam HashMap<String, String> paramMap) throws IOException {
 
-        int sidoCode = paramMap.get("sidoCode");
-        int gugunCode = paramMap.get("gugunCode");
-        int contentTypeId = paramMap.get("contentTypeId");
+        int sidoCode = Integer.valueOf(paramMap.get("sidoCode"));
+        int gugunCode = Integer.valueOf(paramMap.get("gugunCode"));
+        int contentTypeId = Integer.valueOf(paramMap.get("contentTypeId"));
 
         AttractionInfoSearchRequest condition = AttractionInfoSearchRequest.builder()
                         .sidoCode(sidoCode)
@@ -40,22 +42,26 @@ public class AttrctionApiController {
 
         List<AttractionInfoDto> attractionList = attractionInfoService.searchAttraction(condition);
 
-        JSONObject json = new JSONObject();
-        JSONArray array = new JSONArray();
+        return attractionList;
 
-        for(AttractionInfoDto attraction : attractionList){
-            JSONObject temp = new JSONObject();
-            temp.put("title", attraction.getTitle());
-            temp.put("addr1", attraction.getAddr1());
-            temp.put("zipcode", attraction.getZipcode());
-            temp.put("firstImage", attraction.getFirstImage());
-            temp.put("latitude", attraction.getLatitude());
-            temp.put("longtitude", attraction.getLongitude());
-            array.add(temp);
-        }
-
-        response.setContentType("application/json; charset=UTF-8");
-        response.getWriter().println(json);
+//        JSONObject json = new JSONObject();
+//        JSONArray array = new JSONArray();
+//
+//        for(AttractionInfoDto attraction : attractionList){
+//            JSONObject temp = new JSONObject();
+//            temp.put("title", attraction.getTitle());
+//            temp.put("addr1", attraction.getAddr1());
+//            temp.put("zipcode", attraction.getZipcode());
+//            temp.put("firstImage", attraction.getFirstImage());
+//            temp.put("latitude", attraction.getLatitude());
+//            temp.put("longtitude", attraction.getLongitude());
+//            array.add(temp);
+//        }
+//
+//        json.put("data", array);
+//
+//        response.setContentType("application/json; charset=UTF-8");
+//        response.getWriter().println(json);
 
     }
 
