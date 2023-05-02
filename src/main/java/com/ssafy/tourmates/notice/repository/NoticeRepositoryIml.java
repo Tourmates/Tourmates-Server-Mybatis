@@ -4,6 +4,7 @@ import com.ssafy.tourmates.notice.Notice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -33,5 +34,10 @@ public class NoticeRepositoryIml implements NoticeRepository {
     @Override
     public void deleteById(Long noticeId) {
         noticeMapper.deleteById(noticeId);
+    }
+
+    @Override
+    public List<Notice> findAll() {
+        return noticeMapper.findAll();
     }
 }
