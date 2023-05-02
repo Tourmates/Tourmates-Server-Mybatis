@@ -55,14 +55,14 @@ public class ArticleController {
     }
 
     @PostMapping("/register")
-    public String registerArticle(AddArticleRequest request, @SessionAttribute("loginMember") Member member) {
+    public String registerArticle(AddArticleRequest request, @Login Member member) {
         AddArticleDto dto = AddArticleDto.builder()
                 .title(request.getTitle())
                 .content(request.getContent())
                 .tag(request.getTag())
                 .build();
         Long savedArticleId = articleService.addArticle(member.getLoginId(), dto);
-        return "redirect:/articles";
+        return "redirect:/articles/" + savedArticleId;
     }
 
     @GetMapping("/{articleId}")
@@ -84,17 +84,17 @@ public class ArticleController {
     }
 
     @PostMapping("/{articleId}/edit")
-    public String editArticle(@PathVariable Long articleId, @SessionAttribute("loginMember") Member member, EditArticleRequest request) {
+    public String editArticle(@PathVariable Long articleId, @Login Member member, EditArticleRequest request) {
         EditArticleDto dto = EditArticleDto.builder()
                 .title(request.getTitle())
                 .content(request.getContent())
                 .build();
         Long editArticleId = articleService.editArticle(articleId, member.getLoginId(), dto);
-        return "redirect:/articles";
+        return "redirect:/articles/" + editArticleId;
     }
 
     @GetMapping("/{articleId}/remove")
-    public String removeArticle(@PathVariable Long articleId, @SessionAttribute("loginMember") Member member) {
+    public String removeArticle(@PathVariable Long articleId, @Login Member member) {
         Long removeArticleId = articleService.removeArticle(articleId, member.getLoginId());
         return "redirect:/articles";
     }

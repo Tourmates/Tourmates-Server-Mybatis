@@ -58,7 +58,7 @@ public class HotplaceController {
                 .build();
 
         Long hotplaceId = hotplaceService.registerHotplace(member.getLoginId(), request.getContentId(), dto);
-        return "redirect:/hotplaces";
+        return "redirect:/hotplaces/" + hotplaceId;
     }
 
     @GetMapping("/{hotplaceId}")
@@ -92,7 +92,7 @@ public class HotplaceController {
                 .uploadFile(attachFile)
                 .build();
         Long id = hotplaceService.editHotplace(hotplaceId, member.getLoginId(), dto);
-        return "redirect:/hotplaces";
+        return "redirect:/hotplaces/" + id;
     }
 
     @GetMapping("/{hotplaceId}/remove")
