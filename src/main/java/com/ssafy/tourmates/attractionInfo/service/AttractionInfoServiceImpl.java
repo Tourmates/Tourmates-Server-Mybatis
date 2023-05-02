@@ -3,24 +3,22 @@ package com.ssafy.tourmates.attractionInfo.service;
 import com.ssafy.tourmates.attractionInfo.AttractionInfo;
 import com.ssafy.tourmates.attractionInfo.repository.AttractionInfoRepository;
 import com.ssafy.tourmates.attractionInfo.service.dto.AttractionInfoDto;
+import com.ssafy.tourmates.common.exception.AttractionInfoNotFoundException;
 import com.ssafy.tourmates.controller.dto.request.AttractionInfoSearchRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.w3c.dom.Attr;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class AttractionInfoServiceImpl implements AttractionInfoService {
 
-    private AttractionInfoRepository attractionInfoRepository;
-
-    public AttractionInfoServiceImpl(AttractionInfoRepository attractionInfoRepository) {
-        this.attractionInfoRepository = attractionInfoRepository;
-    }
-
+    private final AttractionInfoRepository attractionInfoRepository;
 
     @Override
     public List<AttractionInfoDto> searchAttraction(AttractionInfoSearchRequest condition) {
@@ -40,6 +38,18 @@ public class AttractionInfoServiceImpl implements AttractionInfoService {
                 ).collect(Collectors.toList());
     }
 
+
+    @Override
+    public AttractionInfoDto searchAttraction(int contentId) {
+        AttractionInfo findAttractionInfo = attractionInfoRepository.findById(contentId).orElseThrow(() -> new AttractionInfoNotFoundException());
+
+        return AttractionInfoDto.builder()
+                .id(findAttractionInfo.getContentId())
+                .title(findAttractionInfo.getTitle())
+                .latitude(findAttractionInfo.getLatitude())
+                .longitude(findAttractionInfo.getLongtitude())
+                .build();
+    }
 
     @Override
     public void delete(int contentId) {
