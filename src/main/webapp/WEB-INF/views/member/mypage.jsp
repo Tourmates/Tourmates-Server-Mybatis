@@ -29,8 +29,7 @@
               </svg>
             </div>
             <h5 class="card-title">나의 핫플레이스</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+            <p class="card-text">내가 등록한 핫플레이스 목록을 확인할 수 있습니다.</p>
           </div>
         </div>
       </div>
@@ -45,8 +44,7 @@
               </svg>
             </div>
             <h5 class="card-title">나의 여행계획</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+            <p class="card-text">내가 등록한 여행계획 목록을 확인할 수 있습니다.</p>
           </div>
         </div>
       </div>
@@ -61,8 +59,7 @@
               </svg>
             </div>
             <h5 class="card-title">나의 게시물</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+            <p class="card-text">내가 등록한 게시물 목록을 확인할 수 있습니다.</p>
           </div>
         </div>
       </div>
@@ -77,7 +74,7 @@
               </svg>
             </div>
             <h5 class="card-title">개인 정보 변경</h5>
-            <p class="card-text">개인적인 세부 사항과 연락 방법을 제공합니다</p>
+            <p class="card-text">본인의 개인 정보를 변경할 수 있습니다.</p>
           </div>
         </div>
       </div>
@@ -92,7 +89,7 @@
               </svg>
             </div>
             <h5 class="card-title">비밀번호 변경</h5>
-            <p class="card-text">암호를 업데이트하고 계정을 보호합니다</p>
+            <p class="card-text">본인 계정의 비밀번호를 변경할 수 있습니다.</p>
           </div>
         </div>
       </div>
@@ -107,8 +104,7 @@
               </svg>
             </div>
             <h5 class="card-title">회원탈퇴</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-              content. This content is a little bit longer.</p>
+            <p class="card-text">서비스 이용을 원하지 않는 경우 회원 탈퇴를 할 수 있습니다.</p>
           </div>
         </div>
       </div>
