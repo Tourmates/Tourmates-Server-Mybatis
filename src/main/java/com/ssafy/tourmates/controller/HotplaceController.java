@@ -2,6 +2,8 @@ package com.ssafy.tourmates.controller;
 
 
 import com.ssafy.tourmates.authoriry.Login;
+import com.ssafy.tourmates.common.FileStore;
+import com.ssafy.tourmates.common.UploadFile;
 import com.ssafy.tourmates.controller.dto.request.AddHotplaceRequest;
 import com.ssafy.tourmates.controller.dto.request.EditHotplaceRequest;
 import com.ssafy.tourmates.controller.dto.response.DetailHotplaceResponse;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -22,6 +25,7 @@ import java.util.List;
 public class HotplaceController {
 
     private final HotplaceService hotplaceService;
+    private final FileStore fileStore;
 
     @GetMapping
     public String hotplaceList(
@@ -40,14 +44,18 @@ public class HotplaceController {
     }
 
     @PostMapping("/register")
-    public String registerHotplace(@Login Member member, AddHotplaceRequest request) {
+    public String registerHotplace(@Login Member member, AddHotplaceRequest request) throws IOException {
+
+        UploadFile attachFile = fileStore.storeFile(request.getAttachFile());
+
         AddHotplaceDto dto = AddHotplaceDto.builder()
                 .tag(request.getTag())
                 .title(request.getTitle())
                 .content(request.getContent())
                 .visitedDate(request.getVisitedDate())
-                .uploadFileName(request.getUploadFileName())
+                .uploadFile(attachFile)
                 .build();
+
         Long hotplaceId = hotplaceService.registerHotplace(member.getLoginId(), request.getContentId(), dto);
         return "redirect:/hotplaces";
     }

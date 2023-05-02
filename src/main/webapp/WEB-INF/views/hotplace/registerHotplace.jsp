@@ -12,7 +12,7 @@
   <form method="get">
 
   </form>
-  <form method='post'>
+  <form method='post' action="${root}/hotplaces/register" enctype="multipart/form-data">
     <table class="table table-bordered">
       <tbody>
       <tr>
@@ -66,7 +66,7 @@
         <th class='align-middle'>파일첨부</th>
         <td>
           <div>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" id="formFile" name="attachFile">
           </div>
         </td>
       </tr>

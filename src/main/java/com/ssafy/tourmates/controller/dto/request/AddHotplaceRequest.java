@@ -1,6 +1,7 @@
 package com.ssafy.tourmates.controller.dto.request;
 
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class AddHotplaceRequest {
@@ -9,6 +10,6 @@ public class AddHotplaceRequest {
     private String title;
     private String content;
     private String visitedDate;
-    private String uploadFileName;
+    private MultipartFile attachFile;
     private Integer contentId;
 }

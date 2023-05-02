@@ -39,7 +39,7 @@ public class HotplaceServiceImpl implements HotplaceService {
                 .title(dto.getTitle())
                 .content(dto.getContent())
                 .visitedDate(dto.getVisitedDate())
-                .uploadFile(null)
+                .uploadFile(dto.getUploadFile())
                 .member(findMember)
                 .info(findContent)
                 .build();
@@ -58,7 +58,7 @@ public class HotplaceServiceImpl implements HotplaceService {
                                 .tag(hotplace.getTag())
                                 .title(hotplace.getTitle())
                                 .content(hotplace.getContent())
-                                .storeFileName(null)
+                                .storeFileName(hotplace.getUploadFile().getStoreFileName())
                                 .visitedDate(hotplace.getVisitedDate())
                                 .build())
                 .collect(Collectors.toList());
@@ -74,7 +74,7 @@ public class HotplaceServiceImpl implements HotplaceService {
                                 .tag(hotplace.getTag())
                                 .title(hotplace.getTitle())
                                 .content(hotplace.getContent())
-                                .storeFileName(null)
+                                .storeFileName(hotplace.getUploadFile().getStoreFileName())
                                 .visitedDate(hotplace.getVisitedDate())
                                 .build())
                 .collect(Collectors.toList());
@@ -93,7 +93,7 @@ public class HotplaceServiceImpl implements HotplaceService {
                 .vote(hotplace.getVote())
                 .createdDate(hotplace.getCreatedDate())
                 .visietdDate(hotplace.getVisitedDate())
-                .storeFileName(null)
+                .storeFileName(hotplace.getUploadFile().getStoreFileName())
                 .nickname(hotplace.getMember().getNickname())
                 .build();
     }

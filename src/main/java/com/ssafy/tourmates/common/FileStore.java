@@ -1,49 +1,43 @@
 package com.ssafy.tourmates.common;
 
-import javax.servlet.http.Part;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
+@Component
 public class FileStore {
 
-    public String fileDir = "";
+    @Value("${file.dir}")
+    public String fileDir;
 
     public String getFullPath(String filename) {
         return fileDir + filename;
     }
 
-    public UploadFile storeFile(Part part) throws IOException {
-        String originalFileName = getFilename(part);
-
-        if (!originalFileName.isEmpty()) {
-            String storeFileName = createStoreFileName(originalFileName);
-            part.write(fileDir + storeFileName);
-            return new UploadFile(originalFileName, storeFileName);
+    public UploadFile storeFile(MultipartFile multipartFile) throws IOException {
+        if (multipartFile.isEmpty()) {
+            return null;
         }
 
-        return null;
+        String originalFilename = multipartFile.getOriginalFilename();
+        String storeFileName = createStoreFileName(originalFilename);
+        multipartFile.transferTo(new File(getFullPath(storeFileName)));
+        return new UploadFile(originalFilename, storeFileName);
     }
 
-    private String getFilename(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        String[] split = contentDisp.split(";");
-        for (int i = 0; i < split.length; i++) {
-            String temp = split[i];
-            if (temp.trim().startsWith("filename")) {
-                return temp.substring(temp.indexOf("=") + 2, temp.length() - 1);
-            }
-        }
-        return "";
-    }
-
-    private String createStoreFileName(String originalFileName) {
-        String ext = extractExt(originalFileName);
+    private String createStoreFileName(String originalFilename) {
+        String ext = extractExt(originalFilename);
         String uuid = UUID.randomUUID().toString();
         return uuid + "." + ext;
     }
 
-    private String extractExt(String originalFileName) {
-        int pos = originalFileName.lastIndexOf(".");
-        return originalFileName.substring(pos + 1);
+    private String extractExt(String originalFilename) {
+        int pos = originalFilename.lastIndexOf(".");
+        return originalFilename.substring(pos + 1);
+
     }
 }
