@@ -30,7 +30,7 @@ public class AttractionInfoServiceImpl implements AttractionInfoService {
                 .zipcode(attractionInfo.getZipcode())
                 .firstImage(attractionInfo.getFirstImage())
                 .latitude(attractionInfo.getLatitude())
-                .longtitude(attractionInfo.getLongtitude())
+                .longitude(attractionInfo.getLongitude())
                 .build()
         ).collect(Collectors.toList());
 
@@ -46,7 +46,7 @@ public class AttractionInfoServiceImpl implements AttractionInfoService {
         .id(findAttractionInfo.getContentId())
         .title(findAttractionInfo.getTitle())
         .latitude(findAttractionInfo.getLatitude())
-        .longtitude(findAttractionInfo.getLongtitude())
+        .longitude(findAttractionInfo.getLongitude())
         .build();
   }
 
