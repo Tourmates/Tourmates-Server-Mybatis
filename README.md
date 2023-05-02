@@ -75,6 +75,8 @@
 ### 공지사항
 - 글쓰기 버튼을 누르면 아래와 같은 등록폼이 생깁니다.
 ![image](https://user-images.githubusercontent.com/62228401/235681459-da0c9819-3510-49d9-b085-1f7c8d1bce85.png)
+- 등록을 완료 후 세부 사항 목록으로 이동합니다.
+![image](https://user-images.githubusercontent.com/62228401/235687963-1f6bfaac-960c-4400-a554-fc41edcea579.png)
 - 등록을 완료 후 목록을 확인하면 공지사항이 등록된 것을 알 수 있습니다.
 ![image](https://user-images.githubusercontent.com/62228401/235687738-5a25f14a-c1bf-4efd-a6dd-481b1ab54bc0.png)
 
