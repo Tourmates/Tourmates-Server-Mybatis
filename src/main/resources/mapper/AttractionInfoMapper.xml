@@ -17,7 +17,7 @@
         where content_id = #{id}
     </select>
 
-    <select id = "findByCondition" resultType = "AttractionInfo">
+    <select id = "findByConditions" resultType = "AttractionInfo">
         select * from attraction_info where sido_code = #{condition.sidoCode} and gugun_code = #{condition.gugunCode} and content_type_id = #{condition.contentTypeId}
     </select>
 
