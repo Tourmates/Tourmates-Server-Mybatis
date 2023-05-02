@@ -60,7 +60,7 @@
         on a.member_id = m.member_id
         <where>
             <if test="condition.keyword != null">
-                and a.title = #{keyword}
+                and a.title like concat('%', #{condition.keyword}, '%')
             </if>
         </where>
         <if test="condition.sorted == 1">
