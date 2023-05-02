@@ -92,7 +92,7 @@ public class HotplaceServiceImpl implements HotplaceService {
                 .hit(hotplace.getHit())
                 .vote(hotplace.getVote())
                 .createdDate(hotplace.getCreatedDate())
-                .visietdDate(hotplace.getVisitedDate())
+                .visitedDate(hotplace.getVisitedDate())
                 .storeFileName(hotplace.getUploadFile().getStoreFileName())
                 .nickname(hotplace.getMember().getNickname())
                 .build();
