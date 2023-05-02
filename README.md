@@ -51,6 +51,8 @@
 ![image](https://user-images.githubusercontent.com/62228401/235674387-5ddde011-1d87-4a56-b7d4-5ceacb78e00f.png)
 - UPDATE 버튼을 누르면 개인 정보 수정이 가능합니다.
 ![image](https://user-images.githubusercontent.com/62228401/235674522-c81a5a48-c415-437f-a77d-07ecfb72f0bc.png)
+- 비밀번호 버튼을 누르면 현재 비밀번호를 확인 후 새로운 비밀번호를 등록할 수 있습니다.
+![image](https://user-images.githubusercontent.com/62228401/235675472-739993ae-4ee1-4663-b30c-14249c858e7d.png)
 - 로그인 한 유저가 본인이 등록한 핫플레이스를 확인할 수 있습니다.
 ![image](https://user-images.githubusercontent.com/62228401/235675188-af5f3cf2-8dd3-4982-b867-81fa9fdbef87.png)
 
