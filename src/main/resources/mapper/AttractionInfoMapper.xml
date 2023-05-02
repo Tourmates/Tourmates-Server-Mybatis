@@ -17,6 +17,10 @@
         where content_id = #{id}
     </select>
 
+    <select id = "findByCondition" resultType = "AttractionInfo">
+        select * from attraction_info where sido_code = #{condition.sidoCode} and gugun_code = #{condition.gugunCode} and content_type_id = #{condition.contentTypeId}
+    </select>
+
     <update id = "update">
         update attraction_info
         set sido_code2 = #{attractionInfo.sidoCode2},
@@ -33,5 +37,7 @@
     <delete id = "delteById">
         delete * from attraction_info where content_id = #{contentId}
     </delete>
+
+
 
 </mapper>
