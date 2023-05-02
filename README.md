@@ -56,6 +56,9 @@
 - 로그인 한 유저가 본인이 등록한 핫플레이스를 확인할 수 있습니다.
 ![image](https://user-images.githubusercontent.com/62228401/235675188-af5f3cf2-8dd3-4982-b867-81fa9fdbef87.png)
 
+### 로그아웃 기능
+- 로그아웃을 하면 메인페이지로 이동합니다.
+![image](https://user-images.githubusercontent.com/62228401/235689024-8f9731e4-bc72-4d76-9766-d846a32a15ca.png)
 
 ### 게시판 구현
 - 자유게시판과 공지사항 게시판 입니다.
