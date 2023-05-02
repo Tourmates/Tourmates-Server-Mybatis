@@ -63,6 +63,11 @@
 #### 자유게시판
 - 자유게시판을 클릭하면 자유게시판 목록이 출력됩니다.
 ![image](https://user-images.githubusercontent.com/62228401/235678827-09374b4b-62f2-4cca-a6d3-98425745926d.png)
+- 개시물을 한번 더 클릭하면 상세보기가 가능합니다.
+![image](https://user-images.githubusercontent.com/62228401/235679492-45e7f1b7-59c8-4a0a-b649-474274e8824d.png)
+- 목록, 수정, 삭제 버튼이 있으며, 수정 버튼을 누를 시 수정 화면으로 이동합니다.
+![image](https://user-images.githubusercontent.com/62228401/235679689-d210c718-5975-4c5e-9ddd-7beced9c4f6c.png)
+
 - 관리자 권한이 없어도 모든 이용자가 게시글 작성, 읽기 권한이 있습니다.
 - 이용자는 자신이 쓴 글에대한 게시글 수정, 삭제 권한이 있습니다.
 - 관리자는 모든 글에대한 삭제 권한이 있습니다.
