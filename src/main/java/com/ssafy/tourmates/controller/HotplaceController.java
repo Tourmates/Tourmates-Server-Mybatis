@@ -61,15 +61,20 @@ public class HotplaceController {
     }
 
     @GetMapping("/{hotplaceId}")
-    public String detailHotplace(@PathVariable Long hotplaceId, Model model) {
+    public String detailHotplace(@PathVariable Long hotplaceId, @Login Member member, Model model) {
         hotplaceService.increaseHit(hotplaceId);
         DetailHotplaceResponse hotplace = hotplaceService.searchHotplace(hotplaceId);
+        if (member.getNickname().equals(hotplace.getNickname())) {
+            model.addAttribute("isMine", true);
+        }
         model.addAttribute("hotplace", hotplace);
         return "hotplace/detailHotplace";
     }
 
     @GetMapping("/{hotplaceId}/edit")
     public String editHotplace(@PathVariable Long hotplaceId, Model model) {
+        DetailHotplaceResponse hotplace = hotplaceService.searchHotplace(hotplaceId);
+        model.addAttribute("hotplace", hotplace);
         return "hotplace/editHotplace";
     }
 

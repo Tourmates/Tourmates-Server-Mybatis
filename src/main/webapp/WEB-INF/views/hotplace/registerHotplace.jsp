@@ -9,9 +9,6 @@
 <%@ include file="../common/header.jsp" %>
 <%-- section start --%>
 <section class='container'>
-  <form method="get">
-
-  </form>
   <form method='post' action="${root}/hotplaces/register" enctype="multipart/form-data">
     <table class="table table-bordered">
       <tbody>

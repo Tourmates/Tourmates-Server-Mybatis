@@ -9,9 +9,19 @@
 <%@ include file="../common/header.jsp" %>
 <%-- section start --%>
 <section class='container'>
-  <form method='post'>
+  <form method='post' action="${root}/hotplaces/${hotplace.hotplaceId}/edit" enctype="multipart/form-data">
     <table class="table table-bordered">
       <tbody>
+      <tr>
+        <th class='align-middle'>장소</th>
+        <td>
+          <div class="input-group w-50">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="hidden" name="contentId" value="125266">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
+          </div>
+        </td>
+      </tr>
       <tr>
         <th class='align-middle'>말머리</th>
         <td>
@@ -31,29 +41,29 @@
         <th class='align-middle'>장소 이름</th>
         <td>
           <div>
-            <input type="text" class="form-control" id="title" name='title' placeholder="제목을 입력하세요.">
+            <input type="text" class="form-control" id="title" name='title' value="${hotplace.title}" placeholder="제목을 입력하세요.">
           </div>
         </td>
       </tr>
       <tr>
         <th class='align-middle'>장소 설명</th>
         <td>
-          <textarea class='form-control' name='content' rows='20'></textarea>
+          <textarea class='form-control' name='content' rows='20'>${hotplace.content}</textarea>
         </td>
       </tr>
       <tr>
         <th class='align-middle'>파일첨부</th>
         <td>
           <div>
-            <input class="form-control" type="file" id="formFile">
+            <input class="form-control" type="file" id="formFile" name="attachFile">
           </div>
         </td>
       </tr>
       </tbody>
     </table>
     <div class="d-flex justify-content-center">
-      <button class="btn btn-outline-secondary me-2" type="button">취소</button>
-      <button class="btn btn-outline-primary ms-2" type="submit">등록</button>
+      <a class="btn btn-outline-secondary me-2" href="${root}/hotplaces/${hotplaceId}">취소</a>
+      <button class="btn btn-outline-primary ms-2" type="submit">수정</button>
     </div>
   </form>
 </section>
