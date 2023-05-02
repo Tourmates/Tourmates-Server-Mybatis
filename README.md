@@ -44,3 +44,6 @@
 ![image](https://user-images.githubusercontent.com/62228401/235671473-49501993-e892-4c34-aa5e-4ce325662701.png)
 ![image](https://user-images.githubusercontent.com/62228401/235671867-3ae66337-152a-45bc-aa0c-ccdbea930402.png)
 
+
+### 게시판 구현
+- 자유게시판과 공지사항 게시판 입니다.
