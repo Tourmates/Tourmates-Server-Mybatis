@@ -42,4 +42,5 @@
 - 관광지 조회 화면입니다.
 - 지도에 관광지 위치에 마크가 찍히고 사진과 함께 설명이 출력됩니다.
 ![image](https://user-images.githubusercontent.com/62228401/235671473-49501993-e892-4c34-aa5e-4ce325662701.png)
+![image](https://user-images.githubusercontent.com/62228401/235671867-3ae66337-152a-45bc-aa0c-ccdbea930402.png)
 
