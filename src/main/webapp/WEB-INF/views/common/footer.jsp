@@ -12,7 +12,7 @@
     </a>
 
     <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">공지사항</a></li>
+      <li class="nav-item"><a href="/notice/list" class="nav-link px-2 text-body-secondary">공지사항</a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">이용약관</a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">개인정보처리방침</a></li>
       <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
