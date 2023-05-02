@@ -17,20 +17,22 @@
   <div class="container">
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <%-- card start --%>
-      <div class="col">
-        <div class="card h-100">
-          <img src="http://placehold.it/480x270" class="card-img-top" alt="...">
-          <div class="card-body">
-            <a class="text-uppercase text-mute text-sm letter-spacing-2">Travel</a>
-            <h5 class="card-title my-2">
-              <a class="text-dark" href="#">Autumn fashion tips and tricks</a>
-            </h5>
-            <p class="text-gray-500 text-sm my-3">January 16, 2016</p>
-            <p class="my-2 text-muted text-sm">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <a class="btn btn-link ps-0">READ MORE</a>
+      <c:forEach items="${hotplaces}" var="hotplace">
+        <div class="col">
+          <div class="card h-100">
+            <img src="${hotplace.storeFileName}" class="card-img-top" alt="img">
+            <div class="card-body">
+              <a class="text-uppercase text-mute text-sm letter-spacing-2">${hotplace.tag}</a>
+              <h5 class="card-title my-2">
+                <a class="text-dark" href="${root}/hotplaces/${hotplace.hotplaceId}">${hotplace.title}</a>
+              </h5>
+              <p class="text-gray-500 text-sm my-3">${hotplace.createdDate}</p>
+              <p class="my-2 text-muted text-sm">${hotplace.content}</p>
+              <a class="btn btn-link ps-0" href="${root}/hotplaces/${hotplace.hotplaceId}">READ MORE</a>
+            </div>
           </div>
         </div>
-      </div>
+      </c:forEach>
       <%-- card end --%>
     </div>
   </div>

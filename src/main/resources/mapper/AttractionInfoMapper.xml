@@ -11,7 +11,7 @@
                 #{attractionInfo.latitude}, #{attractionIfno.longtitude})
     </insert>
 
-    <select id = "findById">
+    <select id="findById" resultType="AttractionInfo">
         select *
         from attraction_info
         where content_id = #{id}

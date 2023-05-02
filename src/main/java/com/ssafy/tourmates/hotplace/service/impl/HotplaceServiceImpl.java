@@ -2,9 +2,6 @@ package com.ssafy.tourmates.hotplace.service.impl;
 
 import com.ssafy.tourmates.attractionInfo.AttractionInfo;
 import com.ssafy.tourmates.attractionInfo.repository.AttractionInfoRepository;
-import com.ssafy.tourmates.common.FileStore;
-import com.ssafy.tourmates.common.exception.HotplaceNotFoundException;
-import com.ssafy.tourmates.common.exception.MemberNotFoundException;
 import com.ssafy.tourmates.controller.dto.response.HotplaceResponse;
 import com.ssafy.tourmates.hotplace.Hotplace;
 import com.ssafy.tourmates.hotplace.repository.HotplaceRepository;
@@ -15,7 +12,6 @@ import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -28,7 +24,6 @@ public class HotplaceServiceImpl implements HotplaceService {
     private final HotplaceRepository hotplaceRepository;
     private final MemberRepository memberRepository;
     private final AttractionInfoRepository attractionInfoRepository;
-
 
     @Override
     public Long registerHotplace(String loginId, Integer contentId, AddHotplaceDto dto) {

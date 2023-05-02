@@ -25,8 +25,8 @@
     </resultMap>
 
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
-        insert into hot_place(tag, title, content, visited_date, upload_file_name, store_file_name)
-        values (#{tag}, #{title}, #{content}, #{visitedDate}, #{uploadFileName}, #{storeFileName});
+        insert into hot_place(tag, title, content, visited_date, upload_file_name, store_file_name, member_id, content_id)
+        values (#{tag}, #{title}, #{content}, #{visitedDate}, #{uploadFile.uploadFileName}, #{uploadFile.storeFileName}, #{member.id}, #{info.contentId});
     </insert>
 
     <select id="findById" resultMap="hotPlace">

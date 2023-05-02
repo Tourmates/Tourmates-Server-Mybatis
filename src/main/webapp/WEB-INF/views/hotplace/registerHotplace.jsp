@@ -9,9 +9,22 @@
 <%@ include file="../common/header.jsp" %>
 <%-- section start --%>
 <section class='container'>
+  <form method="get">
+
+  </form>
   <form method='post'>
     <table class="table table-bordered">
       <tbody>
+      <tr>
+        <th class='align-middle'>장소</th>
+        <td>
+          <div class="input-group w-50">
+            <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input type="hidden" name="contentId" value="125266">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
+          </div>
+        </td>
+      </tr>
       <tr>
         <th class='align-middle'>말머리</th>
         <td>
@@ -32,6 +45,14 @@
         <td>
           <div>
             <input type="text" class="form-control" id="title" name='title' placeholder="제목을 입력하세요.">
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th class='align-middle'>방문 일자</th>
+        <td>
+          <div>
+            <input type="date" class="form-control" id="visitedDate" name='visitedDate'>
           </div>
         </td>
       </tr>
