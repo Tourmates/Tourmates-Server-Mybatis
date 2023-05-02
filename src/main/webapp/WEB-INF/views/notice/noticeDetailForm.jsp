@@ -58,7 +58,8 @@
     </tr>
     </tbody>
   </table>
-
+    <button type="button" class="d-grid gap-2 col-2 mx-auto btn btn-primary text-center" onclick = "location.href = '${root}/notice/${detailNoticeDto.noticeId}/modify'">수정</button>
+    <button type="button" class="d-grid gap-2 col-2 mx-auto btn btn-primary text-center" onclick = "location.href = '${root}/notice/${detailNoticeDto.noticeId}/delete'">삭제</button>
 </section>
 
 <%@ include file="../common/footer.jsp" %>
