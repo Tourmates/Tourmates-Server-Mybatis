@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.tourmates.attractionInfo.repository.sido.SidoMapper">
+    <resultMap id="sido" type="Sido">
+        <id column = "sido_code" property = "code"/>
+        <result column = "sido_name" property = "name"/>
+    </resultMap>
+
+    <select id = "findAll" resultType = "sido">
+        select * from sido
+    </select>
+</mapper>
