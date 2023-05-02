@@ -8,6 +8,7 @@ import com.ssafy.tourmates.attractionInfo.service.gugun.GugunService;
 import com.ssafy.tourmates.attractionInfo.service.sido.SidoService;
 import com.ssafy.tourmates.controller.dto.request.AttractionInfoSearchRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/attractionInfos")
+@Slf4j
 public class AttractionInfoController {
 
 
@@ -38,6 +40,7 @@ public class AttractionInfoController {
 
         model.addAttribute("sidos", sidoList);
 
+        log.debug("sidoCode={}", sidoCode);
         List<GugunDto> gugunList = gugunService.searchGuguns(sidoCode);
 
         model.addAttribute("guguns", gugunList);
