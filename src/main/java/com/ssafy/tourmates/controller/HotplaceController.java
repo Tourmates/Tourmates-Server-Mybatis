@@ -10,6 +10,7 @@ import com.ssafy.tourmates.controller.dto.response.DetailHotplaceResponse;
 import com.ssafy.tourmates.controller.dto.response.HotplaceResponse;
 import com.ssafy.tourmates.hotplace.service.HotplaceService;
 import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
+import com.ssafy.tourmates.hotplace.service.dto.ModifyHotplaceDto;
 import com.ssafy.tourmates.member.Member;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -57,7 +58,7 @@ public class HotplaceController {
                 .build();
 
         Long hotplaceId = hotplaceService.registerHotplace(member.getLoginId(), request.getContentId(), dto);
-        return "redirect:/hotplaces";
+        return "redirect:/hotplaces/" + hotplaceId;
     }
 
     @GetMapping("/{hotplaceId}")
@@ -79,12 +80,24 @@ public class HotplaceController {
     }
 
     @PostMapping("/{hotplaceId}/edit")
-    public String editHotplace(@PathVariable Long hotplaceId, EditHotplaceRequest request, Model model) {
-        return "hotplace/editHotplace";
+    public String editHotplace(@PathVariable Long hotplaceId, @Login Member member, EditHotplaceRequest request, Model model) throws IOException {
+
+        UploadFile attachFile = fileStore.storeFile(request.getAttachFile());
+
+        ModifyHotplaceDto dto = ModifyHotplaceDto.builder()
+                .tag(request.getTag())
+                .title(request.getTitle())
+                .content(request.getContent())
+                .visitedDate(request.getVisitedDate())
+                .uploadFile(attachFile)
+                .build();
+        Long id = hotplaceService.editHotplace(hotplaceId, member.getLoginId(), dto);
+        return "redirect:/hotplaces/" + id;
     }
 
     @GetMapping("/{hotplaceId}/remove")
     public String removeHotplace(@PathVariable Long hotplaceId) {
+        hotplaceService.removeHotplace(hotplaceId);
         return "redirect:/hotplaces";
     }
 }

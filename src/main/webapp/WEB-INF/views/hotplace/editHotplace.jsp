@@ -46,6 +46,14 @@
         </td>
       </tr>
       <tr>
+        <th class='align-middle'>방문 일자</th>
+        <td>
+          <div>
+            <input type="date" class="form-control" id="visitedDate" name='visitedDate' value="${hotplace.visitedDate}">
+          </div>
+        </td>
+      </tr>
+      <tr>
         <th class='align-middle'>장소 설명</th>
         <td>
           <textarea class='form-control' name='content' rows='20'>${hotplace.content}</textarea>
