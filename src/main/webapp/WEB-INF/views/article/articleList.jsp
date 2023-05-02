@@ -50,7 +50,7 @@
                         </a>
                     </div>
                     <div>
-                        ${article.nickname} | ${article.createdDate}
+                            ${article.nickname} | ${article.createdDate}
                     </div>
                 </td>
                 <td class='align-bottom'>
@@ -65,23 +65,30 @@
         <nav aria-label="Page navigation example">
             <ul class="pagination">
                 <%-- 이전버튼 시작 --%>
-                <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                    </a>
-                </li>
+                <c:if test="${page.prev}">
+                    <li class="page-item">
+                        <a class="page-link" href="${root}/articles?pageNum${page.startPage-1}&amount=${page.amount}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                </c:if>
                 <%-- 이전버튼 종료 --%>
                 <%-- 페이징번호 처리시작 --%>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <c:forEach var="num" begin="${page.startPage}" end="${page.endPage}">
+                    <li class="page-item">
+                        <a class="page-link" href="${root}/articles?pageNum=${num}&amount=${page.amount}">${num}</a>
+                    </li>
+                </c:forEach>
                 <%-- 페이징번호 처리종료 --%>
                 <%-- 다음버튼 시작 --%>
+                    <c:if test="${page.next}">
                 <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
+                    <a class="page-link" href="${root}/articles?pageNum=${page.endPage + 1}&amount=${page.amount}" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>
                     </a>
                 </li>
+                    </c:if>
                 <%-- 다음버튼 시작 --%>
             </ul>
         </nav>

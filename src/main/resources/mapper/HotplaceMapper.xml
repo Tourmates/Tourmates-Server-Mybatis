@@ -92,9 +92,9 @@
             hit              = #{hit},
             vote             = #{vote},
             visited_date     = #{visitedDate},
-            upload_file_name = #{uploadFileName},
-            store_file_name  = #{storeFileName}
-        where hot_place_id = ${id};
+            upload_file_name = #{uploadFile.storeFileName},
+            store_file_name  = #{uploadFile.storeFileName}
+        where hot_place_id = #{id};
     </update>
 
     <delete id="remove">
