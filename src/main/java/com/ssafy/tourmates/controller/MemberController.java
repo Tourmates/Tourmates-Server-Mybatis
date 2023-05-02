@@ -5,7 +5,9 @@ import com.ssafy.tourmates.authoriry.Login;
 import com.ssafy.tourmates.controller.dto.request.EditLoginPwRequest;
 import com.ssafy.tourmates.controller.dto.request.EditPersonalInfoRequest;
 import com.ssafy.tourmates.controller.dto.response.ArticleResponse;
+import com.ssafy.tourmates.controller.dto.response.HotplaceResponse;
 import com.ssafy.tourmates.controller.dto.response.PersonalInfoResponse;
+import com.ssafy.tourmates.hotplace.service.HotplaceService;
 import com.ssafy.tourmates.member.Member;
 import com.ssafy.tourmates.member.service.MemberService;
 import com.ssafy.tourmates.member.service.dto.EditLoginPwDto;
@@ -28,6 +30,7 @@ public class MemberController {
 
     private final MemberService memberService;
     private final ArticleService articleService;
+    private final HotplaceService hotplaceService;
 
     @GetMapping
     public String mypage(@Login Member member) {
@@ -78,6 +81,8 @@ public class MemberController {
 
     @GetMapping("/hotplaces")
     public String myHotplaces(@Login Member member, Model model) {
+        List<HotplaceResponse> hotplaces = hotplaceService.searchMyHotplaces(member.getId(), 1, 9);
+        model.addAttribute("hotplaces", hotplaces);
         return "member/myHotplaceList";
     }
 

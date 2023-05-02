@@ -77,6 +77,13 @@
         limit #{pageNum}, #{amount}
     </select>
 
+    <select id="findMyByMemberId" resultMap="hotPlace">
+        select *
+        from hot_place
+        where member_id = #{memberId}
+        limit #{pageNum}, #{amount}
+    </select>
+
     <update id="update">
         update hot_place
         set tag              = #{tag},

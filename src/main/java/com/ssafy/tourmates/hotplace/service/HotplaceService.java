@@ -15,6 +15,8 @@ public interface HotplaceService {
 
     List<HotplaceResponse> searchHotplaces(int pageNum, int amount);
 
+    List<HotplaceResponse> searchMyHotplaces(Long memberId, int pageNum, int amount);
+
     DetailHotplaceResponse searchHotplace(Long hotplaceId);
 
     Long increaseHit(Long hotplaceId);

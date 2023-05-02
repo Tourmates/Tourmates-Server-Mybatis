@@ -65,6 +65,22 @@ public class HotplaceServiceImpl implements HotplaceService {
     }
 
     @Override
+    public List<HotplaceResponse> searchMyHotplaces(Long memberId, int pageNum, int amount) {
+        List<Hotplace> hotplaces = hotplaceRepository.findByMemberId(memberId, pageNum, amount);
+        return hotplaces.stream()
+                .map(hotplace ->
+                        HotplaceResponse.builder()
+                                .hotplaceId(hotplace.getId())
+                                .tag(hotplace.getTag())
+                                .title(hotplace.getTitle())
+                                .content(hotplace.getContent())
+                                .storeFileName(null)
+                                .visitedDate(hotplace.getVisitedDate())
+                                .build())
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public DetailHotplaceResponse searchHotplace(Long hotplaceId) {
         Hotplace hotplace = hotplaceRepository.findDetailById(hotplaceId)
                 .orElseThrow(NoSuchElementException::new);

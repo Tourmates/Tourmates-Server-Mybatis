@@ -1,6 +1,7 @@
 package com.ssafy.tourmates.hotplace.repository;
 
 import com.ssafy.tourmates.hotplace.Hotplace;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +17,8 @@ public interface HotplaceRepository {
     List<Hotplace> findAll();
 
     List<Hotplace> findByCondition(int pageNum, int amount);
+
+    List<Hotplace> findByMemberId(Long memberId, int pageNum, int amount);
 
     Optional<Hotplace> findByMemberId(Long memberId);
 

@@ -43,6 +43,11 @@ public class HotplaceRepositoryImpl implements HotplaceRepository {
     }
 
     @Override
+    public List<Hotplace> findByMemberId(Long memberId, int pageNum, int amount) {
+        return mapper.findMyByMemberId(memberId, (pageNum - 1) * amount, amount);
+    }
+
+    @Override
     public Optional<Hotplace> findByMemberId(Long memberId) {
         return Optional.empty();
     }
