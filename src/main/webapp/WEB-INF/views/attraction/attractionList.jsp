@@ -242,7 +242,8 @@
     fetch(url)
     .then((response) => response.json())
     .then((response) => {
-//      console.log(response);
+      console.log("marker 전");
+      console.log(response);
       marker(response);
       setCenter(response);
       createAttraction(response);
@@ -254,8 +255,8 @@
     // 이동할 위도 경도 위치를 생성합니다
     // console.log(response.data);
     let attraction = response.data;
-    console.log(attraction);
     console.log("#####");
+    console.log(attraction);
     console.log(typeof (attraction));
     var moveLatLon = new kakao.maps.LatLng(attraction.latitude, attraction.longitude);
 
