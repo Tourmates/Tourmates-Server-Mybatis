@@ -25,6 +25,7 @@
 <body>
 <%@ include file="../common/header.jsp" %>
 <!-- end header -->
+<script src = "/resources/js/requestApi.js"></script>
 
 <div class="container">
   <form class="row" onchange="getTourList()">
@@ -122,7 +123,6 @@
   integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
   crossorigin="anonymous"
 ></script>
-<script src="../assets/js/requestApi.js"></script>
 <script type="text/javascript"
         src="//dapi.kakao.com/v2/maps/sdk.js?appkey=92031818da3bea1d2a0cd22686ab48ea">
 </script>
@@ -148,7 +148,12 @@
         const url = 'http://localhost:8080/api/attraction/search?sidoCode=' + sidoCode + '&gugunCode=' + gugunCode + '&contentTypeId=' + contentTypeId;
         fetch(url)
             .then((response) => response.json())
-            .then((response) => {marker(response), setCenter(response), createAttraction(response)});
+            .then((response) => {
+                console.log(response);
+                marker(response);
+                setCenter(response);
+                createAttraction(response);
+            });
 
     }
 
@@ -162,10 +167,12 @@
     }
 
     function marker(response) {
-        let attractions = response.data;
+        let attractions = response;
+        console.log(attractions);
 
         var positions = [];
         attractions.forEach(function (attraction) {
+            console.log(attraction);
             let data = {
                 content: attraction.title,
                 latlng: new kakao.maps.LatLng(attraction.latitude, attraction.longitude)
