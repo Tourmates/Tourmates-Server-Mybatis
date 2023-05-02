@@ -4,7 +4,6 @@ import static lombok.AccessLevel.PROTECTED;
 
 import com.ssafy.tourmates.attractionInfo.AttractionInfo;
 import com.ssafy.tourmates.common.UploadFile;
-import com.ssafy.tourmates.common.exception.EditException;
 import com.ssafy.tourmates.member.Member;
 import lombok.Builder;
 import lombok.Getter;
