@@ -50,7 +50,7 @@ public class MemberController {
                 .build();
 
         Long memberId = memberService.editPersonalInfo(member.getLoginId(), dto);
-        return "redirect:/mypage/personal";
+        return "redirect:/my/personal";
     }
 
     @GetMapping("/account")
@@ -66,7 +66,7 @@ public class MemberController {
                 .build();
 
         Long memberId = memberService.editLoginPw(member.getLoginId(), dto);
-        return "redirect:/mypage/account";
+        return "redirect:/my/account";
     }
 
     @GetMapping("/articles")
