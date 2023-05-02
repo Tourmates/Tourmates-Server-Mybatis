@@ -7,7 +7,7 @@
         <id column = "gugun_code" property = "code"/>
         <result column = "gugun_name" property = "name"/>
         <association property="sido" javaType="Sido">
-            <id column = "sido_code" property = "code"></id>
+            <id column = "sido_code" property = "code" />
         </association>
     </resultMap>
 
