@@ -19,7 +19,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/attraction")
+@RequestMapping("/attractionInfos")
 public class AttractionInfoController {
 
 
