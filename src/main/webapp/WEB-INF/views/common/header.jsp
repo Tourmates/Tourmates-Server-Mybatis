@@ -13,8 +13,7 @@
       <c:if test="${empty loginMember}">
         <li class="nav-item"><a href="${root}/" class="nav-link text-dark" data-bs-toggle="modal"
                                 data-bs-target="#joinModal">회원가입</a></li>
-        <li class="nav-item"><a href="${root}/" class="nav-link text-dark" data-bs-toggle="modal"
-                                data-bs-target="#loginModal">로그인</a></li>
+        <li class="nav-item"><a href="${root}/login" class="nav-link text-dark">로그인</a></li>
       </c:if>
       <c:if test="${not empty loginMember}">
         <li class="nav-item"><a href="${root}/my" class="nav-link text-dark">마이페이지</a></li>

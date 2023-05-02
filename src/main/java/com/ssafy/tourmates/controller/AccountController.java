@@ -54,7 +54,7 @@ public class AccountController {
 
     @GetMapping("/login")
     public String login() {
-        return "index";
+        return "login";
     }
 
     @PostMapping("/login")
@@ -76,7 +76,6 @@ public class AccountController {
         }
         session.setAttribute("loginMember", loginMember);
         log.info("회원 로그인={}", loginMember.getLoginId());
-        log.info("redirectURL={}", redirectURL);
         return "redirect:" + redirectURL;
     }
 

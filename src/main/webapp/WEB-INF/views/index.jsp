@@ -164,48 +164,6 @@
   </div>
 </div>
 <!-- join modal end -->
-<!-- login modal start -->
-<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="loginModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <form class="modal-content" method="post">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="loginModalLabel">로그인</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- 아이디 -->
-        <div class="mb-3">
-          <div class="d-flex justify-content-between">
-            <label for="loginId" class="form-label">아이디 :</label>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="saveLoginId" name="saveLoginId">
-              <label class="form-check-label" for="saveLoginId">
-                아이디저장
-              </label>
-            </div>
-          </div>
-          <input type="text" class="form-control" id="loginId" name="loginId" placeholder="아이디">
-        </div>
-        <!-- 비밀번호 -->
-        <div class="mb-3">
-          <label for="loginPw" class="form-label">비밀번호 :</label>
-          <input type="password" class="form-control" id="loginPw" name="loginPw" placeholder="비밀번호">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-outline-primary">로그인</button>
-        <button type="button" class="btn btn-outline-success" data-bs-target="#forgotLoginId" data-bs-toggle="modal">
-          아이디찾기
-        </button>
-        <button type="button" class="btn btn-outline-secondary" data-bs-target="#forgotloginPw" data-bs-toggle="modal">
-          비밀번호찾기
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-<!-- login modal end -->
 <!-- forgot loginId start -->
 <div class="modal fade" id="forgotLoginId" aria-hidden="true" aria-labelledby="forgotLoginIdLable" tabindex="-1"
      data-bs-backdrop="static">
