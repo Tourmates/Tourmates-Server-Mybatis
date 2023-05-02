@@ -13,7 +13,7 @@ public class AttractionInfoDto {
   private String zipcode;
   private String firstImage;
   private Double latitude;
-  private Double longtitude;
+  private Double longitude;
 
   @Builder
   public AttractionInfoDto(int id,
@@ -23,7 +23,7 @@ public class AttractionInfoDto {
       String zipcode,
       String firstImage,
       Double latitude,
-      Double longtitude) {
+      Double longitude) {
     this.id = id;
     this.contentTypeId = contentTypeId;
     this.title = title;
@@ -31,7 +31,7 @@ public class AttractionInfoDto {
     this.zipcode = zipcode;
     this.firstImage = firstImage;
     this.latitude = latitude;
-    this.longtitude = longtitude;
+    this.longitude = longitude;
   }
 
 }
