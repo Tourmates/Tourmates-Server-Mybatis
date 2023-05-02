@@ -4,10 +4,10 @@
 <mapper namespace="com.ssafy.tourmates.notice.repository.NoticeMapper">
 
   <resultMap id = "notice" type="Notice">
-    <association property = "createdBy" javaType="com.ssafy.tourmates.member.Member">
+    <association property = "createdBy" javaType="Member">
       <id column = "created_by" property = "id"/>
     </association>
-    <association property = "lastModifiedBy"  javaType="com.ssafy.tourmates.member.Member">
+    <association property = "lastModifiedBy"  javaType="Member">
       <id column = "last_modified_by" property = "id"/>
     </association>
   </resultMap>
