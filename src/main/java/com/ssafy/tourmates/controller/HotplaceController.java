@@ -4,6 +4,7 @@ package com.ssafy.tourmates.controller;
 import com.ssafy.tourmates.authoriry.Login;
 import com.ssafy.tourmates.controller.dto.request.AddHotplaceRequest;
 import com.ssafy.tourmates.controller.dto.request.EditHotplaceRequest;
+import com.ssafy.tourmates.controller.dto.response.HotplaceResponse;
 import com.ssafy.tourmates.hotplace.service.HotplaceService;
 import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
 import com.ssafy.tourmates.member.Member;
@@ -11,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -20,7 +23,13 @@ public class HotplaceController {
     private final HotplaceService hotplaceService;
 
     @GetMapping
-    public String hotplaceList() {
+    public String hotplaceList(
+            @RequestParam(defaultValue = "1") Integer pageNum,
+            @RequestParam(defaultValue = "9") Integer amount,
+            Model model
+    ) {
+        List<HotplaceResponse> hotplaces = hotplaceService.searchHotplaces(pageNum, amount);
+        model.addAttribute("hotplaces", hotplaces);
         return "hotplace/hotplaceList";
     }
 

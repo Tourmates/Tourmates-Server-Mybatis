@@ -43,6 +43,7 @@
     <select id="findByCondition" resultMap="hotPlace">
         select *
         from hot_place
+        limit #{pageNum}, #{amount}
     </select>
 
     <update id="update">

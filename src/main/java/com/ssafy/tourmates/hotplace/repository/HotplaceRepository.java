@@ -13,7 +13,7 @@ public interface HotplaceRepository {
 
     List<Hotplace> findAll();
 
-    List<Hotplace> findByCondition();
+    List<Hotplace> findByCondition(int pageNum, int amount);
 
     Optional<Hotplace> findByMemberId(Long memberId);
 

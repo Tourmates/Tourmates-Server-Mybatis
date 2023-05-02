@@ -12,7 +12,7 @@ public interface HotplaceService {
 
     Long registerHotplace(String loginId, Integer contentId, AddHotplaceDto dto);
 
-    List<HotplaceResponse> searchHotplaces();
+    List<HotplaceResponse> searchHotplaces(int pageNum, int amount);
 
     Long increaseHit(Long hotplaceId);
 

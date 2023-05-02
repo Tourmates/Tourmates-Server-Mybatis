@@ -48,8 +48,8 @@ public class HotplaceServiceImpl implements HotplaceService {
     }
 
     @Override
-    public List<HotplaceResponse> searchHotplaces() {
-        List<Hotplace> hotplaces = hotplaceRepository.findByCondition();
+    public List<HotplaceResponse> searchHotplaces(int pageNum, int amount) {
+        List<Hotplace> hotplaces = hotplaceRepository.findByCondition(pageNum, amount);
         return hotplaces.stream()
                 .map(hotplace ->
                         HotplaceResponse.builder()
@@ -57,7 +57,7 @@ public class HotplaceServiceImpl implements HotplaceService {
                                 .tag(hotplace.getTag())
                                 .title(hotplace.getTitle())
                                 .content(hotplace.getContent())
-                                .storeFileName(hotplace.getUploadFile().getStoreFileName())
+                                .storeFileName(null)
                                 .createdDate(hotplace.getCreatedDate())
                                 .build())
                 .collect(Collectors.toList());

@@ -17,7 +17,7 @@ public interface HotplaceMapper {
 
     List<Hotplace> findAll();
 
-    List<Hotplace> findByCondition();
+    List<Hotplace> findByCondition(@Param("pageNum") int pageNum, @Param("amount") int amount);
 
     Optional<Hotplace> findByMemberId(@Param("memberId") Long memberId);
 
