@@ -26,3 +26,9 @@
         </td>
     </tr>
 </table>
+
+## ⚒️ 화면 구성
+
+### 메인 화면
+- 홈페이지 메인 화면 입니다. 
+![image](https://user-images.githubusercontent.com/62228401/235670627-0409ac58-abfc-4015-a9be-aac1101eff1b.png)
