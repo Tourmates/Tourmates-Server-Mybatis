@@ -34,6 +34,11 @@
 ![image](https://user-images.githubusercontent.com/62228401/235670627-0409ac58-abfc-4015-a9be-aac1101eff1b.png)
 
 ### 회원관리
+
+### 회원가입
+- 회원가입 버튼을 누르며 회원가입 모달 창이 나타납니다.
+![image](https://user-images.githubusercontent.com/62228401/235690464-d89f1caf-7d27-46f9-a703-b59c694da79e.png)
+
 #### 로그인
 - 로그인 페이지 입니다.
 ![image](https://user-images.githubusercontent.com/62228401/235670929-f226b3b3-0569-41d9-a862-d0ea5c58c942.png)
