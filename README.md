@@ -49,6 +49,9 @@
 ![image](https://user-images.githubusercontent.com/62228401/235671473-49501993-e892-4c34-aa5e-4ce325662701.png)
 ![image](https://user-images.githubusercontent.com/62228401/235671867-3ae66337-152a-45bc-aa0c-ccdbea930402.png)
 
+- 결과보기 버튼을 누를 시 아래와 같이 목록이 왼쪽 화면에 출력됩니다. 
+![image](https://user-images.githubusercontent.com/62228401/235691371-c5d53940-b7fd-409f-b0ba-c9c1b6c644e4.png)
+
 #### 핫플레이스
 - 사용자는 관광지 목록에서 방문했던 핫플레이스 등록을 할 수 있습니다.
 ![image](https://user-images.githubusercontent.com/62228401/235673534-1e090798-a0f8-477f-a0f8-1fd3f91521ec.png)
