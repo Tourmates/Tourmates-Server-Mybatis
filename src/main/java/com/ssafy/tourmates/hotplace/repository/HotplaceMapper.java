@@ -13,7 +13,7 @@ public interface HotplaceMapper {
 
     void save(Hotplace hotplace);
 
-    Optional<Hotplace> findById(@Param("id") Long id);
+    Optional<Hotplace> findById(Long id);
 
     Optional<Hotplace> findDetailById(Long id);
 
@@ -27,9 +27,9 @@ public interface HotplaceMapper {
 
     Optional<Hotplace> findByContentId(@Param("contentId") int contentId);
 
-    Optional<Hotplace> findByContentTypeId(@Param("contentTypeId") int contentTypeId);
+    Optional<Hotplace> findByContentTypeId(int contentTypeId);
 
-    void update(@Param("hotplace") Hotplace hotplace);
+    void update(Hotplace hotplace);
 
-    void remove(@Param("id") Long id);
+    void remove(Long id);
 }

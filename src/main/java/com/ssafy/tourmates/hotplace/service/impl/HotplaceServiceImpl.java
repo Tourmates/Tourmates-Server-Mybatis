@@ -104,6 +104,7 @@ public class HotplaceServiceImpl implements HotplaceService {
                 .orElseThrow(NoSuchElementException::new);
 
         findHotplace.increaseHit();
+        hotplaceRepository.update(findHotplace);
         return findHotplace.getId();
     }
 
@@ -113,6 +114,7 @@ public class HotplaceServiceImpl implements HotplaceService {
                 .orElseThrow(NoSuchElementException::new);
 
         findHotplace.increaseVote();
+        hotplaceRepository.update(findHotplace);
         return findHotplace.getId();
     }
 

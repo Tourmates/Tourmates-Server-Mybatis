@@ -62,6 +62,7 @@ public class HotplaceController {
 
     @GetMapping("/{hotplaceId}")
     public String detailHotplace(@PathVariable Long hotplaceId, Model model) {
+        hotplaceService.increaseHit(hotplaceId);
         DetailHotplaceResponse hotplace = hotplaceService.searchHotplace(hotplaceId);
         model.addAttribute("hotplace", hotplace);
         return "hotplace/detailHotplace";
