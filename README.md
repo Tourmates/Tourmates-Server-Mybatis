@@ -56,3 +56,23 @@
 
 ![image](https://user-images.githubusercontent.com/62228401/235672119-ded391ea-b8d0-4fd5-87b8-c924f099ac86.png)
 
+#### 핫플레이스
+- 핫플레이스 목록을 확인할 수 있는 페이지입니다.
+![image](https://user-images.githubusercontent.com/62228401/235673656-b178536c-9a3d-4197-af0b-61a73fcec858.png)
+- 사용자는 관광지 목록에서 방문했던 핫플레이스 등록을 할 수 있습니다.
+![image](https://user-images.githubusercontent.com/62228401/235673534-1e090798-a0f8-477f-a0f8-1fd3f91521ec.png)
+
+## ✅ 커밋 컨벤션
+
+| 제목          | 내용                                              |
+|-------------|-------------------------------------------------|
+| init        | 작업 세팅 커밋 (패키지 설치 등)                             |
+| feat        | 새로운 기능을 추가할 경우                                  |
+| style       | 기능에 영향을 주지 않는 커밋, 코드 순서, css등의 포맷에 관한 커밋        |
+| fix         | 버그를 고친 경우                                       |
+| refactor    | 프로덕션 코드 리팩토링                                    |
+| test        | 테스트 코드 작성                                       |
+| docs        | 문서를 수정한 경우, 파일 삭제, 파일명 수정 등 ex) README.md       |
+| chore       | 빌드 테스트 업데이트, 패키지 매니저를 설정하는 경우, 주석 추가, 자잘한 문서 수정 |
+| code review | 코드 리뷰 반영                                        |
+
