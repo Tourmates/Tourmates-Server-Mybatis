@@ -46,6 +46,7 @@
 
 ## 마이페이지
 - 마이페이지 화면입니다.
+![image](https://user-images.githubusercontent.com/62228401/235674941-209fb326-d171-4ea6-81d2-fe8762e819c4.png)
 - 로그인 한 유저가 본인의 정보를 확인할 수 있습니다.
 ![image](https://user-images.githubusercontent.com/62228401/235674387-5ddde011-1d87-4a56-b7d4-5ceacb78e00f.png)
 - UPDATE 버튼을 누르면 개인 정보 수정이 가능합니다.
