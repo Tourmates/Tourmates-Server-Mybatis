@@ -75,4 +75,19 @@ public class MemberController {
         model.addAttribute("articles", articles);
         return "member/myArticleList";
     }
+
+    @GetMapping("/hotplaces")
+    public String myHotplaces(@Login Member member, Model model) {
+        return "member/myHotplaceList";
+    }
+
+    @GetMapping("/tripplans")
+    public String myTripPlan(@Login Member member, Model model) {
+        return null;
+    }
+
+    @GetMapping("/withdrawal")
+    public String withdrawal(@Login Member member) {
+        return null;
+    }
 }
