@@ -60,16 +60,16 @@
         on a.member_id = m.member_id
         <where>
             <if test="condition.keyword != null">
-                and title = #{keyword}
+                and a.title = #{keyword}
             </if>
         </where>
         <if test="condition.sorted == 1">
-            order by created_date desc
+            order by a.created_date desc
         </if>
         <if test="condition.sorted == 2">
-            order by hit desc
+            order by a.hit desc
         </if>
-        limit (#{pageNum} - 1) * #{amount}, #{amount}
+        limit #{pageNum}, #{amount}
     </select>
 
     <select id="findByConditionAndMemberId" resultMap="articleView">

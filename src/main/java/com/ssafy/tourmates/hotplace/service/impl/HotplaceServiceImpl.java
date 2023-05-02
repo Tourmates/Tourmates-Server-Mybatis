@@ -2,6 +2,7 @@ package com.ssafy.tourmates.hotplace.service.impl;
 
 import com.ssafy.tourmates.attractionInfo.AttractionInfo;
 import com.ssafy.tourmates.attractionInfo.repository.AttractionInfoRepository;
+import com.ssafy.tourmates.controller.dto.response.DetailHotplaceResponse;
 import com.ssafy.tourmates.controller.dto.response.HotplaceResponse;
 import com.ssafy.tourmates.hotplace.Hotplace;
 import com.ssafy.tourmates.hotplace.repository.HotplaceRepository;
@@ -48,8 +49,8 @@ public class HotplaceServiceImpl implements HotplaceService {
     }
 
     @Override
-    public List<HotplaceResponse> searchHotplaces() {
-        List<Hotplace> hotplaces = hotplaceRepository.findByCondition();
+    public List<HotplaceResponse> searchHotplaces(int pageNum, int amount) {
+        List<Hotplace> hotplaces = hotplaceRepository.findByCondition(pageNum, amount);
         return hotplaces.stream()
                 .map(hotplace ->
                         HotplaceResponse.builder()
@@ -57,10 +58,28 @@ public class HotplaceServiceImpl implements HotplaceService {
                                 .tag(hotplace.getTag())
                                 .title(hotplace.getTitle())
                                 .content(hotplace.getContent())
-                                .storeFileName(hotplace.getUploadFile().getStoreFileName())
-                                .createdDate(hotplace.getCreatedDate())
+                                .storeFileName(null)
+                                .visitedDate(hotplace.getVisitedDate())
                                 .build())
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public DetailHotplaceResponse searchHotplace(Long hotplaceId) {
+        Hotplace hotplace = hotplaceRepository.findDetailById(hotplaceId)
+                .orElseThrow(NoSuchElementException::new);
+        return DetailHotplaceResponse.builder()
+                .hotplaceId(hotplace.getId())
+                .tag(hotplace.getTag())
+                .title(hotplace.getTitle())
+                .content(hotplace.getContent())
+                .hit(hotplace.getHit())
+                .vote(hotplace.getVote())
+                .createdDate(hotplace.getCreatedDate())
+                .visietdDate(hotplace.getVisitedDate())
+                .storeFileName(null)
+                .nickname(hotplace.getMember().getNickname())
+                .build();
     }
 
     @Override

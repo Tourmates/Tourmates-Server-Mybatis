@@ -15,9 +15,11 @@ public interface HotplaceMapper {
 
     Optional<Hotplace> findById(@Param("id") Long id);
 
+    Optional<Hotplace> findDetailById(Long id);
+
     List<Hotplace> findAll();
 
-    List<Hotplace> findByCondition();
+    List<Hotplace> findByCondition(@Param("pageNum") int pageNum, @Param("amount") int amount);
 
     Optional<Hotplace> findByMemberId(@Param("memberId") Long memberId);
 

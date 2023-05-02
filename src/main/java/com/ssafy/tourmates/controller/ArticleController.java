@@ -39,7 +39,6 @@ public class ArticleController {
                 .sorted(sorted)
                 .build();
 
-
         List<ArticleResponse> articles = articleService.searchArticle(condition, pageNum, amount);
         int totalCount = articleService.totalCount();
         Page page = new Page(pageNum, amount, totalCount);

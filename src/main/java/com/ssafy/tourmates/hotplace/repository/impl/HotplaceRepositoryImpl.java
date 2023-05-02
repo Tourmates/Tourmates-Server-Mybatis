@@ -28,13 +28,18 @@ public class HotplaceRepositoryImpl implements HotplaceRepository {
     }
 
     @Override
+    public Optional<Hotplace> findDetailById(Long hotplaceId) {
+        return mapper.findDetailById(hotplaceId);
+    }
+
+    @Override
     public List<Hotplace> findAll() {
         return mapper.findAll();
     }
 
     @Override
-    public List<Hotplace> findByCondition() {
-        return mapper.findByCondition();
+    public List<Hotplace> findByCondition(int pageNum, int amount) {
+        return mapper.findByCondition((pageNum - 1) * amount, amount);
     }
 
     @Override

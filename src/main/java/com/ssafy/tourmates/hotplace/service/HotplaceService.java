@@ -1,5 +1,6 @@
 package com.ssafy.tourmates.hotplace.service;
 
+import com.ssafy.tourmates.controller.dto.response.DetailHotplaceResponse;
 import com.ssafy.tourmates.controller.dto.response.HotplaceResponse;
 import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
 import com.ssafy.tourmates.hotplace.service.dto.ModifyHotplaceDto;
@@ -12,7 +13,9 @@ public interface HotplaceService {
 
     Long registerHotplace(String loginId, Integer contentId, AddHotplaceDto dto);
 
-    List<HotplaceResponse> searchHotplaces();
+    List<HotplaceResponse> searchHotplaces(int pageNum, int amount);
+
+    DetailHotplaceResponse searchHotplace(Long hotplaceId);
 
     Long increaseHit(Long hotplaceId);
 
