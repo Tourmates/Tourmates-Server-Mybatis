@@ -11,13 +11,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
 
-@Controller("/attraction")
 @RequiredArgsConstructor
+@Controller
+@RequestMapping("/attraction")
 public class AttractionInfoController {
 
 
@@ -28,9 +30,9 @@ public class AttractionInfoController {
 
     @GetMapping("/search")
     public String search(@RequestParam HashMap<String, Integer> paramMap, Model model){
-        int sidoCode = paramMap.get("sidoCode");
-        int gugunCode = paramMap.get("gugunCode");
-        int contentTypeId = paramMap.get("contentTypeId");
+        int sidoCode = (paramMap.get("sidoCode") == null) ? 1 : paramMap.get("sidoCode");
+        int gugunCode =  (paramMap.get("gugunCode") == null) ? 1 : paramMap.get("gugunCode");
+        int contentTypeId = (paramMap.get("contentTypeId") == null) ? 12 : paramMap.get("contentTypeId");
 
         List<SidoDto> sidoList = sidoService.findAll();
 
