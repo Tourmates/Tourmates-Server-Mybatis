@@ -86,12 +86,12 @@ public class ArticleController {
                 .content(request.getContent())
                 .build();
         Long editArticleId = articleService.editArticle(articleId, member.getLoginId(), dto);
-        return "redirect:/article";
+        return "redirect:/articles";
     }
 
     @GetMapping("/{articleId}/remove")
     public String removeArticle(@PathVariable Long articleId, @SessionAttribute("loginMember") Member member) {
         Long removeArticleId = articleService.removeArticle(articleId, member.getLoginId());
-        return "redirect:/article";
+        return "redirect:/articles";
     }
 }

@@ -9,7 +9,7 @@
 <%@ include file="../common/header.jsp" %>
 <%-- section start --%>
 <section class='container'>
-    <form method='post'>
+    <form method='post' action="${root}/articles/${article.articleId}/edit">
         <table class="table table-bordered">
             <tbody>
             <tr>
@@ -27,23 +27,21 @@
                 <th class='align-middle'>제목</th>
                 <td>
                     <div>
-                        <input type="text" class="form-control" id="title" name='title' value="${title}" placeholder="제목을 입력하세요.">
+                        <input type="text" class="form-control" id="title" name='title' value="${article.title}" placeholder="제목을 입력하세요.">
                     </div>
                 </td>
             </tr>
             <tr>
                 <th class='align-middle'>내용</th>
                 <td>
-                    <textarea class='form-control' name='content' rows='20'>
-                        ${content}
-                    </textarea>
+                    <textarea class='form-control' name='content' rows='20'>${article.content}</textarea>
                 </td>
             </tr>
             </tbody>
         </table>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-outline-secondary me-2" type="button">취소</button>
-            <button class="btn btn-outline-primary ms-2" type="submit">등록</button>
+            <a class="btn btn-outline-secondary me-2" href="${root}/articles/${article.articleId}" type="button">취소</a>
+            <button class="btn btn-outline-primary ms-2" type="submit">수정</button>
         </div>
     </form>
 </section>
