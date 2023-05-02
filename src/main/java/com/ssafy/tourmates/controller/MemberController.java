@@ -88,6 +88,6 @@ public class MemberController {
 
     @GetMapping("/withdrawal")
     public String withdrawal(@Login Member member) {
-        return null;
+        return "member/withdrawal";
     }
 }

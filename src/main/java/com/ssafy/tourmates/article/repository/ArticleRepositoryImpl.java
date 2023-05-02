@@ -32,7 +32,7 @@ public class ArticleRepositoryImpl implements ArticleRepository {
 
     @Override
     public List<Article> findByConditionAndMemberId(Long memberId, int pageNum, int amount) {
-        return articleMapper.findByConditionAndMemberId(memberId, pageNum, amount);
+        return articleMapper.findByConditionAndMemberId(memberId, (pageNum - 1) * amount, amount);
     }
 
     @Override
