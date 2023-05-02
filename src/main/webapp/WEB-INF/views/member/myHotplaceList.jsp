@@ -20,7 +20,7 @@
       <c:forEach items="${hotplaces}" var="hotplace">
         <div class="col">
           <div class="card h-100">
-            <img src="${hotplace.storeFileName}" class="card-img-top" alt="img">
+            <img src="${root}/resources/upload/${hotplace.storeFileName}" class="card-img-top" alt="img">
             <div class="card-body">
               <a class="text-uppercase text-mute text-sm letter-spacing-2">${hotplace.tag}</a>
               <h5 class="card-title my-2">
