@@ -10,27 +10,26 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class AttractionInfoRepositoryImpl implements AttractionInfoRepository {
 
-    private final AttractionInfoMapper attractionInfoMapper;
+    private final AttractionInfoMapper mapper;
 
 
     @Override
     public AttractionInfo save(AttractionInfo attractionInfo) {
-        return attractionInfoMapper.save(attractionInfo);
+        return mapper.save(attractionInfo);
     }
 
     @Override
     public Optional<AttractionInfo> findById(Integer contentId) {
-//        return attractionInfoMapper.findById(id);
-        return null;
+        return mapper.findById(contentId);
     }
 
     @Override
     public void update(AttractionInfo attractionInfo) {
-        attractionInfoMapper.update(attractionInfo);
+        mapper.update(attractionInfo);
     }
 
     @Override
     public void deleteById(int contentId) {
-        attractionInfoMapper.deleteById(contentId);
+        mapper.deleteById(contentId);
     }
 }
