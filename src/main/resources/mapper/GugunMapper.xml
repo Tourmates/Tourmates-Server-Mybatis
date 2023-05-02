@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.tourmates.attractionInfo.repository.gugun.GugunMapper">
+
+    <resultMap id="gugun" type="Gugun">
+        <id column = "gugun_code" property = "code"/>
+        <result column = "gugun_name" property = "name"/>
+        <association property="sido" javaType="Sido">
+            <id column = "sido_code" property = "code"></id>
+        </association>
+    </resultMap>
+
+    <select id = "findAll" resultMap = "gugun">
+        select * from gugun
+    </select>
+</mapper>
