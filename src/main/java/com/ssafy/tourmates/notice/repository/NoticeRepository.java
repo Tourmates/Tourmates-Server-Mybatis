@@ -2,6 +2,7 @@ package com.ssafy.tourmates.notice.repository;
 
 import com.ssafy.tourmates.notice.Notice;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface NoticeRepository {
@@ -13,4 +14,6 @@ public interface NoticeRepository {
     Long update(Notice notice);
 
     void deleteById(Long noticeId);
+
+    List<Notice> findAll();
 }

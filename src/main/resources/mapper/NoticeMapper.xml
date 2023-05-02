@@ -17,6 +17,10 @@
     values (#{notice.title}, #{notice.content}, #{notice.top}, #{notice.createdBy.id}, #{notice.lastModifiedBy.id})
   </insert>
 
+  <select id = "findAll" resultType = "notice">
+    select * from notice
+  </select>
+
   <select id="findById" resultType="notice">
     select *
     from notice

@@ -11,6 +11,9 @@ import com.ssafy.tourmates.notice.service.dto.ModifyNoticeDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class NoticeServiceImpl implements NoticeService {
 
@@ -74,6 +77,29 @@ public class NoticeServiceImpl implements NoticeService {
                 .createdDate(notice.getCreatedDate())
                 .lastModifiedDate(notice.getLastModifiedDate())
                 .build();
+    }
+
+    @Override
+    public List<DetailNoticeDto> getAllNotice(){
+        List<Notice> noticeList = noticeRepository.findAll();
+
+        List<DetailNoticeDto> detailNoticeDtoList = new ArrayList<>();
+
+        for(Notice notice : noticeList){
+            DetailNoticeDto detailNoticeDto = DetailNoticeDto.builder()
+                            .noticeId(notice.getNoticeId())
+                            .title(notice.getTitle())
+                            .content(notice.getContent())
+                            .top(notice.isTop())
+                            .createdBy(notice.getCreatedBy())
+                            .lastModifiedBy(notice.getLastModifiedBy())
+                            .createdDate(notice.getCreatedDate())
+                            .lastModifiedDate(notice.getLastModifiedDate())
+                            .build();
+            detailNoticeDtoList.add(detailNoticeDto);
+        }
+
+        return detailNoticeDtoList;
     }
 
     @Override
