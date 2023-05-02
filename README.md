@@ -72,6 +72,11 @@
 - 이용자는 자신이 쓴 글에대한 게시글 수정, 삭제 권한이 있습니다.
 - 관리자는 모든 글에대한 삭제 권한이 있습니다.
 
+### 공지사항
+- 글쓰기 버튼을 누르면 아래와 같은 등록폼이 생깁니다.
+![image](https://user-images.githubusercontent.com/62228401/235681459-da0c9819-3510-49d9-b085-1f7c8d1bce85.png)
+
+
 #### 핫플레이스
 - 핫플레이스 목록을 확인할 수 있는 페이지입니다.
 ![image](https://user-images.githubusercontent.com/62228401/235673656-b178536c-9a3d-4197-af0b-61a73fcec858.png)
