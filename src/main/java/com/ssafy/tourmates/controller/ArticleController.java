@@ -4,6 +4,7 @@ import com.ssafy.tourmates.article.repository.dto.SearchArticleCondition;
 import com.ssafy.tourmates.article.service.ArticleService;
 import com.ssafy.tourmates.article.service.dto.AddArticleDto;
 import com.ssafy.tourmates.article.service.dto.EditArticleDto;
+import com.ssafy.tourmates.authoriry.Login;
 import com.ssafy.tourmates.common.Page;
 import com.ssafy.tourmates.controller.dto.request.AddArticleRequest;
 import com.ssafy.tourmates.controller.dto.request.EditArticleRequest;
@@ -65,9 +66,12 @@ public class ArticleController {
     }
 
     @GetMapping("/{articleId}")
-    public String detailArticle(@PathVariable Long articleId, Model model) {
+    public String detailArticle(@PathVariable Long articleId, @Login Member member, Model model) {
         DetailArticleResponse article = articleService.detailArticle(articleId);
         articleService.increaseHit(articleId);
+        if (article.getNickname().equals(member.getNickname())) {
+            model.addAttribute("isMine", true);
+        }
         model.addAttribute("article", article);
         return "article/detailArticle";
     }
