@@ -9,27 +9,6 @@
 <%@ include file="../common/header.jsp" %>
 <body>
 
-<!-- header start -->
-<div class="container">
-  <header class="d-flex flex-wrap justify-content-center py-3 mb-4">
-    <a href="/"
-       class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi me-2" width="40" height="32">
-        <use xlink:href="#bootstrap" />
-      </svg>
-      <span class="fs-4">Tourmates</span>
-    </a>
-    <ul class="nav">
-      <li class="nav-item"><a href="#" class="nav-link active text-dark" aria-current="page">지역별여행지</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-dark">나의여행계획</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-dark">핫플자랑하기</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-dark">여행정보공유</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-dark">회원가입</a></li>
-      <li class="nav-item"><a href="#" class="nav-link text-dark">로그인</a></li>
-    </ul>
-  </header>
-</div>
-<!-- header end -->
 <section class="container">
 
   <h1 class="text-center"> 공지사항 </h1>
@@ -49,17 +28,17 @@
         <th scope="col">제목</th>
         <th scope="col">작성자</th>
         <th scope="col">작성일</th>
-        <th scope="col">조회</th>
+        <th scope="col">최종 수정일</th>
       </tr>
       </thead>
       <tbody>
       <c:forEach var = "dto" items = "${detailNoticeDtoList}">
         <tr>
-          <th scope="row">${dto.noticeId}</th>
-          <td>${dto.noticeId}</td>
+          <th scope="row" onclick = "location.href = '${root}/notice/${dto.noticeId}/detail'" style = "cursor:pointer;">${dto.noticeId}</th>
+          <td>${dto.title}</td>
           <td>${dto.createdBy.loginId}</td>
-          <td>${dto.createdBy.createdDate}</td>
-          <td>${dto.createdBy.lastModifiedDate}</td>
+          <td>${dto.createdDate}</td>
+          <td>${dto.lastModifiedDate}</td>
         </tr>
       </c:forEach>
       </tbody>
@@ -67,30 +46,8 @@
   </div>
 </section>
 <!-- footer start -->
-<div class="container">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="col-md-4 mb-0 text-body-secondary">&copy; 2023 Company, Inc</p>
+<%@ include file="../common/footer.jsp" %>
 
-    <a href="/"
-       class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi me-2" width="40" height="32">
-        <use xlink:href="#bootstrap" />
-      </svg>
-    </a>
-
-    <ul class="nav col-md-4 justify-content-end">
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">공지사항</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">이용약관</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">개인정보처리방침</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">About</a></li>
-    </ul>
-  </footer>
-</div>
-<!-- footer end -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-        crossorigin="anonymous"></script>
 </body>
 
 

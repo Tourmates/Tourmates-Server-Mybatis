@@ -36,8 +36,6 @@
   </update>
 
   <delete id="deleteById">
-    delete
-    * from notice where notice_id =
-    #{noticeId}
+    delete from notice where notice_id = #{noticeId}
   </delete>
 </mapper>
