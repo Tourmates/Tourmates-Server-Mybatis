@@ -63,7 +63,7 @@
 #### 자유게시판
 - 자유게시판을 클릭하면 자유게시판 목록이 출력됩니다.
 ![image](https://user-images.githubusercontent.com/62228401/235678827-09374b4b-62f2-4cca-a6d3-98425745926d.png)
-- 개시물을 한번 더 클릭하면 상세보기가 가능합니다.
+- 게시물을 한번 더 클릭하면 상세보기가 가능합니다.
 ![image](https://user-images.githubusercontent.com/62228401/235679492-45e7f1b7-59c8-4a0a-b649-474274e8824d.png)
 - 목록, 수정, 삭제 버튼이 있으며, 수정 버튼을 누를 시 수정 화면으로 이동합니다.
 ![image](https://user-images.githubusercontent.com/62228401/235679689-d210c718-5975-4c5e-9ddd-7beced9c4f6c.png)
