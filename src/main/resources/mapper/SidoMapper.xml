@@ -7,7 +7,7 @@
         <result column = "sido_name" property = "name"/>
     </resultMap>
 
-    <select id = "findAll" resultType = "sido">
+    <select id = "findAll" resultMap = "sido">
         select * from sido
     </select>
 </mapper>
