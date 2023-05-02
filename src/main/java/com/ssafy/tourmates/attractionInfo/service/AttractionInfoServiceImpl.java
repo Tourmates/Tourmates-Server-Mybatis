@@ -25,7 +25,7 @@ public class AttractionInfoServiceImpl implements AttractionInfoService {
 
         List<AttractionInfo> findAttractionInfoList = attractionInfoRepository.findByConditions(condition);
 
-        return findAttractionInfoList.stream()
+        return  findAttractionInfoList.stream()
                 .map(attractionInfo ->
                         AttractionInfoDto.builder()
                                 .title(attractionInfo.getTitle())
@@ -33,9 +33,10 @@ public class AttractionInfoServiceImpl implements AttractionInfoService {
                                 .zipcode(attractionInfo.getZipcode())
                                 .firstImage(attractionInfo.getFirstImage())
                                 .latitude(attractionInfo.getLatitude())
-                                .longitude(attractionInfo.getLongtitude())
+                                .longtitude(attractionInfo.getLongtitude())
                                 .build()
                 ).collect(Collectors.toList());
+
     }
 
 
