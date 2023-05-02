@@ -67,6 +67,9 @@
 ![image](https://user-images.githubusercontent.com/62228401/235675472-739993ae-4ee1-4663-b30c-14249c858e7d.png)
 - 로그인 한 유저가 본인이 등록한 핫플레이스를 확인할 수 있습니다.
 ![image](https://user-images.githubusercontent.com/62228401/235675188-af5f3cf2-8dd3-4982-b867-81fa9fdbef87.png)
+- 회원 탈퇴 버튼을 누를 시 회원 탈퇴가 가능한 면이 나옵니다.
+![image](https://user-images.githubusercontent.com/62228401/235690966-a3c42b76-dc39-4eda-a8fb-5e4061971bd4.png)
+
 
 ### 로그아웃 기능
 - 로그아웃을 하면 메인페이지로 이동합니다.
