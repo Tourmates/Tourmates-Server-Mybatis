@@ -114,7 +114,8 @@ public class ArticleServiceImpl implements ArticleService {
         if (!article.getMember().getId().equals(member.getId())) {
             throw new IllegalArgumentException();
         }
-        article.changeArticle(article.getTitle(), article.getContent());
+        article.changeArticle(editArticleDto.getTitle(), editArticleDto.getContent());
+        articleRepository.update(article);
         return article.getId();
     }
 
