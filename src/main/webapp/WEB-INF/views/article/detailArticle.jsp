@@ -32,8 +32,9 @@
         </tbody>
     </table>
     <div class="d-flex justify-content-center">
-        <a class="btn btn-primary me-3" type="button" href="${root}/articles">목록</a>
-        <a class="btn btn-primary" type="button" href="${root}/articles/${article.articleId}/edit">수정</a>
+        <a class="btn btn-primary me-3" href="${root}/articles">목록</a>
+        <a class="btn btn-primary me-3" href="${root}/articles/${article.articleId}/edit">수정</a>
+        <a class="btn btn-danger" href="${root}/articles/${article.articleId}/remove">삭제</a>
     </div>
 </section>
 <%-- section end --%>

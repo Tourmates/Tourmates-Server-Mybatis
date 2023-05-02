@@ -94,7 +94,7 @@
         where article_id = #{id}
     </update>
 
-    <delete id="delete">
+    <delete id="remove">
         delete
         from article
         where article_id = #{articleId}
