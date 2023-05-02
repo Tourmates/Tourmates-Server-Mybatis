@@ -14,6 +14,6 @@ public class SidoRepositoryImpl implements SidoRepository {
 
     @Override
     public List<Sido> findAll() {
-        return null;
+        return sidoMapper.findAll();
     }
 }
