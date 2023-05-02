@@ -13,16 +13,16 @@ public class HotplaceResponse {
     private String tag;
     private String title;
     private String content;
-    private String createdDate;
+    private String visitedDate;
     private String storeFileName;
 
     @Builder
-    public HotplaceResponse(Long hotplaceId, String tag, String title, String content, LocalDateTime createdDate, String storeFileName) {
+    public HotplaceResponse(Long hotplaceId, String tag, String title, String content, String visitedDate, String storeFileName) {
         this.hotplaceId = hotplaceId;
         this.tag = tag;
         this.title = title;
         this.content = content;
-        this.createdDate = createdDate.format(DateTimeFormatter.ofPattern("yyyy.MM.dd HH:mm"));
+        this.visitedDate = visitedDate;
         this.storeFileName = storeFileName;
     }
 }

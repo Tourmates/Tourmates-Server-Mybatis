@@ -26,7 +26,7 @@
               <h5 class="card-title my-2">
                 <a class="text-dark" href="${root}/hotplaces/${hotplace.hotplaceId}">${hotplace.title}</a>
               </h5>
-              <p class="text-gray-500 text-sm my-3">${hotplace.createdDate}</p>
+              <p class="text-gray-500 text-sm my-3">${hotplace.visitedDate}</p>
               <p class="my-2 text-muted text-sm">${hotplace.content}</p>
               <a class="btn btn-link ps-0" href="${root}/hotplaces/${hotplace.hotplaceId}">READ MORE</a>
             </div>

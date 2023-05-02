@@ -14,10 +14,10 @@
         <tr>
             <td>
                 <div class='pt-3 pb-3'>
-                    <div class='mb-3'>[태그] 제목</div>
+                    <div class='mb-3'>${hotplace.tag} ${hotplace.title}</div>
                     <div class="d-flex justify-content-between">
-                        <div>닉네임 | 0000.00.00 00:00</div>
-                        <div>조회수 123</div>
+                        <div>${hotplace.nickname} | ${hotplace.createdDate}</div>
+                        <div>조회수 ${hotplace.hit} | 추천수 ${hotplace.vote}</div>
                     </div>
                 </div>
             </td>
@@ -25,7 +25,7 @@
         <tr>
             <td>
                 <div class='p-3'>
-                    content
+                    ${hotplace.content}
                 </div>
             </td>
         </tr>

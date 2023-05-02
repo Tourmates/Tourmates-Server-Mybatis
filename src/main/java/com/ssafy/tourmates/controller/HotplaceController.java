@@ -4,6 +4,7 @@ package com.ssafy.tourmates.controller;
 import com.ssafy.tourmates.authoriry.Login;
 import com.ssafy.tourmates.controller.dto.request.AddHotplaceRequest;
 import com.ssafy.tourmates.controller.dto.request.EditHotplaceRequest;
+import com.ssafy.tourmates.controller.dto.response.DetailHotplaceResponse;
 import com.ssafy.tourmates.controller.dto.response.HotplaceResponse;
 import com.ssafy.tourmates.hotplace.service.HotplaceService;
 import com.ssafy.tourmates.hotplace.service.dto.AddHotplaceDto;
@@ -53,6 +54,8 @@ public class HotplaceController {
 
     @GetMapping("/{hotplaceId}")
     public String detailHotplace(@PathVariable Long hotplaceId, Model model) {
+        DetailHotplaceResponse hotplace = hotplaceService.searchHotplace(hotplaceId);
+        model.addAttribute("hotplace", hotplace);
         return "hotplace/detailHotplace";
     }
 

@@ -11,6 +11,8 @@ public interface HotplaceRepository {
 
     Optional<Hotplace> findById(Long hotplaceId);
 
+    Optional<Hotplace> findDetailById(Long hotplaceId);
+
     List<Hotplace> findAll();
 
     List<Hotplace> findByCondition(int pageNum, int amount);

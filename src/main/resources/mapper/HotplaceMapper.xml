@@ -24,6 +24,29 @@
         </association>
     </resultMap>
 
+    <resultMap id="detailHotPlace" type="HotPlace">
+        <id column="hot_place_id" property="id"/>
+        <result column="tag" property="tag"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+        <result column="hit" property="hit"/>
+        <result column="vote" property="vote"/>
+        <result column="visited_date" property="visitedDate"/>
+        <result column="created_date" property="createdDate"/>
+        <result column="last_modified_date" property="lastModifiedDate"/>
+        <association property="uploadFile" javaType="UploadFile">
+            <result column="store_file_name" property="storeFileName"/>
+            <result column="upload_file_name" property="uploadFileName"/>
+        </association>
+        <association property="member" javaType="Member">
+            <id column="member_id" property="id"/>
+            <result column="nickname" property="nickname"/>
+        </association>
+        <association property="info" javaType="AttractionInfo">
+            <id column="content_id" property="contentId"/>
+        </association>
+    </resultMap>
+
     <insert id="save" useGeneratedKeys="true" keyProperty="id">
         insert into hot_place(tag, title, content, visited_date, upload_file_name, store_file_name, member_id, content_id)
         values (#{tag}, #{title}, #{content}, #{visitedDate}, #{uploadFile.uploadFileName}, #{uploadFile.storeFileName}, #{member.id}, #{info.contentId});
@@ -32,6 +55,14 @@
     <select id="findById" resultMap="hotPlace">
         select *
         from hot_place
+        where hot_place_id = #{id};
+    </select>
+
+    <select id="findDetailById" resultMap="detailHotPlace">
+        select *
+        from hot_place h
+        join member m
+        on h.member_id = m.member_id
         where hot_place_id = #{id};
     </select>
 
