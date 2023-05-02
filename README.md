@@ -85,7 +85,8 @@
 - 관리자는 모든 글에대한 삭제 권한이 있습니다.
 
 ### 공지사항
-- 글쓰기 버튼을 누르면 아래와 같은 등록폼이 생깁니다.
+- 글쓰기 버튼을 누르면 아래와 같은 등록폼이 생깁니다
+- 공지사항 등록은 관리자만 가능합니다.
 ![image](https://user-images.githubusercontent.com/62228401/235681459-da0c9819-3510-49d9-b085-1f7c8d1bce85.png)
 - 등록을 완료 후 세부 사항 목록으로 이동합니다.
 ![image](https://user-images.githubusercontent.com/62228401/235687963-1f6bfaac-960c-4400-a554-fc41edcea579.png)
