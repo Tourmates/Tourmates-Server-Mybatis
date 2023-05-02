@@ -44,6 +44,13 @@
 ![image](https://user-images.githubusercontent.com/62228401/235671473-49501993-e892-4c34-aa5e-4ce325662701.png)
 ![image](https://user-images.githubusercontent.com/62228401/235671867-3ae66337-152a-45bc-aa0c-ccdbea930402.png)
 
+#### 핫플레이스
+- 사용자는 관광지 목록에서 방문했던 핫플레이스 등록을 할 수 있습니다.
+![image](https://user-images.githubusercontent.com/62228401/235673534-1e090798-a0f8-477f-a0f8-1fd3f91521ec.png)
+- 핫플레이스 목록을 확인할 수 있는 페이지입니다.
+![image](https://user-images.githubusercontent.com/62228401/235673656-b178536c-9a3d-4197-af0b-61a73fcec858.png)
+
+
 ## 마이페이지
 - 마이페이지 화면입니다.
 ![image](https://user-images.githubusercontent.com/62228401/235674941-209fb326-d171-4ea6-81d2-fe8762e819c4.png)
@@ -84,11 +91,7 @@
 ![image](https://user-images.githubusercontent.com/62228401/235687738-5a25f14a-c1bf-4efd-a6dd-481b1ab54bc0.png)
 
 
-#### 핫플레이스
-- 핫플레이스 목록을 확인할 수 있는 페이지입니다.
-![image](https://user-images.githubusercontent.com/62228401/235673656-b178536c-9a3d-4197-af0b-61a73fcec858.png)
-- 사용자는 관광지 목록에서 방문했던 핫플레이스 등록을 할 수 있습니다.
-![image](https://user-images.githubusercontent.com/62228401/235673534-1e090798-a0f8-477f-a0f8-1fd3f91521ec.png)
+
 
 ## ✅ 커밋 컨벤션
 
