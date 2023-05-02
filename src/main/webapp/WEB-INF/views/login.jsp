@@ -20,7 +20,7 @@
         </div>
 
         <!-- login form -->
-        <form class='mt-5' method="post" action="${root}/login">
+        <form class='mt-5' method="post">
           <div class="mb-3">
             <label for="loginId" class="form-label">아이디</label>
             <input type="text" class="form-control" id="loginId" name="loginId" placeholder="아이디">
