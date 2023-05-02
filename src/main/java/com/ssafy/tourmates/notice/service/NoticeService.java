@@ -5,6 +5,8 @@ import com.ssafy.tourmates.notice.service.dto.AddNoticeDto;
 import com.ssafy.tourmates.notice.service.dto.DetailNoticeDto;
 import com.ssafy.tourmates.notice.service.dto.ModifyNoticeDto;
 
+import java.util.List;
+
 public interface NoticeService {
 
     public Long add(AddNoticeDto dto, Member loginMember);
@@ -14,6 +16,8 @@ public interface NoticeService {
     ModifyNoticeDto getModifyNotice(Long noticeId);
 
     DetailNoticeDto getDetailNotice(Long noticeId);
+
+    List<DetailNoticeDto> getAllNotice();
 
     Long edit(Long modifyId, ModifyNoticeDto dto);
 
